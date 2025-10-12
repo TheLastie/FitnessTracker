@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тетрадь с перелистыванием</title>
+    <link rel="stylesheet" href="h.css">
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="page active" id="page1">
+            <div class="page-content">
+                <h2>Страница 1</h2>
+                <p>Содержимое первой страницы...</p>
+            </div>
+        </div>
+        <div class="page" id="page2">
+            <div class="page-content">
+                <h2>Страница 2</h2>
+                <p>Содержимое второй страницы...</p>
+            </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="page-content">
+                <h2>Страница 3</h2>
+                <p>Содержимое третьей страницы...</p>
+            </div>
+        </div>
+        <div class="page" id="page4">
+            <div class="page-content">
+                <h2>Страница 4</h2>
+                <p>Содержимое четвертой страницы...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" disabled>Назад</button>
+        <button class="nav-btn" id="nextBtn">Вперед</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 4;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function flipPage(direction) {
+            const currentPageElem = document.getElementById(`page${currentPage}`);
+
+            if (direction === 'next' && currentPage < totalPages) {
+                currentPageElem.classList.add('flipping');
+                currentPage++;
+            } else if (direction === 'prev' && currentPage > 1) {
+                currentPage--;
+                const newCurrentPageElem = document.getElementById(`page${currentPage}`);
+                newCurrentPageElem.classList.remove('flipping');
+            }
+
+            // Обновляем состояние кнопок
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+        }
+
+        nextBtn.addEventListener('click', () => flipPage('next'));
+        prevBtn.addEventListener('click', () => flipPage('prev'));
+    </script>
+</body>
+</html>

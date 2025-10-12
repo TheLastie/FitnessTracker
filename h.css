@@ -1,0 +1,146 @@
+/* Основные стили для контейнера */
+.notebook-container {
+  perspective: 2000px;
+  width: 800px;
+  height: 600px;
+  margin: 50px auto;
+  position: relative;
+}
+
+/* Стили для страниц */
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Содержимое страницы */
+.page-content {
+  padding: 40px;
+  height: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #f8f8f8 0%, #fff 20px);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Линии как в тетради */
+.page-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 29px,
+    #e0e0e0 29px,
+    #e0e0e0 30px
+  );
+  z-index: -1;
+}
+
+/* Левая страница (четные) */
+.page:nth-child(even) {
+  transform-origin: right center;
+}
+
+.page:nth-child(even) .page-content::before {
+  left: 0;
+  right: 50px;
+}
+
+/* Анимация перелистывания */
+.page.flipping {
+  transform: rotateY(-180deg);
+  z-index: 10;
+}
+
+.page:nth-child(even).flipping {
+  transform: rotateY(180deg);
+}
+
+/* Обратная сторона страницы */
+.page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  border-radius: 5px;
+}
+
+/* Тень при перелистывании */
+.page.flipping::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.1) 50%,
+    rgba(0,0,0,0.2) 100%
+  );
+  z-index: 5;
+}
+
+/* Кнопки навигации */
+.navigation {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background: #357abd;
+}
+
+.nav-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+  .notebook-container {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .page-content {
+    padding: 20px;
+  }
+}
