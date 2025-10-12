@@ -1,0 +1,45 @@
+"RegLog.ui"
+
+meal_page - страница еды
+rlogin_le - логин (рег)
+rpassword_le - пароль (рег)
+rpassword_le_acc - пароль подтверждение (рег)
+rlogin_error - ошибка
+rButton - кнопка регистрации
+llogin_le - логин (вход)
+lpassword_le - пароль (вход)
+llogin_error - ошибка
+lButton - кнопка входа
+
+activ_cb - выпад список ур. активности
+age_le - возраст ввод
+derror - ошибка ввода данных
+high_le - рост ввод
+weight_le - вес ввод
+confirm - кнопка "подтвердить"
+
+"main.ui"
+
+add_meal - добавление приема пищи
+protein_number - кол-во белков
+fats_number - кол-во жиров
+carbo_number - кол-во углеводов
+calories_number - кол-во калорий
+meal_list - список еды
+
+
+page_meals - кнопка стр еды
+page_exercise - кнопка стр тренировок
+page_water - кнопка стр
+
+exercise_page - страница тренировок
+add_exercise - кнопка добавления тренировки
+exercise_list - список тренировок
+calory_sum_count - кол-во калорий
+hour_sum_count - кол-во часов тренировок
+execise_sum_count - кол-во тренировок
+
+remain_water_count - осталось выпить
+take_water_count - потребление за день
+add_water - кн. добавить воду
+water_list - список употреб. воды
