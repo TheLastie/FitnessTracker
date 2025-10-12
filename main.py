@@ -1,5 +1,5 @@
 def main():
-    print("misha ty balbes, lybly tebya")
+    print("KRCH mi v popeIt")
 
 
 if __name__ == '__main__':
