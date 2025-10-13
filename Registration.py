@@ -12,7 +12,7 @@ class RegistrationWindow(QWidget):
 
         self.registrated_users = {'Admin': {
             "Login": 'Admin',
-            "password": hashlib.md5(b'123').hexdigest(),
+            "password": hashlib.md5(b'124').hexdigest(),
             "userdata": main.UserData().give_all()
         }
         }
