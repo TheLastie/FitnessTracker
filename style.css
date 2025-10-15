@@ -1,0 +1,22 @@
+QPushButton {
+    background-color: #34B998;
+    color: #3B3D3F;
+    border: none;
+    border-radius: 10px 10px;
+    font-weight: 400;
+    font-family: Segoe UI;
+    text-align: center;
+    high: 20px;
+
+}
+QPushButton:hover {
+    background-color: #176854;
+    color: #ECEDED;
+    border: none;
+    border-radius: 10px 10px;
+    font-weight: 400;
+    font-family: Segoe UI;
+    text-align: center;
+    high: 20px;
+
+}
