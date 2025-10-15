@@ -111,7 +111,7 @@
        <height>51</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="1,9,1">
       <item>
        <spacer name="horizontalSpacer_13">
         <property name="orientation">
@@ -130,6 +130,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="lButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Sitka Heading</family>
@@ -147,7 +153,7 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Maximum</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>

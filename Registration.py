@@ -69,6 +69,9 @@ class RegistrationWindow(QWidget):
         self.enterButton1.clicked.connect(self.choose_reg)
         self.enterButton2.clicked.connect(self.choose_reg)
         self.current_log = []
+        l = ['red', 'blue']
+        print(self.main_wd.windows_theme)
+        self.setStyleSheet(open('style.css', 'r').read())
         self.age_le.setValidator(QIntValidator(0, 140, self))
         self.high_le.setValidator(QIntValidator(0, 300, self))
         self.weight_le.setValidator(QIntValidator(0, 500, self))
@@ -101,18 +104,25 @@ class RegistrationWindow(QWidget):
             self.stackedWidget.setCurrentIndex(1)
 
     def login_button(self):
-        if not self.llogin_le.text() or not self.lpassword_le.text():
-            self.llogin_error.setText("Поля не должны быть пустыми")
-            return
-        elif not self.registrated_users[self.llogin_le.text()]:
-            self.llogin_error.setText("Пользователь не зарегистрирован")
-        elif self.registrated_users[self.llogin_le.text()]['password']!=  hashlib.md5((self.lpassword_le.text()).encode()).hexdigest():
-            self.llogin_error.setText("Неверный пароль")
-        else:
-            if self.registrated_users[self.llogin_le.text()]['password'] ==  hashlib.md5((self.lpassword_le.text()).encode()).hexdigest():
-                self.main_wd.show()
-                self.main_wd.select_user(self.llogin_le.text(), self.registrated_users[self.llogin_le.text()])
-                self.hide()
+        try:
+            if not self.llogin_le.text() or not self.lpassword_le.text():
+                self.llogin_error.setText("Поля не должны быть пустыми")
+                return
+            elif not self.registrated_users[self.llogin_le.text()]:
+                self.llogin_error.setText("Пользователь не зарегистрирован")
+            elif self.registrated_users[self.llogin_le.text()]['password'] != hashlib.md5(
+                    (self.lpassword_le.text()).encode()).hexdigest():
+                self.llogin_error.setText("Неверный пароль")
+            else:
+                if self.registrated_users[self.llogin_le.text()]['password'] == hashlib.md5(
+                        (self.lpassword_le.text()).encode()).hexdigest():
+                    self.main_wd.show()
+                    self.main_wd.select_user(self.llogin_le.text(), self.registrated_users[self.llogin_le.text()])
+                    self.hide()
+        except:
+            self.llogin_error.setText("Нет такого пользователя")
+
+
     def reg_button(self):
         if not self.rlogin_le.text() or not self.rpassword_le.text() or not self.rpassword_le_acc.text():
             self.rlogin_error.setText("Поля не должны быть пустыми")
@@ -136,10 +146,12 @@ class RegistrationWindow(QWidget):
             try:
                 if self.mf == 'female':
                     calories = 655.1 + (9.563 * int(self.weight_le.text())) + (1.85 * int(self.high_le.text())) - (
-                                4.676 * int(self.age_le.text()))
+                            4.676 * int(self.age_le.text()))*(self.activity_score[
+                            self.activity_items.index(self.activ_cb.currentText())]-0.5)
                 else:
                     calories = 66.5 + (13.75 * int(self.weight_le.text())) + (5.003 * int(self.high_le.text())) - (
-                            6.775 * int(self.age_le.text()))
+                            6.775 * int(self.age_le.text())) *self.activity_score[
+                            self.activity_items.index(self.activ_cb.currentText())]
                 self.registrated_users[self.current_log[0]] = {
                     "Login": self.current_log[0],
                     "password": self.current_log[1],
@@ -147,7 +159,7 @@ class RegistrationWindow(QWidget):
                         'weight': int(self.weight_le.text()),
                         'height': int(self.high_le.text()),
                         'age': int(self.age_le.text()),
-                        'needed calories': calories * self.activity_score[self.activity_items.index(self.activ_cb.currentText())],
+                        'needed calories': calories,
                         'needed water': 1,
                         'activity': self.activ_cb.currentText(),
                         'trainings': {

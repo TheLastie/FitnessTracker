@@ -48,3 +48,13 @@ remain_water_count - осталось выпить
 take_water_count - потребление за день
 add_water - кн. добавить воду
 water_list - список употреб. воды
+
+Add_item
+
+AddBar
+NameAddMeal
+WeightAdd
+ProteinAdd
+CarbonsAdd
+FatsAdd
+CaloriesAdd
