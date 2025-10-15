@@ -58,10 +58,16 @@ class RegistrationWindow(QWidget):
                 json.dump(self.registrated_users, f, indent=4)
         self.rpassword_le.setEchoMode(QLineEdit.EchoMode.Password)
         self.rpassword_le_acc.setEchoMode(QLineEdit.EchoMode.Password)
+        self.lpassword_le.setEchoMode(QLineEdit.EchoMode.Password)
         self.stackedWidget.setCurrentIndex(0)
         self.rlogin_error.setText("")
         self.derror.setText("")
+        self.llogin_error.setText("")
         self.rButton.clicked.connect(self.reg_button)
+        self.registrNewButton.clicked.connect(self.choose_reg)
+        self.lButton.clicked.connect(self.login_button)
+        self.enterButton1.clicked.connect(self.choose_reg)
+        self.enterButton2.clicked.connect(self.choose_reg)
         self.current_log = []
         self.age_le.setValidator(QIntValidator(0, 140, self))
         self.high_le.setValidator(QIntValidator(0, 300, self))
@@ -75,9 +81,38 @@ class RegistrationWindow(QWidget):
                                ]
         self.activity_score = [1.2, 1.4, 1.6, 1.8, 2]
         self.activ_cb.addItems(self.activity_items)
-
+        self.mf = 'male'
         self.confirm.clicked.connect(self.reg_confirm)
+        self.maleButton.toggled.connect(self.r_button)
+        self.femaleButton.toggled.connect(self.r_button)
 
+    def r_button(self):
+        if self.sender() == self.maleButton:
+            self.mf = 'male'
+        elif self.sender() == self.femaleButton:
+            self.mf = 'female'
+        else:
+            return
+
+    def choose_reg(self):
+        if self.sender() == self.enterButton2 or self.sender() == self.enterButton1:
+            self.stackedWidget.setCurrentIndex(0)
+        if self.sender() == self.registrNewButton:
+            self.stackedWidget.setCurrentIndex(1)
+
+    def login_button(self):
+        if not self.llogin_le.text() or not self.lpassword_le.text():
+            self.llogin_error.setText("Поля не должны быть пустыми")
+            return
+        elif not self.registrated_users[self.llogin_le.text()]:
+            self.llogin_error.setText("Пользователь не зарегистрирован")
+        elif self.registrated_users[self.llogin_le.text()]['password']!=  hashlib.md5((self.lpassword_le.text()).encode()).hexdigest():
+            self.llogin_error.setText("Неверный пароль")
+        else:
+            if self.registrated_users[self.llogin_le.text()]['password'] ==  hashlib.md5((self.lpassword_le.text()).encode()).hexdigest():
+                self.main_wd.show()
+                self.main_wd.select_user(self.llogin_le.text(), self.registrated_users[self.llogin_le.text()])
+                self.hide()
     def reg_button(self):
         if not self.rlogin_le.text() or not self.rpassword_le.text() or not self.rpassword_le_acc.text():
             self.rlogin_error.setText("Поля не должны быть пустыми")
@@ -89,36 +124,44 @@ class RegistrationWindow(QWidget):
             self.rlogin_error.setText("Пользователь уже зарегистрирован")
             return
         else:
-            self.current_log.extend([self.rlogin_le.text(), hashlib.md5((self.rpassword_le.text()).encode()).hexdigest()])
-            self.stackedWidget.setCurrentIndex(1)
+            self.current_log.extend(
+                [self.rlogin_le.text(), hashlib.md5((self.rpassword_le.text()).encode()).hexdigest()])
+            self.stackedWidget.setCurrentIndex(2)
+
     def reg_confirm(self):
         if not self.age_le.text() or not self.high_le.text() or not self.weight_le.text() or not self.activ.text():
             self.derror.setText("Поля не должны быть пустыми")
             return
         else:
             try:
-
+                if self.mf == 'female':
+                    calories = 655.1 + (9.563 * int(self.weight_le.text())) + (1.85 * int(self.high_le.text())) - (
+                                4.676 * int(self.age_le.text()))
+                else:
+                    calories = 66.5 + (13.75 * int(self.weight_le.text())) + (5.003 * int(self.high_le.text())) - (
+                            6.775 * int(self.age_le.text()))
                 self.registrated_users[self.current_log[0]] = {
-                "Login": self.current_log[0],
-                "password": self.current_log[1],
-                "userdata": {
-                    'weight': int(self.weight_le.text()),
-                    'height': int(self.high_le.text()),
-                    'age': int(self.age_le.text()),
-                    'needed calories': self.activity_score[self.activity_items.index(self.activ_cb.currentText())]*(10*int(self.weight_le.text())+6.25*int(self.high_le.text())*(5*int(self.age_le.text()))+5),
-                    'activity': self.activ_cb.currentText(),
-                    'trainings': {
+                    "Login": self.current_log[0],
+                    "password": self.current_log[1],
+                    "userdata": {
+                        'weight': int(self.weight_le.text()),
+                        'height': int(self.high_le.text()),
+                        'age': int(self.age_le.text()),
+                        'needed calories': calories * self.activity_score[self.activity_items.index(self.activ_cb.currentText())],
+                        'needed water': 1,
+                        'activity': self.activ_cb.currentText(),
+                        'trainings': {
 
-                    },
-                    'meals': {
+                        },
+                        'meals': {
 
                         }
 
                     },
                     'water': {
 
-                        }
                     }
+                }
                 self.main_wd.show()
                 if len(self.registrated_users) > 1:
                     with open("userdata.json", "w") as f:
@@ -127,4 +170,3 @@ class RegistrationWindow(QWidget):
                 self.hide()
             except Exception as e:
                 print(e)
-
