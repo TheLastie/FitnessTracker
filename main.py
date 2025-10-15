@@ -23,18 +23,36 @@ def get_windows_theme():
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, append_window: Adding_to_base.AppendToBaseWindow):
+    def __init__(self, Adding: Adding_to_base):
         super().__init__()
-
+        self.add_window = Adding.AppendToBaseWindow
         self.windows_theme = get_windows_theme()
         uic.loadUi("main.ui", self)
         self.user_login = ''
         self.user_data = {}
         self.setStyleSheet(open('style.css', 'r').read())
 
+        self.add_water.clicked.connect(self.add_smth)
+        self.add_meal.clicked.connect(self.add_smth)
+        self.add_exercise.clicked.connect(self.add_smth)
         self.page_meals.clicked.connect(self.choose_page)
         self.page_exercise.clicked.connect(self.choose_page)
         self.page_water.clicked.connect(self.choose_page)
+
+    def add_smth(self):
+        try:
+            if self.sender() == self.add_water:
+                self.add_wd = self.add_window('water', self.user_data, self)
+                self.add_wd.show()
+            elif self.sender() == self.add_exercise:
+                self.add_wd = self.add_window('trainings', self.user_data, self)
+                self.add_wd.show()
+            else:
+                self.add_wd = self.add_window('meals', self.user_data, self)
+                self.add_wd.show()
+            self.hide()
+        except Exception as e:
+            print(e)
 
     def choose_page(self):
         if self.sender() == self.page_meals:
@@ -51,8 +69,8 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    append_window = Adding_to_base.AppendToBaseWindow()
-    main_window = MainWindow(append_window)
+    append_window = Adding_to_base
+    main_window = MainWindow(Adding_to_base)
     registration_window = Registration.RegistrationWindow(main_window)
     main_window.show()
     sys.exit(app.exec())
