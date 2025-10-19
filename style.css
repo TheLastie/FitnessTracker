@@ -1,9 +1,9 @@
 QPushButton {
     background-color: #34B998;
-    color: #3B3D3F;
+    color: #EEEEEE;
     border: 0.1px solid #34B998;
     border-radius: 15px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: Courier;
     text-align: center;
     height: 20px;
@@ -13,6 +13,14 @@ QPushButton {
 }
 
 QPushButton:hover {
+    background-color: #176854;
+    color: #ECEDED;
+    font-weight: 600;
+    margin: 0px;
+    border-radius: 17px;
+    border: 1px solid #3B3D3F;
+}
+#page_meals:focus, #page_exercise:focus, #page_water:focus {
     background-color: #176854;
     color: #ECEDED;
     font-weight: 600;
@@ -31,14 +39,20 @@ color: #34B998;
 }
 
 #sport, #meals, #water_track {
-    color: #34B998;
+    color: #3B3C3E;
+    background-color: #A9DACE;
+    border: 1px solid #3B3C3E;
+    border-radius: 15px 15px 0px 0px;
     font-weight: 800;
     font-family: Courier;
-    border: none;
-    border-radius: 50%;
-    text-shadow: 20px 1px 2px black;
 }
 
+#water_list {
+color: #3B3C3E;
+    background-color: #E4EEEB;
+    border: none;
+    border-radius: 8px 20px 8px 20px;
+}
 
 QLabel {
     color: #34B998;
@@ -49,3 +63,13 @@ QLabel {
 
 
 }
+
+#ChangesToolButton, #SettingsToolButton {
+    background-color: #34B998;
+    color: #EEEEEE;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
