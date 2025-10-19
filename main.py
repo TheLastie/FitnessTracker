@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import *
 import Adding_to_base
 import Registration
 import winreg
-
+from PyQt6.QtGui import QIcon, QAction
 
 def get_windows_theme():
     try:
@@ -31,7 +31,8 @@ class MainWindow(QMainWindow):
         self.user_login = ''
         self.user_data = {}
         self.setStyleSheet(open('style.css', 'r').read())
-
+        self.SettingsToolButton.setIcon(QIcon('Icons/settings.png'))
+        self.ChangesToolButton.setIcon(QIcon('Icons/Info_change.png'))
         self.add_water.clicked.connect(self.add_smth)
         self.add_meal.clicked.connect(self.add_smth)
         self.add_exercise.clicked.connect(self.add_smth)
