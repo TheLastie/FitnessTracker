@@ -49,6 +49,9 @@ take_water_count - потребление за день
 add_water - кн. добавить воду
 water_list - список употреб. воды
 
+SettingsToolButton
+ChangesToolButton
+
 Add_item
 
 AddBar
@@ -58,3 +61,19 @@ ProteinAdd
 CarbonsAdd
 FatsAdd
 CaloriesAdd
+
+Settings.ui
+
+BackButton
+
+LightThemeButton
+DarckThemeButton
+
+GreenButton
+RedButton
+PurpleButton
+YellowButton
+LightBlueButton
+PinkButton
+MishaTheButton
+SaveChangeButton

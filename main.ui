@@ -22,7 +22,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>40</y>
      <width>991</width>
      <height>571</height>
     </rect>
@@ -36,13 +36,13 @@
       <property name="font">
        <font>
         <family>Sitka Heading</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="meal_page">
        <widget class="QListWidget" name="meal_list">
@@ -79,15 +79,15 @@
          <rect>
           <x>530</x>
           <y>140</y>
-          <width>391</width>
+          <width>431</width>
           <height>91</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0,0">
          <item>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
+          <layout class="QVBoxLayout" name="ProteinLayout">
            <item>
-            <widget class="QLabel" name="protein">
+            <widget class="QLabel" name="protein_number">
              <property name="font">
               <font>
                <family>Sitka Heading</family>
@@ -95,61 +95,20 @@
               </font>
              </property>
              <property name="text">
-              <string>Белки</string>
+              <string>Белки
+ 0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <item>
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="protein_number">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>2000</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_8">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
            </item>
           </layout>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
-            <widget class="QLabel" name="fats">
+            <widget class="QLabel" name="fats_number">
              <property name="font">
               <font>
                <family>Sitka Heading</family>
@@ -157,61 +116,20 @@
               </font>
              </property>
              <property name="text">
-              <string>Жиры</string>
+              <string>Жиры
+ 0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <spacer name="horizontalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="fat_number">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>2000</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_6">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
            </item>
           </layout>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
-            <widget class="QLabel" name="carbos">
+            <widget class="QLabel" name="carbo_number">
              <property name="font">
               <font>
                <family>Sitka Heading</family>
@@ -219,54 +137,13 @@
               </font>
              </property>
              <property name="text">
-              <string>Углеводы</string>
+              <string>Углеводы
+ 0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <spacer name="horizontalSpacer_3">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="carbo_number">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>2000</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
            </item>
           </layout>
          </item>
@@ -281,54 +158,13 @@
               </font>
              </property>
              <property name="text">
-              <string>Калории</string>
+              <string>Калории
+ 0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="calories_number">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>2000</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
            </item>
           </layout>
          </item>
@@ -395,8 +231,8 @@
          <rect>
           <x>520</x>
           <y>90</y>
-          <width>401</width>
-          <height>141</height>
+          <width>451</width>
+          <height>179</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_9" stretch="2,7">
@@ -421,7 +257,7 @@
             <widget class="QLabel" name="hour_sum">
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>12</pointsize>
               </font>
              </property>
              <property name="inputMethodHints">
@@ -429,26 +265,9 @@
              </property>
              <property name="text">
               <string>Часы
- тренировок</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="calory_sum">
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="inputMethodHints">
-              <set>Qt::ImhLowercaseOnly</set>
-             </property>
-             <property name="text">
-              <string>Общее количество 
-калорий</string>
+тренировок
+
+0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -459,60 +278,38 @@
             <widget class="QLabel" name="execise_sum">
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>12</pointsize>
               </font>
              </property>
              <property name="inputMethodHints">
               <set>Qt::ImhLowercaseOnly</set>
              </property>
              <property name="text">
-              <string>Количество 
- тренировок</string>
+              <string>Количество
+тренировок
+
+0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="calory_sum_count">
+           <item row="0" column="0">
+            <widget class="QLabel" name="calory_sum">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
               </font>
              </property>
-             <property name="text">
-              <string>0000</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="hour_sum_count">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
+             <property name="inputMethodHints">
+              <set>Qt::ImhLowercaseOnly</set>
              </property>
              <property name="text">
-              <string>0000</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="execise_sum_count">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>0000</string>
+              <string>Общее количество
+калорий
+
+0000 </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -535,7 +332,7 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="sport_2">
+       <widget class="QLabel" name="water_track">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -806,6 +603,52 @@
      </spacer>
     </item>
    </layout>
+  </widget>
+  <widget class="QToolButton" name="SettingsToolButton">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>10</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <selectedon>../../Downloads/acetone-20251019-165210-362.png</selectedon>
+    </iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="ChangesToolButton">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>10</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+    </iconset>
+   </property>
   </widget>
  </widget>
  <resources/>
