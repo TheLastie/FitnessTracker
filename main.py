@@ -1,4 +1,3 @@
-1
 import sys
 
 from PyQt6 import uic

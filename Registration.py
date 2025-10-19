@@ -1,4 +1,3 @@
-1
 import datetime
 
 from PyQt6.QtWidgets import *
