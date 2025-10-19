@@ -77,3 +77,11 @@ LightBlueButton
 PinkButton
 MishaTheButton
 SaveChangeButton
+
+DataChange.ui
+high_le_change
+weight_le_change
+activ_cb_change
+age_le_change
+ChangesConfirmButton
+BackButtonChange
