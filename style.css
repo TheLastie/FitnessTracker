@@ -11,6 +11,28 @@ QPushButton {
     padding: 5px 15px;
     margin: 2px;
 }
+#add_water, #add_exercise, #add_meal {
+    background-color: #34B998;
+    color: #EEEEEE;
+    border: 0.1px solid #34B998;
+    border-radius: 18px;
+    font-weight: 600;
+    font-family: Courier;
+    text-align: center;
+    margin: 2px;
+}
+#kkk {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:0.9, x3:0, y3:1, stop: 0 #EEEEEE, stop:1 #CDE6DF)
+}
+#add_water:hover, #add_exercise:hover, #add_meal:hover {
+    background-color: #176854;
+    color: #ECEDED;
+    font-weight: 600;
+    margin: 0px;
+    border-radius: 20px;
+    border: 1px solid #3B3D3F;
+}
+
 
 QPushButton:hover {
     background-color: #176854;
@@ -33,24 +55,29 @@ QPushButton:hover {
 color: #34B998;
     font-weight: 600;
     font-family: Courier;
-    border: 1px solid #3B3D3F;
     border-radius: 17px;
-
+    text-align: center;
+}
+#l6, #l7, #l2 {
+border-radius: 17px;
+background-color: #E4EEEB;
 }
 
-#sport, #meals, #water_track {
+
+#sport, #meals, #water_track, #weekly_sum{
     color: #3B3C3E;
     background-color: #A9DACE;
     border: 1px solid #3B3C3E;
+
     border-radius: 15px 15px 0px 0px;
     font-weight: 800;
     font-family: Courier;
 }
 
-#water_list {
+#water_list, #meal_list , #exercise_list {
 color: #3B3C3E;
     background-color: #E4EEEB;
-    border: none;
+    border:1px solid #34B998;
     border-radius: 8px 20px 8px 20px;
 }
 
