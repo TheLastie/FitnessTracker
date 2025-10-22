@@ -54,20 +54,20 @@
        <widget class="QListWidget" name="meal_list">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>90</y>
+          <x>20</x>
+          <y>130</y>
           <width>481</width>
-          <height>361</height>
+          <height>271</height>
          </rect>
         </property>
        </widget>
        <widget class="QLabel" name="meals">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>40</y>
+          <x>20</x>
+          <y>60</y>
           <width>481</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="font">
@@ -79,108 +79,15 @@
         <property name="text">
          <string>Приёмы пищи</string>
         </property>
-       </widget>
-       <widget class="QWidget" name="horizontalLayoutWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>540</x>
-          <y>90</y>
-          <width>431</width>
-          <height>91</height>
-         </rect>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0,0">
-         <item>
-          <layout class="QVBoxLayout" name="ProteinLayout">
-           <item>
-            <widget class="QLabel" name="protein_number">
-             <property name="font">
-              <font>
-               <family>Sitka Heading</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Белки
- 0000 </string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QLabel" name="fats_number">
-             <property name="font">
-              <font>
-               <family>Sitka Heading</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Жиры
- 0000 </string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <widget class="QLabel" name="carbo_number">
-             <property name="font">
-              <font>
-               <family>Sitka Heading</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Углеводы
- 0000 </string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <widget class="QLabel" name="calories">
-             <property name="font">
-              <font>
-               <family>Sitka Heading</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Калории
- 0000 </string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
        </widget>
        <widget class="QPushButton" name="add_meal">
         <property name="geometry">
          <rect>
-          <x>430</x>
-          <y>37</y>
+          <x>440</x>
+          <y>70</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -189,15 +96,101 @@
          <string>+</string>
         </property>
        </widget>
-       <widget class="QWidget" name="widget" native="true">
+       <widget class="QWidget" name="verticalLayoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>619</x>
-          <y>239</y>
-          <width>331</width>
-          <height>161</height>
+          <x>530</x>
+          <y>60</y>
+          <width>431</width>
+          <height>171</height>
          </rect>
         </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0">
+           <item>
+            <layout class="QVBoxLayout" name="ProteinLayout">
+             <item>
+              <widget class="QLabel" name="protein_number">
+               <property name="font">
+                <font>
+                 <family>Sitka Heading</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Белки
+ 0000 </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QLabel" name="fats_number">
+               <property name="font">
+                <font>
+                 <family>Sitka Heading</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Жиры
+ 0000 </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QLabel" name="carbo_number">
+               <property name="font">
+                <font>
+                 <family>Sitka Heading</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Углеводы
+ 0000 </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="calories">
+           <property name="font">
+            <font>
+             <family>Sitka Heading</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Калории
+ 0000 </string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="exercise_page">
@@ -388,8 +381,8 @@
        <widget class="QLabel" name="wddd">
         <property name="geometry">
          <rect>
-          <x>520</x>
-          <y>340</y>
+          <x>399</x>
+          <y>400</y>
           <width>361</width>
           <height>51</height>
          </rect>
@@ -409,18 +402,18 @@
        <widget class="QListWidget" name="water_list">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>90</y>
+          <x>19</x>
+          <y>129</y>
           <width>481</width>
-          <height>361</height>
+          <height>271</height>
          </rect>
         </property>
        </widget>
        <widget class="QLabel" name="water_track">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>30</y>
+          <x>20</x>
+          <y>60</y>
           <width>481</width>
           <height>61</height>
          </rect>
@@ -434,12 +427,15 @@
         <property name="text">
          <string>Трекер воды</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
        <widget class="QPushButton" name="add_water">
         <property name="geometry">
          <rect>
-          <x>430</x>
-          <y>40</y>
+          <x>440</x>
+          <y>70</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -456,10 +452,10 @@
        <widget class="QWidget" name="verticalLayoutWidget_8">
         <property name="geometry">
          <rect>
-          <x>580</x>
-          <y>100</y>
+          <x>570</x>
+          <y>110</y>
           <width>291</width>
-          <height>201</height>
+          <height>221</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_13">

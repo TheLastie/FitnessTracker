@@ -107,3 +107,15 @@ QLabel {
     text-align: center;
 }
 
+#SettLabel, #themeChose, #Colors {
+ border: none;
+ color: #3B3D3F;
+ }
+
+#setback {
+    background-color: #A9DACE;
+}
+
+#setback2 {
+    background-color: #EEEEEE;
+}

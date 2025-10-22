@@ -69,13 +69,13 @@ BackButton
 LightThemeButton
 DarckThemeButton
 
-GreenButton
-RedButton
-PurpleButton
-YellowButton
-LightBlueButton
-PinkButton
-MishaTheButton
+(Green) theme1
+(Red) theme2
+(Purple) theme3
+(Yellow) theme4
+(LightBlue) theme5
+(Pink) theme6
+(Misha) theme7
 SaveChangeButton
 
 DataChange.ui
