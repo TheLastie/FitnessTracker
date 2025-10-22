@@ -1,11 +1,15 @@
 
-
+#backlbl {
+    background-color: #D8D8D8;
+    border: none;
+    border-radius: 0px;
+}
 QPushButton {
-    background-color: #34B998;
-    color: #EEEEEE;
-    border: 0.1px solid #34B998;
-    border-radius: 15px;
-    font-weight: 600;
+    background-color: #A9DACE;
+    color: #3B3D3F;
+    border: 0.5px solid #3B3D3F;
+    border-radius: 13px;
+    font-weight: 500;
     font-family: Courier;
     text-align: center;
     height: 20px;
@@ -42,6 +46,7 @@ QPushButton:hover {
     border-radius: 17px;
     border: 1px solid #3B3D3F;
 }
+
 #page_meals:focus, #page_exercise:focus, #page_water:focus {
     background-color: #176854;
     color: #ECEDED;
@@ -50,7 +55,10 @@ QPushButton:hover {
     border-radius: 17px;
     border: 1px solid #3B3D3F;
 }
-
+#kkk {
+    border-radius: 0px 0px 0px 0px;
+    border-color: #34B998;
+}
 #protein_number, #fats_number, #carbo_number, #calories_number {
 color: #34B998;
     font-weight: 600;
@@ -68,17 +76,16 @@ background-color: #E4EEEB;
     color: #3B3C3E;
     background-color: #A9DACE;
     border: 1px solid #3B3C3E;
-
     border-radius: 15px 15px 0px 0px;
     font-weight: 800;
     font-family: Courier;
 }
 
 #water_list, #meal_list , #exercise_list {
-color: #3B3C3E;
+    color: #3B3C3E;
     background-color: #E4EEEB;
     border:1px solid #34B998;
-    border-radius: 8px 20px 8px 20px;
+    border-radius: 17px;
 }
 
 QLabel {

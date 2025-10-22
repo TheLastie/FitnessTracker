@@ -2,11 +2,10 @@ import sys
 
 from PyQt6 import uic
 from PyQt6.QtWidgets import *
-
 import Adding_to_base
 import Registration
 import winreg
-from PyQt6.QtGui import QIcon, QAction
+from PyQt6.QtGui import QIcon, QAction, QPixmap
 
 def get_windows_theme():
     try:
@@ -25,11 +24,14 @@ def get_windows_theme():
 class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base):
         super().__init__()
+        uic.loadUi("main.ui", self)
         self.add_window = Adding.AppendToBaseWindow
         self.windows_theme = get_windows_theme()
-        uic.loadUi("main.ui", self)
         self.user_login = ''
         self.user_data = {}
+        px = QPixmap('Icons/ganteli.png')
+        self.wddd.setPixmap(px)
+        self.setFixedSize(994, 639)
         self.setStyleSheet(open('style.css', 'r').read())
         self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
         self.ChangesToolButton.setIcon(QIcon('Icons/Edit.png'))
