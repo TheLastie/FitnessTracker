@@ -4,6 +4,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import *
 import Adding_to_base
 import Registration
+import settings
 import winreg
 from PyQt6.QtGui import QIcon, QAction, QPixmap
 
@@ -22,7 +23,7 @@ def get_windows_theme():
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, Adding: Adding_to_base):
+    def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
         uic.loadUi("main.ui", self)
         self.add_window = Adding.AppendToBaseWindow
@@ -33,13 +34,15 @@ class MainWindow(QMainWindow):
         self.wddd.setPixmap(px)
         self.setFixedSize(994, 639)
         self.setStyleSheet(open('style.css', 'r').read())
-        self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
-        self.ChangesToolButton.setIcon(QIcon('Icons/Edit.png'))
+        self.SettingsToolButton.setIcon(QIcon('Icons/settings.png'))
+        self.ChangesToolButton.setIcon(QIcon('Icons/info_change.png'))
+        self.settings = settings.Settings(self.user_data, self)
         self.add_water.clicked.connect(self.add_smth)
         self.add_meal.clicked.connect(self.add_smth)
         self.add_exercise.clicked.connect(self.add_smth)
         self.page_meals.clicked.connect(self.choose_page)
         self.page_exercise.clicked.connect(self.choose_page)
+        self.SettingsToolButton.clicked.connect(self.settings_open)
         self.page_water.clicked.connect(self.choose_page)
 
     def add_smth(self):
@@ -56,7 +59,9 @@ class MainWindow(QMainWindow):
             self.hide()
         except Exception as e:
             print(e)
-
+    def settings_open(self):
+        self.settings.show()
+        self.hide()
     def choose_page(self):
         if self.sender() == self.page_meals:
             self.page_switch.setCurrentIndex(0)
@@ -72,8 +77,9 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    settings = settings
     append_window = Adding_to_base
-    main_window = MainWindow(Adding_to_base)
+    main_window = MainWindow(Adding_to_base, settings)
     registration_window = Registration.RegistrationWindow(main_window)
     main_window.show()
     sys.exit(app.exec())
