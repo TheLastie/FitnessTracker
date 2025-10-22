@@ -116,9 +116,9 @@ QLabel {
     font-weight: 800;
  }
 #lightlab, #darklab {
-border: none;
- color: #3B3D3F;
- font-weight: 500;
+    border: none;
+    color: #3B3D3F;
+    font-weight: 500;
 }
 #setback {
     background-color: #A9DACE;
