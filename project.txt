@@ -67,7 +67,7 @@ Settings.ui
 BackButton
 
 LightThemeButton
-DarckThemeButton
+DarkThemeButton
 
 (Green) theme1
 (Red) theme2

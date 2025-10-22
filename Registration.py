@@ -71,7 +71,7 @@ class RegistrationWindow(QWidget):
         self.current_log = []
         l = ['red', 'blue']
         print(self.main_wd.windows_theme)
-        self.setStyleSheet(open('style.css', 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r').read())
         self.age_le.setValidator(QIntValidator(0, 140, self))
         self.high_le.setValidator(QIntValidator(0, 300, self))
         self.weight_le.setValidator(QIntValidator(0, 500, self))
@@ -88,7 +88,8 @@ class RegistrationWindow(QWidget):
         self.confirm.clicked.connect(self.reg_confirm)
         self.maleButton.toggled.connect(self.r_button)
         self.femaleButton.toggled.connect(self.r_button)
-
+    def update_style(self):
+        self.setStyleSheet(open("Current_style.css", 'r').read())
     def r_button(self):
         if self.sender() == self.maleButton:
             self.mf = 'male'

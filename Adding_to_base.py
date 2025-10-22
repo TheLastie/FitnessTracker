@@ -9,7 +9,7 @@ class AppendToBaseWindow(QWidget):
         self.pageType = pageType
         self.mainWD = mainWD
         uic.loadUi("Add_item.ui", self)
-        self.setStyleSheet(open('style.css', 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r').read())
         if pageType == 'water':
             self.stackedWidget.setCurrentIndex(1)
         elif pageType == 'trainings':
@@ -23,6 +23,8 @@ class AppendToBaseWindow(QWidget):
     def ext(self):
         self.hide()
         self.mainWD.show()
+    def update_style(self):
+        self.setStyleSheet(open("Current_style.css", 'r').read())
 
 
 

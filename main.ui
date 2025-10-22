@@ -48,7 +48,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="meal_page">
        <widget class="QListWidget" name="meal_list">
@@ -378,25 +378,11 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="wddd">
-        <property name="geometry">
-         <rect>
-          <x>399</x>
-          <y>400</y>
-          <width>361</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <zorder>kkk</zorder>
        <zorder>sport</zorder>
        <zorder>exercise_list</zorder>
        <zorder>add_exercise</zorder>
        <zorder>verticalLayoutWidget_5</zorder>
-       <zorder>wddd</zorder>
       </widget>
       <widget class="QWidget" name="water_page">
        <widget class="QListWidget" name="water_list">

@@ -1,9 +1,5 @@
+/*all files*/
 
-#backlbl {
-    background-color: #D8D8D8;
-    border: none;
-    border-radius: 0px;
-}
 QPushButton {
     background-color: #A9DACE;
     color: #3B3D3F;
@@ -17,6 +13,29 @@ QPushButton {
     padding: 5px 15px;
     margin: 2px;
 }
+QPushButton:hover {
+    background-color: #176854;
+    color: #ECEDED;
+    font-weight: 600;
+    margin: 0px;
+    border-radius: 17px;
+    border: 1px solid #3B3D3F;
+}
+QLabel {
+    color: #34B998;
+    font-weight: 600;
+    border: 1px solid #3B3D3F;
+    border-radius: 17px;
+    font-family: Courier;
+}
+
+/* main.ui */
+#backlbl {
+    background-color: #D8D8D8;
+    border: none;
+    border-radius: 0px;
+}
+
 #add_water, #add_exercise, #add_meal {
     background-color: #34B998;
     color: #EEEEEE;
@@ -37,16 +56,6 @@ QPushButton {
     border: 1px solid #3B3D3F;
 }
 
-
-QPushButton:hover {
-    background-color: #176854;
-    color: #ECEDED;
-    font-weight: 600;
-    margin: 0px;
-    border-radius: 17px;
-    border: 1px solid #3B3D3F;
-}
-
 #page_meals:focus, #page_exercise:focus, #page_water:focus {
     background-color: #176854;
     color: #ECEDED;
@@ -55,10 +64,12 @@ QPushButton:hover {
     border-radius: 17px;
     border: 1px solid #3B3D3F;
 }
+
 #kkk {
     border-radius: 0px 0px 0px 0px;
     border-color: #34B998;
 }
+
 #protein_number, #fats_number, #carbo_number, #calories_number {
 color: #34B998;
     font-weight: 600;
@@ -66,6 +77,7 @@ color: #34B998;
     border-radius: 17px;
     text-align: center;
 }
+
 #l6, #l7, #l2 {
 border-radius: 17px;
 background-color: #E4EEEB;
@@ -88,15 +100,6 @@ background-color: #E4EEEB;
     border-radius: 17px;
 }
 
-QLabel {
-    color: #34B998;
-    font-weight: 600;
-    border: 1px solid #3B3D3F;
-    border-radius: 17px;
-    font-family: Courier;
-
-
-}
 
 #ChangesToolButton, #SettingsToolButton {
     background-color: #34B998;
@@ -107,6 +110,8 @@ QLabel {
     text-align: center;
 }
 
+
+/*Settings.ui*/
 #SettLabel, #themeChose, #Colors {
  border: none;
  color: #3B3D3F;

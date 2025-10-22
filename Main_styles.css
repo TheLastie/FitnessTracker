@@ -1,0 +1,134 @@
+/*all files*/
+
+QPushButton {
+    background-color: =*=*=*;
+    color: ==**==;
+    border: 0.5px solid ==**==;
+    border-radius: 13px;
+    font-weight: 500;
+    font-family: Courier;
+    text-align: center;
+    height: 20px;
+    min-height: 20px;
+    padding: 5px 15px;
+    margin: 2px;
+}
+QPushButton:hover {
+    background-color: %=%%=%;
+    color: ======;
+    font-weight: 600;
+    margin: 0px;
+    border-radius: 17px;
+    border: 1px solid ==**==;
+}
+QLabel {
+    color: ******;
+    font-weight: 600;
+    border: 1px solid ==**==;
+    border-radius: 17px;
+    font-family: Courier;
+}
+
+/* main.ui */
+#backlbl {
+    background-color: #D8D8D8;
+    border: none;
+    border-radius: 0px;
+}
+
+#add_water, #add_exercise, #add_meal {
+    background-color: ******;
+    color: %%%%%%;
+    border: 0.1px solid ******;
+    border-radius: 18px;
+    font-weight: 600;
+    font-family: Courier;
+    text-align: center;
+    margin: 2px;
+}
+
+#add_water:hover, #add_exercise:hover, #add_meal:hover {
+    background-color: %=%%=%;
+    color: ======;
+    font-weight: 600;
+    margin: 0px;
+    border-radius: 20px;
+    border: 1px solid ==**==;
+}
+
+#page_meals:focus, #page_exercise:focus, #page_water:focus {
+    background-color: %=%%=%;
+    color: ======;
+    font-weight: 600;
+    margin: 0px;
+    border-radius: 17px;
+    border: 1px solid ==**==;
+}
+
+#kkk {
+    border-radius: 0px 0px 0px 0px;
+    border-color: ******;
+}
+
+#protein_number, #fats_number, #carbo_number, #calories_number {
+color: ******;
+    font-weight: 600;
+    font-family: Courier;
+    border-radius: 17px;
+    text-align: center;
+}
+
+#l6, #l7, #l2 {
+border-radius: 17px;
+background-color: #E4EEEB;
+}
+
+
+#sport, #meals, #water_track, #weekly_sum{
+    color: #3B3C3E;
+    background-color: =*=*=*;
+    border: 1px solid #3B3C3E;
+    border-radius: 15px 15px 0px 0px;
+    font-weight: 800;
+    font-family: Courier;
+}
+
+#water_list, #meal_list , #exercise_list {
+    color: #3B3C3E;
+    background-color: #E4EEEB;
+    border:1px solid ******;
+    border-radius: 17px;
+}
+
+
+#ChangesToolButton, #SettingsToolButton {
+    background-color: ******;
+    color: %%%%%%;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+/*Settings.ui*/
+#SettLabel, #themeChose, #Colors {
+ border: none;
+ color: ==**==;
+ font-weight: 500;
+ }
+ #SettLabel {
+    font-weight: 800;
+ }
+#lightlab, #darklab {
+    border: none;
+    color: ==**==;
+    font-weight: 500;
+}
+#setback {
+    background-color: =*=*=*;
+}
+
+#setback2 {
+    background-color: %%%%%%;
+}

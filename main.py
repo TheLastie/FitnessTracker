@@ -30,10 +30,8 @@ class MainWindow(QMainWindow):
         self.windows_theme = get_windows_theme()
         self.user_login = ''
         self.user_data = {}
-        px = QPixmap('Icons/ganteli.png')
-        self.wddd.setPixmap(px)
         self.setFixedSize(994, 639)
-        self.setStyleSheet(open('style.css', 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r').read())
         self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
         self.ChangesToolButton.setIcon(QIcon('Icons/Edit.png'))
         self.settings = settings.Settings(self.user_data, self)
@@ -45,6 +43,9 @@ class MainWindow(QMainWindow):
         self.SettingsToolButton.clicked.connect(self.settings_open)
         self.page_water.clicked.connect(self.choose_page)
 
+    def update_style(self):
+        self.setStyleSheet(open("Current_style.css", 'r').read())
+        self.add_window.update_style()
     def add_smth(self):
         try:
             if self.sender() == self.add_water:
