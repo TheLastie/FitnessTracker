@@ -31,7 +31,7 @@
      <x>10</x>
      <y>20</y>
      <width>1054</width>
-     <height>549</height>
+     <height>569</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -169,6 +169,11 @@ background-color: white;
           <property name="text">
            <string/>
           </property>
+          <property name="icon">
+           <iconset>
+            <selectedon>Icons/Sun.png</selectedon>
+           </iconset>
+          </property>
          </widget>
         </item>
         <item>
@@ -219,10 +224,15 @@ background-color: black;
           <property name="text">
            <string/>
           </property>
+          <property name="icon">
+           <iconset>
+            <selectedon>Icons/luna1.PNG</selectedon>
+           </iconset>
+          </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="darklab">
           <property name="font">
            <font>
             <family>Sitka Heading</family>
@@ -695,6 +705,22 @@ background-color: black;
       </property>
      </spacer>
     </item>
+    <item row="2" column="2">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="setback">
@@ -714,9 +740,9 @@ background-color: black;
    <property name="geometry">
     <rect>
      <x>-36</x>
-     <y>255</y>
+     <y>195</y>
      <width>1071</width>
-     <height>61</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="text">
