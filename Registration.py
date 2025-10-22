@@ -13,6 +13,14 @@ class RegistrationWindow(QWidget):
     def __init__(self, main_window):
         super().__init__()
         self.main_wd = main_window
+        uic.loadUi("RegLog.ui", self)
+    def open_edit(self):
+        self.BackButtonChange.clicked.connect(self.ext)
+    def ext(self):
+        self.hide()
+        self.main_wd.show()
+    def open_registration(self):
+
         self.registrated_users = {'Admin': {
             "Login": 'Admin',
             "password": hashlib.md5(b'123').hexdigest(),
@@ -52,7 +60,6 @@ class RegistrationWindow(QWidget):
                 json.dump(self.registrated_users, f, indent=4)
         except ValueError:
             pass
-        uic.loadUi("RegLog.ui", self)
         if len(self.registrated_users) > 1:
             with open("userdata.json", "w") as f:
                 json.dump(self.registrated_users, f, indent=4)

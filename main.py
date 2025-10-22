@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
         uic.loadUi("main.ui", self)
+        self.edit = Registration.RegistrationWindow(self)
         self.add_window = Adding.AppendToBaseWindow
         self.windows_theme = get_windows_theme()
         self.user_login = ''
@@ -41,6 +42,7 @@ class MainWindow(QMainWindow):
         self.page_meals.clicked.connect(self.choose_page)
         self.page_exercise.clicked.connect(self.choose_page)
         self.SettingsToolButton.clicked.connect(self.settings_open)
+        self.ChangesToolButton.clicked.connect(self.edit_open)
         self.page_water.clicked.connect(self.choose_page)
 
     def update_style(self):
@@ -63,6 +65,14 @@ class MainWindow(QMainWindow):
     def settings_open(self):
         self.settings.show()
         self.hide()
+    def edit_open(self):
+        self.edit.show()
+        try:
+            self.edit.stackedWidget.setCurrentIndex(3)
+            self.edit.open_edit()
+        except Exception as e:
+            print(e)
+        self.hide()
     def choose_page(self):
         if self.sender() == self.page_meals:
             self.page_switch.setCurrentIndex(0)
@@ -82,5 +92,6 @@ if __name__ == '__main__':
     append_window = Adding_to_base
     main_window = MainWindow(Adding_to_base, settings)
     registration_window = Registration.RegistrationWindow(main_window)
+    registration_window.open_registration()
     main_window.show()
     sys.exit(app.exec())
