@@ -37,12 +37,18 @@ class Settings(QWidget):
             self.style_type = 'light'
         self.change_theme()
         self.update_style()
+
     def update_style(self):
         self.setStyleSheet(self.css_style)
+
     def save_changes(self):
-        with open("Current_style.css", "w") as f:
-            f.write(self.css_style)
-            self.mainWD.update_style()
+        try:
+            with open("Current_style.css", "w") as f:
+                f.write(self.css_style)
+                self.mainWD.update_style()
+        except Exception as e:
+            print(e)
+
     def change_theme(self):
         try:
             if self.sender() == self.theme1:
@@ -60,14 +66,10 @@ class Settings(QWidget):
             elif self.sender() == self.theme7:
                 self.style_theme = "theme7"
             self.css_style = self.css_style_saved
-            if self.style_type == 'light':
-                for idx in self.stl_themes['light-themes'][self.style_theme]:
-                    print(self.stl_themes["color-codes"][idx], self.stl_themes['light-themes'][self.style_theme][idx])
-                    self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx], self.stl_themes['light-themes'][self.style_theme][idx])
+            for idx in self.stl_themes['light-themes'][self.style_theme]:
+                self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
+                                                        self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
 
-            elif self.style_type == 'dark':
-                for idx in self.stl_themes['dark-themes'][self.style_theme]:
-                    self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx], self.stl_themes['dark-themes'][self.style_theme][idx])
             self.update_style()
 
         except Exception as e:
@@ -76,7 +78,3 @@ class Settings(QWidget):
     def ext(self):
         self.hide()
         self.mainWD.show()
-
-
-
-

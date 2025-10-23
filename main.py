@@ -27,7 +27,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         uic.loadUi("main.ui", self)
         self.edit = Registration.RegistrationWindow(self)
-        self.add_window = Adding.AppendToBaseWindow
+        self.add_window = Adding.AppendToBaseWindow(self)
         self.windows_theme = get_windows_theme()
         self.user_login = ''
         self.user_data = {}
@@ -51,14 +51,12 @@ class MainWindow(QMainWindow):
     def add_smth(self):
         try:
             if self.sender() == self.add_water:
-                self.add_wd = self.add_window('water', self.user_data, self)
-                self.add_wd.show()
+                self.add_window.get_data('water', self.user_data, self)
             elif self.sender() == self.add_exercise:
-                self.add_wd = self.add_window('trainings', self.user_data, self)
-                self.add_wd.show()
+                self.add_window.get_data('trainings', self.user_data, self)
             else:
-                self.add_wd = self.add_window('meals', self.user_data, self)
-                self.add_wd.show()
+                self.add_window.get_data('meals', self.user_data, self)
+            self.add_window.show()
             self.hide()
         except Exception as e:
             print(e)
