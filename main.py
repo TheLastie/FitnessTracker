@@ -26,7 +26,9 @@ class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
         uic.loadUi("main.ui", self)
-        self.edit = Registration.RegistrationWindow(self)
+        self.registration = Registration.RegistrationWindow(self)
+        self.registration.open_registration()
+        self.registration.show()
         self.add_window = Adding.AppendToBaseWindow(self)
         self.windows_theme = get_windows_theme()
         self.user_login = ''
@@ -64,10 +66,10 @@ class MainWindow(QMainWindow):
         self.settings.show()
         self.hide()
     def edit_open(self):
-        self.edit.show()
+        self.registration.show()
         try:
-            self.edit.stackedWidget.setCurrentIndex(3)
-            self.edit.open_edit()
+            self.registration.stackedWidget.setCurrentIndex(3)
+            self.registration.open_edit()
         except Exception as e:
             print(e)
         self.hide()
@@ -89,7 +91,5 @@ if __name__ == '__main__':
     settings = settings
     append_window = Adding_to_base
     main_window = MainWindow(Adding_to_base, settings)
-    registration_window = Registration.RegistrationWindow(main_window)
-    registration_window.open_registration()
     main_window.show()
     sys.exit(app.exec())

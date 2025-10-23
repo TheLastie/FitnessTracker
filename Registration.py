@@ -78,7 +78,6 @@ class RegistrationWindow(QWidget):
         self.enterButton2.clicked.connect(self.choose_reg)
         self.current_log = []
         l = ['red', 'blue']
-        print(self.main_wd.windows_theme)
         self.setStyleSheet(open('Current_style.css', 'r').read())
         self.age_le.setValidator(QIntValidator(0, 140, self))
         self.high_le.setValidator(QIntValidator(0, 300, self))
