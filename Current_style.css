@@ -112,6 +112,8 @@ background-color: #E4EEEB;
 
 
 /*Settings.ui*/
+#SaveChangeButton{
+padding: 0;}
 #SettLabel, #themeChose, #Colors {
  border: none;
  color: #3B3D3F;

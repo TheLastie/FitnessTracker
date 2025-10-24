@@ -8,6 +8,7 @@ import settings
 import winreg
 from PyQt6.QtGui import QIcon, QAction, QPixmap
 
+
 def get_windows_theme():
     try:
         # Открываем ключ реестра
@@ -50,29 +51,33 @@ class MainWindow(QMainWindow):
     def update_style(self):
         self.setStyleSheet(open("Current_style.css", 'r').read())
         self.add_window.update_style()
+
     def add_smth(self):
         try:
             if self.sender() == self.add_water:
-                self.add_window.get_data('water', self.user_data, self)
+                self.add_window.get_data('water', self.user_data)
             elif self.sender() == self.add_exercise:
-                self.add_window.get_data('trainings', self.user_data, self)
+                self.add_window.get_data('trainings', self.user_data)
             else:
-                self.add_window.get_data('meals', self.user_data, self)
+                self.add_window.get_data('meals', self.user_data)
             self.add_window.show()
             self.hide()
         except Exception as e:
             print(e)
+
     def settings_open(self):
         self.settings.show()
         self.hide()
+
     def edit_open(self):
         self.registration.show()
         try:
             self.registration.stackedWidget.setCurrentIndex(3)
             self.registration.open_edit()
+            self.hide()
         except Exception as e:
             print(e)
-        self.hide()
+
     def choose_page(self):
         if self.sender() == self.page_meals:
             self.page_switch.setCurrentIndex(0)
