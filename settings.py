@@ -6,6 +6,7 @@ import sys, json
 class Settings(QWidget):
     def __init__(self, user_data, mainWD):
         super().__init__()
+        self.e = 0
         self.mainWD = mainWD
         self.style_theme = "theme1"
         self.style_type = 'light'

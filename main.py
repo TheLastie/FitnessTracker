@@ -26,6 +26,7 @@ def get_windows_theme():
 class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
+        self.e = 0
         uic.loadUi("main.ui", self)
         self.registration = Registration.RegistrationWindow(self)
         self.registration.open_registration()

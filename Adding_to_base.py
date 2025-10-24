@@ -7,6 +7,7 @@ class AppendToBaseWindow(QWidget):
     def __init__(self, mainWD):
         super().__init__()
         self.pageType = ''
+        self.e = 0
         self.user_data = ''
         self.mainWD = mainWD
         uic.loadUi("Add_item.ui", self)

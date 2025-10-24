@@ -14,6 +14,7 @@ class RegistrationWindow(QWidget):
         super().__init__()
         self.main_wd = main_window
         uic.loadUi("RegLog.ui", self)
+        self.e = 0
     def open_edit(self):
         self.BackButtonChange.clicked.connect(self.ext)
         self.cerror_2.setText('')
