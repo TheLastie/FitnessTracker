@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page_7">
     <widget class="QWidget" name="formLayoutWidget_7">
@@ -97,6 +97,26 @@
          <font>
           <pointsize>14</pointsize>
          </font>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="1">
+       <widget class="QCheckBox" name="saveme">
+        <property name="text">
+         <string>Запомнить меня</string>
         </property>
        </widget>
       </item>

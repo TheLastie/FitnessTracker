@@ -1,5 +1,5 @@
 "RegLog.ui"
-
+saveme
 rlogin_le - логин (рег)
 rpassword_le - пароль (рег)
 rpassword_le_acc - пароль подтверждение (рег)
@@ -61,6 +61,14 @@ ProteinAdd
 CarbonsAdd
 FatsAdd
 CaloriesAdd
+
+CaloriesCount
+ProtCount
+FatsCount
+CarbsCount
+AddNewMeal
+MealName
+MealWeight
 
 Settings.ui
 

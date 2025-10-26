@@ -734,10 +734,24 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="Exitakk">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Выйти из аккаунта</string>
+   </property>
+  </widget>
   <zorder>backlbl</zorder>
   <zorder>verticalLayoutWidget</zorder>
   <zorder>SettingsToolButton</zorder>
   <zorder>ChangesToolButton</zorder>
+  <zorder>Exitakk</zorder>
  </widget>
  <resources/>
  <connections/>

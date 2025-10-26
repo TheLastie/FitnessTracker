@@ -1,3 +1,4 @@
+import json
 import sys
 
 from PyQt6 import uic
@@ -31,11 +32,12 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.e = 0
         self.admin_mode = 0
+        self.registrated_users={}
         uic.loadUi("main.ui", self)
+        self.show()
         self.registration = Registration.RegistrationWindow(self)
         self.registration.open_registration()
         self.timer = QTimer()
-
         self.add_window = Adding.AppendToBaseWindow(self)
         self.windows_theme = get_windows_theme()
         self.user_login = ''
@@ -52,10 +54,22 @@ class MainWindow(QMainWindow):
         self.page_exercise.clicked.connect(self.choose_page)
         self.SettingsToolButton.clicked.connect(self.settings_open)
         self.ChangesToolButton.clicked.connect(self.edit_open)
+        self.Exitakk.clicked.connect(self.exit_akk)
         self.page_water.clicked.connect(self.choose_page)
         self.timer.setInterval(1)
         self.timer.timeout.connect(self.timer_event)
 
+
+    def exit_akk(self):
+        try:
+            with open("userdata.json", "r") as f:
+                self.registrated_users.update(json.load(f))
+            self.registrated_users.update({'current_user': None})
+            with open("userdata.json", "w") as f:
+                json.dump(self.registrated_users, f, indent=4)
+            sys.exit()
+        except Exception as e:
+            print(e)
     def keyPressEvent(self, event):
         if str(event.key()) == "82" and str(event.modifiers()) == ("KeyboardModifier.AltModifier|ControlModifier|ShiftModifier") and not self.admin_mode:
             self.us()
@@ -122,5 +136,4 @@ if __name__ == '__main__':
     settings = settings
     append_window = Adding_to_base
     main_window = MainWindow(Adding_to_base, settings)
-    main_window.show()
     sys.exit(app.exec())
