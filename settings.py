@@ -38,15 +38,30 @@ class Settings(QWidget):
             self.style_type = 'light'
         self.change_theme()
         self.update_style()
-
+    def update_style_2(self):
+        with open('Main_styles.css', 'r') as f:
+            self.css_style_saved = f.read()
+        with open("Style_themes.json", "r") as f:
+            self.stl_themes.update(json.load(f))
+        self.css_style = self.css_style_saved
+        for idx in self.stl_themes['light-themes'][self.style_theme]:
+            self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
+                                                    self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
+            self.update_style()
+            self.mainWD.setStyleSheet(self.css_style)
     def update_style(self):
         self.setStyleSheet(self.css_style)
+    def us(self):
+        self.update_style_2()
 
     def save_changes(self):
         try:
             with open("Current_style.css", "w") as f:
                 f.write(self.css_style)
                 self.mainWD.update_style()
+                self.mainWD.add_window.setStyleSheet(self.css_style)
+                self.mainWD.registration.setStyleSheet(self.css_style)
+
         except Exception as e:
             print(e)
 
@@ -72,7 +87,7 @@ class Settings(QWidget):
                                                         self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
 
             self.update_style()
-
+            print(3)
         except Exception as e:
             print(e)
 

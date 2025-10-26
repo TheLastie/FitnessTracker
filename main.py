@@ -6,7 +6,10 @@ import Adding_to_base
 import Registration
 import settings
 import winreg
-from PyQt6.QtGui import QIcon, QAction, QPixmap
+from PyQt6.QtGui import QIcon, QAction, QPixmap, QKeySequence
+import time
+from PyQt6.QtCore import QTimer, Qt
+import keyboard
 
 
 def get_windows_theme():
@@ -27,10 +30,12 @@ class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
         self.e = 0
+        self.admin_mode = 0
         uic.loadUi("main.ui", self)
         self.registration = Registration.RegistrationWindow(self)
         self.registration.open_registration()
-        self.registration.show()
+        self.timer = QTimer()
+
         self.add_window = Adding.AppendToBaseWindow(self)
         self.windows_theme = get_windows_theme()
         self.user_login = ''
@@ -48,6 +53,13 @@ class MainWindow(QMainWindow):
         self.SettingsToolButton.clicked.connect(self.settings_open)
         self.ChangesToolButton.clicked.connect(self.edit_open)
         self.page_water.clicked.connect(self.choose_page)
+        self.timer.setInterval(1)
+        self.timer.timeout.connect(self.timer_event)
+
+    def keyPressEvent(self, event):
+        if str(event.key()) == "82" and str(event.modifiers()) == ("KeyboardModifier.AltModifier|ControlModifier|ShiftModifier") and not self.admin_mode:
+            self.us()
+            self.admin_mode = 1
 
     def update_style(self):
         self.setStyleSheet(open("Current_style.css", 'r').read())
@@ -69,6 +81,19 @@ class MainWindow(QMainWindow):
     def settings_open(self):
         self.settings.show()
         self.hide()
+
+    def us(self, *args, **kwargs):
+        self.add_window.show()
+        self.settings.show()
+        self.registration.show()
+        self.timer.start()
+
+
+
+    def timer_event(self):
+        self.settings.us()
+        self.update()
+
 
     def edit_open(self):
         self.registration.show()

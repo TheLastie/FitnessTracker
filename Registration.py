@@ -165,6 +165,8 @@ class RegistrationWindow(QWidget):
                     "Login": self.current_log[0],
                     "password": self.current_log[1],
                     "userdata": {
+                        'theme':'theme1',
+                        'd_l':'light',
                         'weight': int(self.weight_le.text()),
                         'height': int(self.high_le.text()),
                         'age': int(self.age_le.text()),

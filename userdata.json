@@ -1,6 +1,8 @@
 {
     "Admin": {
         "Login": "Admin",
+        "theme":"theme1",
+        "d_l":"light",
         "password": "202cb962ac59075b964b07152d234b70",
         "userdata": {
             "weight": 60,
@@ -28,85 +30,5 @@
                 }
             }
         }
-    },
-    "Misha": {
-        "Login": "Misha",
-        "password": "698d51a19d8a121ce581499d7b701668",
-        "userdata": ""
-    },
-    "male": {
-        "Login": "male",
-        "password": "698d51a19d8a121ce581499d7b701668",
-        "userdata": {
-            "weight": 80,
-            "height": 170,
-            "age": 20,
-            "needed calories": 1881.51,
-            "needed water": 1,
-            "activity": "\u0412\u044b\u0441\u043e\u043a\u0430\u044f",
-            "trainings": {},
-            "meals": {}
-        },
-        "water": {}
-    },
-    "female": {
-        "Login": "female",
-        "password": "698d51a19d8a121ce581499d7b701668",
-        "userdata": {
-            "weight": 80,
-            "height": 170,
-            "age": 20,
-            "needed calories": 1641.1200000000001,
-            "needed water": 1,
-            "activity": "\u0423\u043c\u0435\u0440\u0435\u043d\u043d\u0430\u044f",
-            "trainings": {},
-            "meals": {}
-        },
-        "water": {}
-    },
-    "male1": {
-        "Login": "male1",
-        "password": "698d51a19d8a121ce581499d7b701668",
-        "userdata": {
-            "weight": 80,
-            "height": 170,
-            "age": 20,
-            "needed calories": 3763.02,
-            "needed water": 1,
-            "activity": "\u042d\u043a\u0441\u0442\u0440\u0435\u043c\u0430\u043b\u044c\u043d\u043e \u0432\u044b\u0441\u043e\u043a\u0430\u044f",
-            "trainings": {},
-            "meals": {}
-        },
-        "water": {}
-    },
-    "lll": {
-        "Login": "lll",
-        "password": "25f9e794323b453885f5181f1b624d0b",
-        "userdata": {
-            "weight": 120,
-            "height": 190,
-            "age": 16,
-            "needed calories": 4605.606000000001,
-            "needed water": 1,
-            "activity": "\u0412\u044b\u0441\u043e\u043a\u0430\u044f",
-            "trainings": {},
-            "meals": {}
-        },
-        "water": {}
-    },
-    "Samira": {
-        "Login": "Samira",
-        "password": "c20ad4d76fe97759aa27a0c99bff6710",
-        "userdata": {
-            "weight": 75,
-            "height": 169,
-            "age": 18,
-            "needed calories": 1575.5566000000001,
-            "needed water": 1,
-            "activity": "\u0412\u044b\u0441\u043e\u043a\u0430\u044f",
-            "trainings": {},
-            "meals": {}
-        },
-        "water": {}
     }
 }
