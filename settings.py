@@ -14,6 +14,9 @@ class Settings(QWidget):
         if user_data.get("theme") and user_data.get("d_l"):
             self.style_type =user_data['d_l']
             self.style_theme = user_data['theme']
+        else:
+            self.style_theme = "theme1"
+            self.style_type = 'light'
         self.stl_themes = {}
         self.css_style_saved = ''
         with open(f'Main_styles_{self.style_type}.css', 'r') as f:
@@ -69,6 +72,7 @@ class Settings(QWidget):
                 self.mainWD.registration.setStyleSheet(self.css_style)
                 user_data['d_l'] = self.style_type
                 user_data['theme'] = self.style_theme
+                self.user_data = user_data
         except Exception as e:
             print(e)
 
@@ -88,8 +92,11 @@ class Settings(QWidget):
                 self.style_theme = "theme6"
             elif self.sender() == self.theme7:
                 self.style_theme = "theme7"
-            self.style_type = self.user_data['d_l']
-            self.style_theme = self.user_data['theme']
+            try:
+                self.style_type = self.user_data['d_l']
+                self.style_theme = self.user_data['theme']
+            except Exception as e:
+                print(self.user_data)
             self.css_style = self.css_style_saved
             for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:
                 self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
@@ -98,7 +105,7 @@ class Settings(QWidget):
             self.setStyleSheet(self.css_style)
             print(3)
         except Exception as e:
-            print(e)
+            print(e, 4)
 
     def ext(self):
         self.hide()

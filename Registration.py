@@ -41,14 +41,13 @@ class RegistrationWindow(QWidget):
         self.main_wd.show()
 
     def open_registration(self):
-
         self.registrated_users = {
             'Admin': {
                 "Login": 'Admin',
                 "password": hashlib.md5(b'123').hexdigest(),
+                'theme': 'theme1',
+                'd_l': get_windows_theme(),
                 "userdata": {
-                    'theme': 'theme1',
-                    'd_l': get_windows_theme(),
                     'weight': 60,
                     'height': 170,
                     'activity': 'low/moderate/vigorous',
@@ -76,6 +75,7 @@ class RegistrationWindow(QWidget):
                 }
             }
         }
+
         try:
             with open("userdata.json", "r") as f:
                 self.registrated_users.update(json.load(f))
