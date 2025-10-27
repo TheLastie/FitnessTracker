@@ -1,6 +1,6 @@
 /*all files*/
 QMainWindow {
-    background-color: #4B4B4B;
+    background-color: #474747;
 }
 QPushButton {
     background-color: =*=*=*;
@@ -33,7 +33,7 @@ QLabel {
 
 /* main.ui */
 #backlbl {
-    background-color: #5f5f5f;
+    background-color: #3F3F3F;
     border: none;
     border-radius: 0px;
 }
@@ -97,7 +97,7 @@ background-color: #E4EEEB;
 
 #water_list, #meal_list , #exercise_list {
     color: #3B3C3E;
-    background-color: #a2a4a4;
+    background-color: #7A7D7D;
     border:1px solid ******;
     border-radius: 17px;
 }
