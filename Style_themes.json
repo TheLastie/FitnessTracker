@@ -5,8 +5,9 @@
     "color_3":  "=*=*=*",
     "color_4":  "======",
     "color_5":  "%=%%=%",
-    "color_6":  "%%%%%%"
-  },
+    "color_6":  "%%%%%%",
+    "color_7": "*-*-*-"
+},
 
   "light-themes": {"theme1": {
     "color_1": "#3B3D3F",
@@ -59,12 +60,13 @@
     "color_6": "#EEEEEE"}
   },
   "dark-themes": {"theme1": {
-    "color_1": "#3B3D3F",
+    "color_1": "#282828",
     "color_2": "#34B998",
-    "color_3": "#A9DACE",
-    "color_4": "#ECEDED",
+    "color_3": "#44917e",
+    "color_4": "#000000",
     "color_5": "#176854",
-    "color_6": "#EEEEEE"},
+    "color_6": "#282828",
+    "color_7": "#cc0000"},
     "theme2": {
     "color_1": "#FFFFEE",
     "color_2": "#EEEEEE",
