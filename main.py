@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):
         self.user_login = self.registrated_users['current_user']
         self.user_data = self.registrated_users[self.user_login]
         self.setFixedSize(994, 639)
-        self.setStyleSheet(open('Current_style.css', 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
         self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
         self.ChangesToolButton.setIcon(QIcon('Icons/Edit.png'))
         self.settings = settings.Settings(self.user_data, self)
@@ -78,7 +78,7 @@ class MainWindow(QMainWindow):
             self.admin_mode = 1
 
     def update_style(self):
-        self.setStyleSheet(open("Current_style.css", 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
         self.add_window.update_style()
 
     def add_smth(self):

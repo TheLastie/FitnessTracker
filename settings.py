@@ -40,7 +40,7 @@ class Settings(QWidget):
         else:
             self.style_type = 'light'
         self.change_theme()
-        self.update_style()
+        self.setStyleSheet(self.css_style)
     def update_style_2(self):
         with open(f'Main_styles_{self.style_type}.css', 'r') as f:
             self.css_style_saved = f.read()
@@ -52,10 +52,8 @@ class Settings(QWidget):
         for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:
             self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
                                                     self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
-            self.update_style()
+            self.setStyleSheet(self.css_style)
             self.mainWD.setStyleSheet(self.css_style)
-    def update_style(self):
-        self.setStyleSheet(self.css_style)
     def us(self):
         self.update_style_2()
 
@@ -63,7 +61,7 @@ class Settings(QWidget):
         try:
             with open("Current_style.css", "w") as f:
                 f.write(self.css_style)
-                self.mainWD.update_style()
+                self.mainWD.setStyleSheet(self.css_style)
                 self.mainWD.add_window.setStyleSheet(self.css_style)
                 self.mainWD.registration.setStyleSheet(self.css_style)
                 user_data['d_l'] = self.style_type
@@ -94,7 +92,7 @@ class Settings(QWidget):
                 self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
                                                         self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
 
-            self.update_style()
+            self.setStyleSheet(self.css_style)
             print(3)
         except Exception as e:
             print(e)
