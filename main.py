@@ -42,6 +42,10 @@ class MainWindow(QMainWindow):
         self.windows_theme = get_windows_theme()
         self.user_login = ''
         self.user_data = {}
+        with open("userdata.json", "r") as f:
+            self.registrated_users.update(json.load(f))
+        self.user_login = self.registrated_users['current_user']
+        self.user_data = self.registrated_users[self.user_login]
         self.setFixedSize(994, 639)
         self.setStyleSheet(open('Current_style.css', 'r').read())
         self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
@@ -58,8 +62,6 @@ class MainWindow(QMainWindow):
         self.page_water.clicked.connect(self.choose_page)
         self.timer.setInterval(1)
         self.timer.timeout.connect(self.timer_event)
-
-
     def exit_akk(self):
         try:
             with open("userdata.json", "r") as f:

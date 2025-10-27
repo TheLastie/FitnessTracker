@@ -58,5 +58,53 @@
     "color_5": "#EEEEEE",
     "color_6": "#EEEEEE"}
   },
-  "dark-themes": {}
+  "dark-themes": {"theme1": {
+    "color_1": "#3B3D3F",
+    "color_2": "#34B998",
+    "color_3": "#A9DACE",
+    "color_4": "#ECEDED",
+    "color_5": "#176854",
+    "color_6": "#EEEEEE"},
+    "theme2": {
+    "color_1": "#FFFFEE",
+    "color_2": "#EEEEEE",
+    "color_3": "#EEEEEE",
+    "color_4": "#EEEEEE",
+    "color_5": "#EEEEEE",
+    "color_6": "#EEEEEE"},
+    "theme3": {
+    "color_1": "#EEEEEE",
+    "color_2": "#EEEEEE",
+    "color_3": "#EEEEEE",
+    "color_4": "#EEEEEE",
+    "color_5": "#EEEEEE",
+    "color_6": "#EEEEEE"},
+    "theme4": {
+    "color_1": "#EEEEEE",
+    "color_2": "#EEEEEE",
+    "color_3": "#EEEEEE",
+    "color_4": "#EEEEEE",
+    "color_5": "#EEEEEE",
+    "color_6": "#EEEEEE"},
+    "theme5": {
+    "color_1": "#EEEEEE",
+    "color_2": "#EEEEEE",
+    "color_3": "#EEEEEE",
+    "color_4": "#EEEEEE",
+    "color_5": "#EEEEEE",
+    "color_6": "#EEEEEE"},
+    "theme6": {
+    "color_1": "#EEEEEE",
+    "color_2": "#EEEEEE",
+    "color_3": "#EEEEEE",
+    "color_4": "#EEEEEE",
+    "color_5": "#EEEEEE",
+    "color_6": "#EEEEEE"},
+    "theme7": {
+    "color_1": "#EEEEEE",
+    "color_2": "#EEEEEE",
+    "color_3": "#EEEEEE",
+    "color_4": "#EEEEEE",
+    "color_5": "#EEEEEE",
+    "color_6": "#EEEEEE"}}
 }
