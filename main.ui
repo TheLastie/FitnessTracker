@@ -737,7 +737,7 @@
   <widget class="QPushButton" name="Exitakk">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>11</x>
      <y>10</y>
      <width>201</width>
      <height>31</height>
