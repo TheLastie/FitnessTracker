@@ -42,18 +42,21 @@ class Settings(QWidget):
         self.change_theme()
         self.setStyleSheet(self.css_style)
     def update_style_2(self):
-        with open(f'Main_styles_{self.style_type}.css', 'r') as f:
-            self.css_style_saved = f.read()
-        with open("Style_themes.json", "r") as f:
-            self.stl_themes.update(json.load(f))
-        self.style_type = self.user_data['theme']
-        self.style_theme = self.user_data['d_l']
-        self.css_style = self.css_style_saved
-        for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:
-            self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
-                                                    self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
-            self.setStyleSheet(self.css_style)
-            self.mainWD.setStyleSheet(self.css_style)
+        try:
+            with open(f'Main_styles_{self.style_type}.css', 'r') as f:
+                self.css_style_saved = f.read()
+            with open("Style_themes.json", "r") as f:
+                self.stl_themes.update(json.load(f))
+            self.style_type = self.user_data['d_l']
+            self.style_theme = self.user_data['theme']
+            self.css_style = self.css_style_saved
+            for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:
+                self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
+                                                        self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
+                self.setStyleSheet(self.css_style)
+                self.mainWD.setStyleSheet(self.css_style)
+        except Exception as e:
+            print(e)
     def us(self):
         self.update_style_2()
 
