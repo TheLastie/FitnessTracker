@@ -48,7 +48,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="meal_page">
        <widget class="QListWidget" name="meal_list">
@@ -742,6 +742,11 @@
      <width>201</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Выйти из аккаунта</string>
