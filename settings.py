@@ -88,10 +88,6 @@ class Settings(QWidget):
 
     def change_theme(self):
         try:
-            self.style_theme = self.user_data['theme']
-        except Exception as e:
-            print(self.user_data)
-        try:
             if self.sender() == self.theme1:
                 self.style_theme = "theme1"
             elif self.sender() == self.theme2:
