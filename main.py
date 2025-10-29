@@ -45,8 +45,10 @@ class MainWindow(QMainWindow):
         with open("userdata.json", "r") as f:
             self.registrated_users.update(json.load(f))
         self.user_login = self.registrated_users['current_user']
-        if self.user_login:
+        if self.registrated_users.get(self.user_login):
             self.user_data = self.registrated_users[self.user_login]
+        else:
+            self.user_data = self.registrated_users["Admin"]
         self.setFixedSize(994, 639)
         self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
         self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
