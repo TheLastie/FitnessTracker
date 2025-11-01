@@ -2,6 +2,9 @@
 QMainWindow {
     background-color: #474747;
 }
+Settings {
+    background-color: #383636;
+}
 QPushButton {
     background-color: =*=*=*;
     color: ==**==;
@@ -33,14 +36,14 @@ QLabel {
 
 /* main.ui */
 #backlbl {
-    background-color: #3F3F3F;
+    background-color: #383636;
     border: none;
     border-radius: 0px;
 }
 
 #add_water, #add_exercise, #add_meal {
     background-color: ******;
-    color: %%%%%%;
+    color: #ebebeb;
     border: 0.1px solid ******;
     border-radius: 18px;
     font-weight: 600;
@@ -68,8 +71,8 @@ QLabel {
 }
 
 #kkk {
+    background-color: #474747;
     border-radius: 0px 0px 0px 0px;
-    border-color: #3b3c3e;
 }
 
 #protein_number, #fats_number, #carbo_number, #calories_number {
@@ -87,9 +90,9 @@ background-color: #E4EEEB;
 
 
 #sport, #meals, #water_track, #weekly_sum{
-    color: #3B3C3E;
+    color: #ebebeb;
     background-color: =*=*=*;
-    border: 1px solid #3B3C3E;
+    border: 1px solid #ebebeb;
     border-radius: 15px 15px 0px 0px;
     font-weight: 800;
     font-family: Courier;

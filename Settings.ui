@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
+ <class>Settings</class>
  <widget class="QWidget" name="Settings">
   <property name="enabled">
    <bool>true</bool>
@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>994</width>
-    <height>640</height>
+    <width>993</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -208,7 +208,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #34B998;
+	background-color: #2F9D82;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -234,7 +234,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #E95151;
+	background-color: #4747f0;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -260,7 +260,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #A751E9;
+	background-color: #961fc1;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -286,7 +286,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #DCAC00;
+	background-color: #dcac00;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -312,7 +312,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #27C9FF;
+	background-color: #219DC7;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -338,7 +338,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #FF51B6;
+	background-color: #ea3e83;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -364,7 +364,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-	background-color: #D60000;
+	background-color: #e62828;
 	border: 2px;
 	border-radius: 8px;
 }</string>
@@ -744,7 +744,7 @@ background-color: black;
     <rect>
      <x>-36</x>
      <y>195</y>
-     <width>1071</width>
+     <width>1051</width>
      <height>241</height>
     </rect>
    </property>
@@ -757,7 +757,7 @@ background-color: black;
     <rect>
      <x>-116</x>
      <y>235</y>
-     <width>1281</width>
+     <width>1141</width>
      <height>81</height>
     </rect>
    </property>
