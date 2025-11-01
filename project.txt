@@ -54,13 +54,21 @@ ChangesToolButton
 
 Add_item
 
+back_1
+back_11
+back_2
+back_3
 AddBar
+error_text
 NameAddMeal
 WeightAdd
 ProteinAdd
 CarbonsAdd
 FatsAdd
 CaloriesAdd
+Appendbase
+
+
 
 CaloriesCount
 ProtCount

@@ -1,4 +1,23 @@
-{"Мясо курицы                  ": {"calories":  190,
-"proteins": 19.12,
-"fats":  12.1,
-"carbonates": 0.3}}
+{
+    "Мясо курицы": {
+        "type": "grams",
+        "calories": 190,
+        "proteins": 19.12,
+        "fats": 12.1,
+        "carbonates": 0.3
+    },
+    "Мясо оленя": {
+        "type": "grams",
+        "calories": "160",
+        "proteins": "22.96",
+        "fats": "6.98",
+        "carbonates": "0."
+    },
+    "Мясо Тюленя": {
+        "type": "grams",
+        "calories": "200",
+        "proteins": "10.",
+        "fats": "9.99",
+        "carbonates": "0."
+    }
+}
