@@ -117,6 +117,14 @@ background-color: #E4EEEB;
 
 
 /*Setting1s.ui*/
+#theme2 {
+background-color: #4747f0;
+}
+
+#theme3 {
+background-color: #961fc1;
+}
+
 #SettLabel, #themeChose, #Colors {
  border: none;
  color: ==**==;
