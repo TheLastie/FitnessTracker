@@ -64,7 +64,7 @@ class Settings(QWidget):
                 self.setStyleSheet(self.css_style)
                 self.mainWD.setStyleSheet(self.css_style)
         except Exception as e:
-            print(e)
+            print(e, 11)
     def us(self):
         self.update_style_2()
 
@@ -84,7 +84,7 @@ class Settings(QWidget):
                 with open("userdata.json", "w") as f:
                     json.dump(reg_us, f, indent=4)
         except Exception as e:
-            print(e)
+            print(e, 12)
 
     def change_theme(self):
         try:
@@ -107,7 +107,6 @@ class Settings(QWidget):
             for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:
                 self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
                                                         self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
-            print(self.style_type, self.style_theme)
             self.setStyleSheet(self.css_style)
             print(3)
         except Exception as e:
