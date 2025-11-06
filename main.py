@@ -51,6 +51,9 @@ class MainWindow(QMainWindow):
             self.user_data = self.registrated_users["Admin"]
         self.setFixedSize(994, 639)
         self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
+        for i in range(1,8):
+            eval(f'self.DateToolButton{i}.setProperty("cssClass", "week_dates")')
+            eval(f'self.DateToolButton{i}.setText("")')
         self.SettingsToolButton.setIcon(QIcon('Icons/Settingss.png'))
         self.ChangesToolButton.setIcon(QIcon('Icons/Edit.png'))
         self.settings = settings.Settings(self.user_data, self)

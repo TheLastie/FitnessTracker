@@ -38,6 +38,17 @@ QLabel {
 }
 
 /* main.ui */
+[cssClass="week_dates"]{
+    background-color: ******;
+    color: %%%%%%;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+[cssClass="week_dates"]:hover{
+    background-color: %=%%=%;
+}
 #backlbl {
     background-color: #383636;
     border: none;
@@ -117,7 +128,9 @@ background-color: #E4EEEB;
     padding: 5px;
     text-align: center;
 }
-
+#ChangesToolButton:hover, #SettingsToolButton:hover {
+    background-color: %=%%=%;
+}
 
 /*Setting1s.ui*/
 #theme2 {
