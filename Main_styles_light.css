@@ -1,6 +1,9 @@
 /*all files*/
-#RegLog {
-    background-color: #EEEEEE;
+QMainWindow {
+    background-color: #FFFFFF;
+}
+#Settings, #RegLog, #Add_item {
+    background-color: #FFFFFF;
 }
 QPushButton {
     background-color: =*=*=*;
