@@ -28,12 +28,376 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>60</y>
+     <y>20</y>
      <width>991</width>
-     <height>551</height>
+     <height>591</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Exitakk">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Выйти из аккаунта</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton1">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton2">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton3">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton4">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton5">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_13">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton6">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_14">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="DateToolButton7">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="ChangesToolButton">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="SettingsToolButton">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <selectedon>../../Downloads/acetone-20251019-165210-362.png</selectedon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
     <item>
      <widget class="QStackedWidget" name="page_switch">
       <property name="enabled">
@@ -678,52 +1042,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QToolButton" name="SettingsToolButton">
-   <property name="geometry">
-    <rect>
-     <x>940</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-     <underline>false</underline>
-     <strikeout>false</strikeout>
-     <kerning>false</kerning>
-    </font>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165210-362.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="ChangesToolButton">
-   <property name="geometry">
-    <rect>
-     <x>900</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
   <widget class="QLabel" name="backlbl">
    <property name="geometry">
     <rect>
@@ -737,162 +1055,8 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="Exitakk">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>211</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Выйти из аккаунта</string>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton7">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton6">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton5">
-   <property name="geometry">
-    <rect>
-     <x>580</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton4">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton3">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton1">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="DateToolButton2">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <selectedon>../../Downloads/acetone-20251019-165925-204.png</selectedon>
-    </iconset>
-   </property>
-  </widget>
   <zorder>backlbl</zorder>
   <zorder>verticalLayoutWidget</zorder>
-  <zorder>SettingsToolButton</zorder>
-  <zorder>ChangesToolButton</zorder>
-  <zorder>Exitakk</zorder>
-  <zorder>DateToolButton7</zorder>
-  <zorder>DateToolButton6</zorder>
-  <zorder>DateToolButton5</zorder>
-  <zorder>DateToolButton4</zorder>
-  <zorder>DateToolButton3</zorder>
-  <zorder>DateToolButton1</zorder>
-  <zorder>DateToolButton2</zorder>
  </widget>
  <resources/>
  <connections/>
