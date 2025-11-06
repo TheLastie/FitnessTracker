@@ -883,15 +883,16 @@
        <x>70</x>
        <y>180</y>
        <width>801</width>
-       <height>151</height>
+       <height>191</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="heightedit">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Sitka Heading</family>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -903,10 +904,11 @@
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="activityedit">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Sitka Heading</family>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -936,10 +938,11 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="ageedit">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Sitka Heading</family>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -960,10 +963,11 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="weightedit">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Sitka Heading</family>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">

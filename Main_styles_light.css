@@ -115,6 +115,10 @@ background-color: #E4EEEB;
 
 /*Setting1s.ui*/
 
+#label{
+    border: 1px solid #3B3C3E;
+}
+
 #theme2 {
     background-color: #6276d9;
 }
@@ -142,4 +146,10 @@ background-color: #a566d9;
 
 #setback2 {
     background-color: %%%%%%;
+}
+
+/*RegLog*/
+
+#UserDataChange, #heightedit, #weightedit, #activityedit, #ageedit {
+    border: none
 }
