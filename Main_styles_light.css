@@ -154,5 +154,11 @@ background-color: #a566d9;
 /*RegLog*/
 
 #UserDataChange, #heightedit, #weightedit, #activityedit, #ageedit {
-    border: none
+    border: none;
+    color: ==**==;
+}
+
+#UserDataChange {
+    background-color: =*=*=*;
+    border: 1px solid #3B3C3E;
 }
