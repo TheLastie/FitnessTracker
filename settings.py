@@ -102,7 +102,8 @@ class Settings(QWidget):
                 self.style_theme = "theme6"
             elif self.sender() == self.theme7:
                 self.style_theme = "theme7"
-
+            with open(f'Main_styles_{self.style_type}.css', 'r') as f:
+                self.css_style_saved = f.read()
             self.css_style = self.css_style_saved
             for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:
                 self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],

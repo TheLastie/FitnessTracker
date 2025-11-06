@@ -5,6 +5,9 @@ QMainWindow {
 #Settings, #RegLog, #Add_item {
     background-color: #383636;
 }
+#background_window {
+    background-color: #383636;
+}
 QPushButton {
     background-color: =*=*=*;
     color: ==**==;

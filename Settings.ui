@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Settings</class>
  <widget class="QWidget" name="Settings">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -27,6 +30,9 @@
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
@@ -763,6 +769,17 @@ background-color: black;
     <string/>
    </property>
   </widget>
+  <widget class="QWidget" name="background_window" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-31</x>
+     <y>-101</y>
+     <width>1101</width>
+     <height>771</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>background_window</zorder>
   <zorder>setback</zorder>
   <zorder>setback2</zorder>
   <zorder>label</zorder>
