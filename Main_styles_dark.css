@@ -112,7 +112,7 @@ background-color: #E4EEEB;
     font-family: Courier;
 }
 
-#water_list, #meal_list , #exercise_list {
+#water_list, #meal_list , #exercise_list{
     color: #3B3C3E;
     font-size:18px;
     font-family: Courier New;
@@ -123,7 +123,16 @@ background-color: #E4EEEB;
     border-radius: 17px;
 }
 
-
+#meal_search_list{
+    color: #3B3C3E;
+    font-size:12px;
+    font-family: Courier New;
+    letter-spacing:1;
+    text-align: justify;
+    background-color: #7A7D7D;
+    border:1px solid ******;
+    border-radius: 17px;
+}
 #ChangesToolButton, #SettingsToolButton {
     background-color: ******;
     color: %%%%%%;

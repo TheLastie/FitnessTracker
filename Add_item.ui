@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QListWidget" name="meal_search_list">
@@ -637,41 +637,6 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QLabel" name="TrainingDate">
-        <property name="font">
-         <font>
-          <family>Sitka Heading</family>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Дата тренировки</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDateEdit" name="dateEdit">
-        <property name="font">
-         <font>
-          <family>Sitka Heading</family>
-          <pointsize>20</pointsize>
-         </font>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="accelerated">
-         <bool>false</bool>
-        </property>
-        <property name="calendarPopup">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QLabel" name="TrainingLong">
         <property name="font">
          <font>
@@ -690,7 +655,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QTimeEdit" name="timeEdit">
+         <widget class="QTimeEdit" name="training_time">
           <property name="font">
            <font>
             <pointsize>20</pointsize>
@@ -720,7 +685,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_10">
+       <widget class="QLineEdit" name="mid_pulse">
         <property name="font">
          <font>
           <family>Sitka Heading</family>
@@ -746,7 +711,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="training_type">
         <property name="font">
          <font>
           <family>Sitka Heading</family>
@@ -771,7 +736,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="save_training">
           <property name="maximumSize">
            <size>
             <width>16777215</width>

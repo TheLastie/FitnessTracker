@@ -207,7 +207,8 @@ class RegistrationWindow(QWidget):
                         'height': int(self.high_le.text()),
                         'age': int(self.age_le.text()),
                         'needed calories': calories,
-                        'needed water': 1,
+                        'needed water': int(self.weight_le.text())*30+self.activity_score[
+                                   self.activity_items.index(self.activ_cb.currentText())]*150,
                         'activity': self.activ_cb.currentText(),
                         'trainings': {
 
