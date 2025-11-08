@@ -77,16 +77,16 @@ class RegistrationWindow(QWidget):
         }
 
         try:
-            with open("userdata.json", "r") as f:
+            with open("userdata.json", "r", encoding='utf-8') as f:
                 self.registrated_users.update(json.load(f))
         except FileNotFoundError:
-            with open("userdata.json", "w") as f:
-                json.dump(self.registrated_users, f, indent=4)
+            with open("userdata.json", "w", encoding='utf-8') as f:
+                json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
         except ValueError:
             pass
         if len(self.registrated_users) > 1:
-            with open("userdata.json", "w") as f:
-                json.dump(self.registrated_users, f, indent=4)
+            with open("userdata.json", "w", encoding='utf-8') as f:
+                json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
         if self.registrated_users['current_user'] !=0 and self.registrated_users['current_user'] in self.registrated_users:
             login = self.registrated_users['current_user']
             self.ext()
@@ -128,7 +128,7 @@ class RegistrationWindow(QWidget):
         self.femaleButton.toggled.connect(self.r_button)
 
     def update_style(self):
-        self.setStyleSheet(open("Current_style.css", 'r').read())
+        self.setStyleSheet(open("Current_style.css", 'r', encoding='utf-8').read())
 
     def r_button(self):
         if self.sender() == self.maleButton:
@@ -159,8 +159,8 @@ class RegistrationWindow(QWidget):
                         (self.lpassword_le.text()).encode()).hexdigest():
                     if self.saveme.isChecked():
                         self.registrated_users.update({'current_user': self.llogin_le.text()})
-                        with open("userdata.json", "w") as f:
-                            json.dump(self.registrated_users, f, indent=4)
+                        with open("userdata.json", "w", encoding='utf-8') as f:
+                            json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
                     self.main_wd.show()
                     self.main_wd.select_user(self.llogin_le.text(), self.registrated_users[self.llogin_le.text()])
                     self.hide()
@@ -223,8 +223,8 @@ class RegistrationWindow(QWidget):
                 }
                 self.main_wd.show()
                 if len(self.registrated_users) > 1:
-                    with open("userdata.json", "w") as f:
-                        json.dump(self.registrated_users, f, indent=4)
+                    with open("userdata.json", "w", encoding='utf-8') as f:
+                        json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
                 self.main_wd.select_user(self.current_log[0], self.registrated_users[self.current_log[0]])
                 self.hide()
             except Exception as e:

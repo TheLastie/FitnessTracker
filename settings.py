@@ -20,13 +20,13 @@ class Settings(QWidget):
             self.style_type = 'light'
         self.stl_themes = {}
         self.css_style_saved = ''
-        with open(f'Main_styles_{self.style_type}.css', 'r') as f:
+        with open(f'Main_styles_{self.style_type}.css', 'r', encoding='utf-8') as f:
             self.css_style_saved = f.read()
-        with open("Style_themes.json", "r") as f:
+        with open("Style_themes.json", "r", encoding='utf-8') as f:
             self.stl_themes.update(json.load(f))
         self.css_style = self.css_style_saved
         uic.loadUi("Settings.ui", self)
-        self.setStyleSheet(open('Current_style.css', 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
         self.theme1.clicked.connect(self.change_theme)
         self.theme2.clicked.connect(self.change_theme)
         self.theme3.clicked.connect(self.change_theme)
@@ -51,9 +51,9 @@ class Settings(QWidget):
         self.setStyleSheet(self.css_style)
     def update_style_2(self):
         try:
-            with open(f'Main_styles_{self.style_type}.css', 'r') as f:
+            with open(f'Main_styles_{self.style_type}.css', 'r', encoding='utf-8') as f:
                 self.css_style_saved = f.read()
-            with open("Style_themes.json", "r") as f:
+            with open("Style_themes.json", "r", encoding='utf-8') as f:
                 self.stl_themes.update(json.load(f))
             self.style_type = self.user_data['d_l']
             self.style_theme = self.user_data['theme']
@@ -70,7 +70,7 @@ class Settings(QWidget):
 
     def save_changes(self):
         try:
-            with open("Current_style.css", "w") as f:
+            with open("Current_style.css", "w", encoding='utf-8') as f:
                 f.write(self.css_style)
                 self.mainWD.setStyleSheet(self.css_style)
                 self.mainWD.add_window.setStyleSheet(self.css_style)
@@ -78,11 +78,11 @@ class Settings(QWidget):
                 self.user_data['d_l'] = self.style_type
                 self.user_data['theme'] = self.style_theme
                 reg_us = {}
-                with open("userdata.json", "r") as f:
+                with open("userdata.json", "r", encoding='utf-8') as f:
                     reg_us.update(json.load(f))
                 reg_us.update({self.user_login:self.user_data})
-                with open("userdata.json", "w") as f:
-                    json.dump(reg_us, f, indent=4)
+                with open("userdata.json", "w", encoding='utf-8') as f:
+                    json.dump(reg_us, f, indent=4, ensure_ascii=False)
         except Exception as e:
             print(e, 12)
 
@@ -102,7 +102,7 @@ class Settings(QWidget):
                 self.style_theme = "theme6"
             elif self.sender() == self.theme7:
                 self.style_theme = "theme7"
-            with open(f'Main_styles_{self.style_type}.css', 'r') as f:
+            with open(f'Main_styles_{self.style_type}.css', 'r', encoding='utf-8') as f:
                 self.css_style_saved = f.read()
             self.css_style = self.css_style_saved
             for idx in self.stl_themes[f'{self.style_type}-themes'][self.style_theme]:

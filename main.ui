@@ -108,7 +108,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Пн</string>
         </property>
         <property name="icon">
          <iconset>
@@ -142,7 +142,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Вт</string>
         </property>
         <property name="icon">
          <iconset>
@@ -176,7 +176,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Ср</string>
         </property>
         <property name="icon">
          <iconset>
@@ -210,7 +210,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Чт</string>
         </property>
         <property name="icon">
          <iconset>
@@ -244,7 +244,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Пт</string>
         </property>
         <property name="icon">
          <iconset>
@@ -278,7 +278,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Сб</string>
         </property>
         <property name="icon">
          <iconset>
@@ -312,7 +312,7 @@
          </size>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>Вс</string>
         </property>
         <property name="icon">
          <iconset>
@@ -412,7 +412,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="meal_page">
        <widget class="QListWidget" name="meal_list">
@@ -423,6 +423,31 @@
           <width>481</width>
           <height>271</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Sitka Heading</family>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="modelColumn">
+         <number>0</number>
+        </property>
+        <property name="uniformItemSizes">
+         <bool>true</bool>
+        </property>
+        <property name="batchSize">
+         <number>10000</number>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="selectionRectVisible">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLabel" name="meals">

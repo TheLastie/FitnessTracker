@@ -17,7 +17,7 @@ class AppendToBaseWindow(QWidget):
         self.mealbase = {}
 
         uic.loadUi("Add_item.ui", self)
-        self.setStyleSheet(open('Current_style.css', 'r').read())
+        self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
 
         self.names = ['Калории: 0000', 'Белки: 00,00', 'Жиры: 00,00', 'Углеводы: 00,00']
         self.ProteinAdd.setInputMask("99.99")
@@ -117,21 +117,20 @@ class AppendToBaseWindow(QWidget):
                 else:
                     name = self.meal_data['name']+"/"+str(int(self.meal_data['weight']))
 
-                meal = {name: self.meal_data}
-                print(self.user_data)
+                meal = self.meal_data
                 date_now = datetime.date.today()
                 date_now = date_now.strftime("%d.%m.%Y")
                 if date_now in self.user_data['userdata']['meals']:
                     self.user_data['userdata']['meals'][date_now].append(meal)
                 else:
                     self.user_data['userdata']['meals'][date_now] = [meal]
-                print(self.user_data)
                 reg_us = {}
                 with open("userdata.json", "r", encoding='utf-8') as f:
                     reg_us.update(json.load(f))
                 reg_us.update({self.user_data['Login']: self.user_data})
                 with open("userdata.json", "w", encoding='utf-8') as f:
                     json.dump(reg_us, f, indent=4, ensure_ascii=False)
+                self.mainWD.update_today_lists()
         except Exception as e:
             print(e)
 

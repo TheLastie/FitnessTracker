@@ -115,6 +115,10 @@ background-color: #E4EEEB;
 
 #water_list, #meal_list , #exercise_list {
     color: #3B3C3E;
+    font-size:18px;
+    font-family: Courier New;
+    letter-spacing:1;
+    text-align: justify;
     background-color: #E4EEEB;
     border:1px solid ******;
     border-radius: 17px;
