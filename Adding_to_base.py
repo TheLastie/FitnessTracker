@@ -37,7 +37,7 @@ class AppendToBaseWindow(QWidget):
         self.back_1.clicked.connect(self.ext)
         self.back_2.clicked.connect(self.ext)
         self.back_3.clicked.connect(self.ext)
-        self.Appendbase.clicked.connect(self.append_Base)
+        self.Appendbase.clicked.connect(self.append_base_meals)
         self.back_11.clicked.connect(lambda : self.stackedWidget.setCurrentIndex(0))
         self.AddMealButton.clicked.connect(self.add_new_meal_tobase)
         self.search_bar.textChanged.connect(self.meals_search_list)
@@ -108,8 +108,11 @@ class AppendToBaseWindow(QWidget):
                   for i in
                   self.meallist]:
             self.meal_search_list.addItem(i)
+    def append_base_water(self):
+        pass
 
-    def append_Base(self):
+
+    def append_base_meals(self):
         try:
             if self.all_good:
                 if self.MealName.text():

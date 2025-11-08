@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QListWidget" name="meal_search_list">
@@ -922,12 +922,21 @@
            <layout class="QVBoxLayout" name="verticalLayout_6"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_7">
+           <widget class="QLineEdit" name="Water_Check">
             <property name="font">
              <font>
               <family>Sitka Heading</family>
               <pointsize>14</pointsize>
              </font>
+            </property>
+            <property name="inputMask">
+             <string>0000</string>
+            </property>
+            <property name="maxLength">
+             <number>4</number>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -956,7 +965,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="add_water_button">
         <property name="font">
          <font>
           <family>Sitka Heading</family>
