@@ -43,38 +43,29 @@ class RegistrationWindow(QWidget):
     def open_registration(self):
         self.registrated_users = {
             'Admin': {
-                "Login": 'Admin',
-                "password": hashlib.md5(b'123').hexdigest(),
-                'theme': 'theme1',
-                'd_l': get_windows_theme(),
-                "userdata": {
-                    'weight': 60,
-                    'height': 170,
-                    'activity': 'low/moderate/vigorous',
-                    'trainings': {
-                        '12.10.2025': {
-                            'training_date': '12.10.2025',
-                            'calories_burnt': 400,
-                            'hours': 2}
-                    },
-                    'meals': {
-                        '12.10.2025': {
-                            '0001': {
-                                'name': 'miyaso',
-                                'id': 'aaaa',
-                                'mass': 100
-                            }
+                    "Login": "Admin",
+                    "password": hashlib.md5("123".encode()).hexdigest(),
+                    "userdata": {
+                        'theme': 'theme1',
+                        'd_l': get_windows_theme(),
+                        'weight': 100,
+                        'height': 200,
+                        'age': 20,
+                        'needed calories': 3000,
+                        'needed water': 5000,
+                        'activity': "Высокая",
+                        'trainings': {
+
+                        },
+                        'meals': {
+
+                        },
+                        'water': {
+
                         }
 
-                    },
-                    'water': {
-                        '12.10.2025': {
-                            'water_drunk': 1000
-                        }
                     }
-                }
-            }
-        }
+                }}
 
         try:
             with open("userdata.json", "r", encoding='utf-8') as f:
@@ -215,10 +206,10 @@ class RegistrationWindow(QWidget):
                         },
                         'meals': {
 
-                        }
+                        },
+                        'water': {
 
-                    },
-                    'water': {
+                        }
 
                     }
                 }
