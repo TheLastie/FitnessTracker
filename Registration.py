@@ -65,7 +65,8 @@ class RegistrationWindow(QWidget):
                         }
 
                     }
-                }}
+                },
+        "current_user": None}
 
         try:
             with open("userdata.json", "r", encoding='utf-8') as f:
