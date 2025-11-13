@@ -1,5 +1,4 @@
-import json
-
+import json, csv
 from PyQt6.QtCore import QTime
 from PyQt6.QtWidgets import *
 from PyQt6 import uic
@@ -48,9 +47,13 @@ class AppendToBaseWindow(QWidget):
         self.WeightAdd.addItems(self.weight_types)
         self.training_type.addItems(self.training_types)
         self.error_text.setStyleSheet("*{border:none;}")
-        with open("AllMealsBase.json", "r", encoding='utf-8') as f:
-            self.mealbase.update(json.load(f))
+        with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
+            r = csv.DictReader(f)
+            next(r)
+            for i in r:
+                self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
         self.meallist = [[i] + [str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
+
     def cur_day(self, day):
 
         self.current_day = day
@@ -59,9 +62,12 @@ class AppendToBaseWindow(QWidget):
         self.mainWD.show()
 
     def selected_item(self, item):
-        self.current_item = item.text().split("     ")[0]
-        self.current_item = (self.current_item, self.mealbase[self.current_item])
-        self.update_selected_meal_data()
+        try:
+            self.current_item = item.text().split("     ")[0].strip()
+            self.current_item = (self.current_item, self.mealbase[self.current_item])
+            self.update_selected_meal_data()
+        except Exception as e:
+            print(e)
 
     def add_new_meal_tobase(self):
         try:
@@ -102,13 +108,15 @@ class AppendToBaseWindow(QWidget):
             self.mealbase.update(new_meal)
             self.meallist = [[i.rstrip()] + [str(self.mealbase[i][g]).rstrip() for g in self.mealbase[i]] for i in
                              self.mealbase]
-            with open("AllMealsBase.json", "w", encoding='utf-8') as f:
-                json.dump(self.mealbase, f, indent=4, ensure_ascii=False)
+            meals = [["name", 'type', 'calories', 'proteins', 'fats', 'carbonates']]+self.meallist
+            with open("AllMealsBase.csv", "w", encoding='utf-8') as f:
+                wr = csv.writer(f)
+                wr.writerows(meals)
 
             self.stackedWidget.setCurrentIndex(0)
             self.meals_update_list()
         except Exception as e:
-            print(e)
+            print(e, 2)
 
     def meals_update_list(self):
         self.meal_search_list.clear()
@@ -142,7 +150,7 @@ class AppendToBaseWindow(QWidget):
                 self.MealWeight.setText('')
                 self.MealName.setText('')
         except Exception as e:
-            print(e)
+            print(e, 5)
 
     def append_base_training(self):
         try:
@@ -211,10 +219,10 @@ class AppendToBaseWindow(QWidget):
             print(self.current_item)
             if self.current_item:
                 weight = float(self.MealWeight.text()) / 100
-                calories = round(self.current_item[1]['calories'] * weight, 2)
-                proteins = round(self.current_item[1]['proteins'] * weight, 2)
-                Fats = round(self.current_item[1]['fats'] * weight, 2)
-                Carbs = round(self.current_item[1]['carbonates'] * weight, 2)
+                calories = round(float(self.current_item[1]['calories']) * weight, 2)
+                proteins = round(float(self.current_item[1]['proteins']) * weight, 2)
+                Fats = round(float(self.current_item[1]['fats']) * weight, 2)
+                Carbs = round(float(self.current_item[1]['carbonates']) * weight, 2)
                 self.meal_data = {'name': self.current_item[0], 'type': self.current_item[1]['type'], 'weight': weight,
                                   'calories': calories, 'proteins': proteins, 'fats': Fats, "carbonates": Carbs}
 
@@ -231,7 +239,7 @@ class AppendToBaseWindow(QWidget):
                 self.all_good = False
 
         except Exception as e:
-            print(e)
+            print(e, 12)
 
     def get_data(self, pageType, user_data):
         self.pageType = pageType
