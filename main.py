@@ -70,8 +70,18 @@ class MainWindow(QMainWindow):
         self.Exitakk.clicked.connect(self.exit_akk)
         self.model = QStringListModel(self)
         self.page_water.clicked.connect(self.choose_page)
-        self.timer.setInterval(1)
 
+        self.meal_list.itemClicked.connect(self.selected_meal)
+        self.exercise_list.itemClicked.connect(self.selected_training)
+        self.meal_del.clicked.connect(self.delete_meal)
+        self.water_list.itemClicked.connect(self.selected_water)
+
+        self.water_del.clicked.connect(self.delete_water)
+        self.training_del.clicked.connect(self.delete_training)
+        self.timer.setInterval(1)
+        self.sel_meal = ''
+        self.tr_idx = '*'
+        self.water_count = 0
         self.Water_line_edit.setValidator(QIntValidator(0, 5000, self.Water_line_edit))
         self.styletheme = [f'{self.settings.style_type}-themes', self.settings.style_theme]
         cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['color_5']
@@ -86,6 +96,79 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
         self.update_today_lists()
 
+    def selected_meal(self, item):
+        self.sel_meal = item.text().split('   ')[0]
+
+    def delete_meal(self):
+        if not self.sel_meal:
+            return
+        idx = 0
+        for i in self.user_data['userdata']['meals'].get(self.current_day_date):
+            if i['name'].strip() == self.sel_meal.strip():
+                del self.user_data['userdata']['meals'][self.current_day_date][idx]
+                break
+            idx += 1
+
+        with open("userdata.json", "r", encoding='utf-8') as f:
+            self.registrated_users.update(json.load(f))
+        self.registrated_users.update({self.user_login:self.user_data})
+        with open("userdata.json", "w", encoding='utf-8') as f:
+            json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
+        self.update_today_lists()
+        self.sel_meal = ''
+    def selected_training(self, item):
+        try:
+            self.tr_idx = int([i for i in item.text().split() if i][0])-1
+
+        except Exception as e:
+            print(e)
+
+    def delete_training(self):
+        try:
+            if not self.tr_idx!= "*":
+                return
+
+            del self.user_data['userdata']['trainings'][self.current_day_date][self.tr_idx]
+
+            with open("userdata.json", "r", encoding='utf-8') as f:
+                self.registrated_users.update(json.load(f))
+            self.registrated_users.update({self.user_login:self.user_data})
+            with open("userdata.json", "w", encoding='utf-8') as f:
+                json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
+            self.update_today_lists()
+            self.tr_idx = "*"
+        except Exception as e:
+            print(e)
+    def selected_water(self, item):
+        try:
+            self.water_count = int(item.text().split()[0])
+
+        except Exception as e:
+            print(e)
+
+    def delete_water(self):
+        try:
+            if not self.water_count:
+                return
+
+            idx = 0
+            for i in self.user_data['userdata']['water'].get(self.current_day_date):
+                if i == self.water_count:
+                    del self.user_data['userdata']['water'][self.current_day_date][idx]
+                    break
+                idx += 1
+            with open("userdata.json", "r", encoding='utf-8') as f:
+                self.registrated_users.update(json.load(f))
+            self.registrated_users.update({self.user_login:self.user_data})
+            with open("userdata.json", "w", encoding='utf-8') as f:
+                json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
+            self.update_today_lists()
+            self.water_count = 0
+        except Exception as e:
+            print(e)
+
+
+
     def add_water_tolist(self):
         if self.Water_line_edit.text():
             if self.current_day_date in self.user_data['userdata']['water']:
@@ -97,7 +180,6 @@ class MainWindow(QMainWindow):
                 json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
             self.update_today_lists()
             self.Water_line_edit.setText('')
-
 
     def update_today_lists(self):
         with open("userdata.json", "r", encoding='utf-8') as f:
@@ -122,14 +204,14 @@ class MainWindow(QMainWindow):
 
             meal_sums = [0, 0, 0, 0]
             for meal in all_today_meals:
-                meal_sums[0]+=meal['calories']
+                meal_sums[0] += meal['calories']
                 meal_sums[1] += meal['proteins']
                 meal_sums[2] += meal['fats']
                 meal_sums[3] += meal['carbonates']
-                new_meal = " " + meal['name'] + " " * int(15 - len(str(meal['name']))) \
+                new_meal = " " + meal['name'] + "   " + " " * int(13 - len(str(meal['name']))) \
                            + str(int(meal['weight'] * 1000)) + " " + meal['type'].replace('grams', "гр").replace('ml',
                                                                                                                  "мл") \
-                           + " " * (8 - len(str(int(meal['weight'] * 1000))) - len(
+                           + " " * (6 - len(str(int(meal['weight'] * 1000))) - len(
                     meal['type'].replace('grams', "гр").replace('ml', "мл"))) \
                            + str(int(meal['calories'])) + " " * (5 - len(str(int(meal['calories'])))) \
                            + str(int(meal['proteins'])) + " " * (5 - len(str(int(meal['proteins'])))) \
@@ -138,42 +220,45 @@ class MainWindow(QMainWindow):
                 meall = QListWidgetItem(new_meal)
 
                 self.meal_list.addItem(new_meal)
-            self.protein_number.setText("Белки\n"+str(int(meal_sums[1])))
+            self.protein_number.setText("Белки\n" + str(int(meal_sums[1])))
             self.calories.setText("Калории\n" + str(int(meal_sums[0])))
             self.fats_number.setText("Жиры\n" + str(int(meal_sums[2])))
             self.carbo_number.setText("Углеводы\n" + str(int(meal_sums[3])))
+
+        water_sum = 0
         if all_today_water:
             lst = []
-            water_sum = 0
             for water in all_today_water:
-                water_sum+=water
+                water_sum += water
                 water_new = QListWidgetItem(str(water) + ' мл')
 
                 self.water_list.addItem(water_new)
-            self.take_water_count.setText(str(water_sum)+" мл")
-            neededwater = self.user_data['userdata']['needed water']-water_sum
-            if neededwater >=0:
-                self.remain_water_count.setText(str(neededwater)+' мл')
-            else:
-                self.remain_water_count.setText('0 мл')
+        self.take_water_count.setText(str(water_sum) + " мл")
+        neededwater = self.user_data['userdata']['needed water'] - water_sum
+        if neededwater >= 0:
+            self.remain_water_count.setText(str(neededwater) + ' мл')
+        else:
+            self.remain_water_count.setText('0 мл')
         if all_week_trainings:
             num = 1
             minutes = 0
-            calories=0
+            calories = 0
             for training in all_week_trainings:
-                minutes+=training['training_time']
-                calories+=training['calories']
+                minutes += training['training_time']
+                calories += training['calories']
                 new_training = " " + str(num) + " " * (3 - len(str(num))) \
-                           +str(training['training_time']//60) +":"+str(training['training_time']%60)\
-                + " " *(7-len(str(training['training_time']//60) +":"+str(training['training_time']%60)))\
-                           +training['type']+ " " *\
-                (20 - len(training['type']))+str(round(training['calories']))+" "*(8-len(str(round(training['calories'])))) +\
-                    str(training['pulse']) + " "*(5-len(str(training['pulse'])))
+                               + str(training['training_time'] // 60) + ":" + str(training['training_time'] % 60) \
+                               + " " * (7 - len(
+                    str(training['training_time'] // 60) + ":" + str(training['training_time'] % 60))) \
+                               + training['type'] + " " * \
+                               (20 - len(training['type'])) + str(round(training['calories'])) + " " * (
+                                       8 - len(str(round(training['calories'])))) + \
+                               str(training['pulse']) + " " * (5 - len(str(training['pulse'])))
 
                 self.exercise_list.addItem(QListWidgetItem(new_training))
-                num+=1
+                num += 1
             self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories} ")
-            self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes//60} ")
+            self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes // 60} ")
             self.execise_sum.setText(f"Количество\nтренировок\n\n {num} ")
 
     def week_buttons(self):
@@ -270,7 +355,6 @@ class MainWindow(QMainWindow):
             self.page_switch.setCurrentIndex(1)
         else:
             self.page_switch.setCurrentIndex(2)
-
 
     def select_user(self, user_login, user_data):
         self.user_login = user_login

@@ -34,7 +34,46 @@ class RegistrationWindow(QWidget):
 
     def open_edit(self):
         self.BackButtonChange.clicked.connect(self.ext)
-        self.cerror_2.setText('')
+        self.ChangesConfirmButton.clicked.connect(self.edit_button)
+        self.act_ed.addItems(self.activity_items)
+    def edit_button(self):
+        if not self.age_ed.text() or not self.height_ed.text() or not self.weight_ed.text():
+            return
+        try:
+            if self.mf == 'female':
+                calories = 655.1 + (9.563 * int(self.weight_ed.text())) + (1.85 * int(self.height_ed.text())) - (
+                        4.676 * int(self.age_ed.text())) * (self.activity_score[
+                                                                self.activity_items.index(
+                                                                    self.activ_cb.currentText())] - 0.5)
+            else:
+                calories = 66.5 + (13.75 * int(self.weight_ed.text())) + (5.003 * int(self.height_ed.text())) - (
+                        6.775 * int(self.age_ed.text())) * self.activity_score[
+                               self.activity_items.index(self.act_ed.currentText())]
+            current_user = self.registrated_users['current_user']
+            w_tr_meals = self.registrated_users[current_user]['userdata']['water'], self.registrated_users[current_user]['userdata']['trainings'], self.registrated_users[current_user]['userdata']['meals']
+            self.registrated_users[self.registrated_users['current_user']].update(
+                {"userdata": {
+                    'theme': 'theme1',
+                    'd_l': get_windows_theme(),
+                    'weight': int(self.weight_ed.text()),
+                    'height': int(self.height_ed.text()),
+                    'age': int(self.age_ed.text()),
+                    'needed calories': calories,
+                    'needed water': int(self.weight_ed.text()) * 30 + self.activity_score[
+                        self.activity_items.index(self.act_ed.currentText())] * 150,
+                    'activity': self.act_ed.currentText(),
+                    'meals': w_tr_meals[2],
+                    'trainings': w_tr_meals[1],
+                    'water': w_tr_meals[0]
+                }})
+            self.main_wd.show()
+            print(12)
+            with open("userdata.json", "w", encoding='utf-8') as f:
+                json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
+            self.hide()
+        except Exception as e:
+            print(e)
+
 
     def ext(self):
         self.hide()
@@ -135,6 +174,7 @@ class RegistrationWindow(QWidget):
             self.stackedWidget.setCurrentIndex(0)
         if self.sender() == self.registrNewButton:
             self.stackedWidget.setCurrentIndex(1)
+
 
     def login_button(self):
         try:

@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QListWidget" name="meal_search_list">
@@ -291,6 +291,28 @@
        <width>391</width>
        <height>31</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="del_meal">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>60</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Heading</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>-</string>
      </property>
     </widget>
    </widget>

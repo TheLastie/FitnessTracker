@@ -55,7 +55,7 @@ QLabel {
     border-radius: 0px;
 }
 
-#add_water, #add_exercise, #add_meal {
+#add_water, #add_exercise, #add_meal, #water_del, #training_del, #meal_del  {
     background-color: ******;
     color: #ebebeb;
     border: 0.1px solid ******;
@@ -66,7 +66,7 @@ QLabel {
     margin: 2px;
 }
 
-#add_water:hover, #add_exercise:hover, #add_meal:hover {
+#add_water:hover, #add_exercise:hover, #add_meal:hover, #water_del:hover, #training_del:hover, #meal_del:hover  {
     background-color: %=%%=%;
     color: ======;
     font-weight: 600;

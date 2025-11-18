@@ -17,7 +17,7 @@ class AppendToBaseWindow(QWidget):
 
         uic.loadUi("Add_item.ui", self)
         self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
-
+        self.sel_meal = ''
         self.training_types = ["Ходьба", "Бег", "Силовая тренировка", "Фитнес"]
         self.names = ['Калории: 0000', 'Белки: 00,00', 'Жиры: 00,00', 'Углеводы: 00,00']
         self.ProteinAdd.setInputMask("99.99")
@@ -47,6 +47,8 @@ class AppendToBaseWindow(QWidget):
         self.WeightAdd.addItems(self.weight_types)
         self.training_type.addItems(self.training_types)
         self.error_text.setStyleSheet("*{border:none;}")
+        self.del_meal.clicked.connect(self.delete_meal)
+
         with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
             r = csv.DictReader(f)
             next(r)
@@ -133,13 +135,22 @@ class AppendToBaseWindow(QWidget):
                 if self.MealName.text():
                     name = self.MealName.text().rstrip()
                 else:
-                    name = self.meal_data['name'] + "/" + str(int(self.meal_data['weight']))
-
+                    name = self.meal_data['name']
                 meal = self.meal_data
-                if self.current_day in self.user_data['userdata']['meals']:
-                    self.user_data['userdata']['meals'][self.current_day].append(meal)
+                idx = 0
+                for i in self.user_data['userdata']['meals'][self.current_day]:
+                    if i['name'] == name:
+                        self.user_data['userdata']['meals'][self.current_day][idx]['proteins']+=meal['proteins']
+                        self.user_data['userdata']['meals'][self.current_day][idx]['fats'] += meal['fats']
+                        self.user_data['userdata']['meals'][self.current_day][idx]['calories'] += meal['calories']
+                        self.user_data['userdata']['meals'][self.current_day][idx]['carbonates'] += meal['carbonates']
+                    idx+=1
+                    break
                 else:
-                    self.user_data['userdata']['meals'][self.current_day] = [meal]
+                    if self.current_day in self.user_data['userdata']['meals']:
+                        self.user_data['userdata']['meals'][self.current_day].append(meal)
+                    else:
+                        self.user_data['userdata']['meals'][self.current_day] = [meal]
                 reg_us = {}
                 with open("userdata.json", "r", encoding='utf-8') as f:
                     reg_us.update(json.load(f))
@@ -196,6 +207,30 @@ class AppendToBaseWindow(QWidget):
 
 
 
+
+
+    def delete_meal(self):
+        try:
+            if not self.current_item:
+                return
+            with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
+                r = csv.DictReader(f)
+                next(r)
+                for i in r:
+                    self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
+
+            del self.mealbase[self.current_item[0]]
+
+            self.meallist = [[i.rstrip()] + [str(self.mealbase[i][g]).rstrip() for g in self.mealbase[i]] for i in
+                             self.mealbase]
+            meals = [["name", 'type', 'calories', 'proteins', 'fats', 'carbonates']] + self.meallist
+            with open("AllMealsBase.csv", "w", encoding='utf-8') as f:
+                wr = csv.writer(f)
+                wr.writerows(meals)
+            self.current_item = ''
+            self.meals_update_list()
+        except Exception as e:
+            print(e, 2)
 
     def meals_search_list(self):
         try:
