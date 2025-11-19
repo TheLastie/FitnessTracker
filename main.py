@@ -84,8 +84,8 @@ class MainWindow(QMainWindow):
         self.water_count = 0
         self.Water_line_edit.setValidator(QIntValidator(0, 5000, self.Water_line_edit))
         self.styletheme = [f'{self.settings.style_type}-themes', self.settings.style_theme]
-        cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['color_5']
-        othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['color_2']
+        cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['hover_button-color']
+        othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['round_button_color']
         st_sheet_1 = "QToolBox{background-color:" + othr_week_color + ";}" + "QToolBox:hover{background-color:" + cur_week_color + ";}"
         st_sheet_2 = "background-color:" + cur_week_color + ";"
         for i in range(1, 8):

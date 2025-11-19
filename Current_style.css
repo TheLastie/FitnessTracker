@@ -1,9 +1,18 @@
 /*all files*/
+QMainWindow {
+    background-color: #FFFFFF;
+}
+#Settings, #RegLog, #Add_item {
+    background-color: #FFFFFF;
+}
+#background_window {
+    background-color: #FFFFFF;
+}
 
 QPushButton {
-    background-color: #A9DACE;
-    color: #3B3D3F;
-    border: 0.5px solid #3B3D3F;
+    background-color: #a8dace;
+    color: #3b3c3e;
+    border: 0.5px solid #3b3c3e;
     border-radius: 13px;
     font-weight: 500;
     font-family: Courier;
@@ -15,31 +24,42 @@ QPushButton {
 }
 QPushButton:hover {
     background-color: #176854;
-    color: #ECEDED;
+    color: #000000;
     font-weight: 600;
     margin: 0px;
     border-radius: 17px;
-    border: 1px solid #3B3D3F;
+    border: 1px solid #3b3c3e;
 }
 QLabel {
-    color: #34B998;
+    color: #34b998;
     font-weight: 600;
-    border: 1px solid #3B3D3F;
+    border: 1px solid #3b3c3e;
     border-radius: 17px;
     font-family: Courier;
 }
 
 /* main.ui */
+[cssClass="week_dates"]{
+    background-color: #34b998;
+    color: #EEEEEE;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+[cssClass="week_dates"]:hover{
+    background-color: #176854;
+}
 #backlbl {
     background-color: #D8D8D8;
     border: none;
     border-radius: 0px;
 }
 
-#add_water, #add_exercise, #add_meal {
-    background-color: #34B998;
+#add_water, #add_exercise, #add_meal, #water_del, #training_del, #meal_del {
+    background-color: #34b998;
     color: #EEEEEE;
-    border: 0.1px solid #34B998;
+    border: 0.1px solid #34b998;
     border-radius: 18px;
     font-weight: 600;
     font-family: Courier;
@@ -47,31 +67,31 @@ QLabel {
     margin: 2px;
 }
 
-#add_water:hover, #add_exercise:hover, #add_meal:hover {
+#add_water:hover, #add_exercise:hover, #add_meal:hover,#water_del:hover, #training_del:hover, #meal_del:hover {
     background-color: #176854;
-    color: #ECEDED;
+    color: #000000;
     font-weight: 600;
     margin: 0px;
     border-radius: 20px;
-    border: 1px solid #3B3D3F;
+    border: 1px solid #3b3c3e;
 }
 
 #page_meals:focus, #page_exercise:focus, #page_water:focus {
     background-color: #176854;
-    color: #ECEDED;
+    color: #000000;
     font-weight: 600;
     margin: 0px;
     border-radius: 17px;
-    border: 1px solid #3B3D3F;
+    border: 1px solid #3b3c3e;
 }
 
 #kkk {
     border-radius: 0px 0px 0px 0px;
-    border-color: #34B998;
+    border-color: #34b998;
 }
 
 #protein_number, #fats_number, #carbo_number, #calories_number {
-color: #34B998;
+color: #34b998;
     font-weight: 600;
     font-family: Courier;
     border-radius: 17px;
@@ -86,35 +106,63 @@ background-color: #E4EEEB;
 
 #sport, #meals, #water_track, #weekly_sum{
     color: #3B3C3E;
-    background-color: #A9DACE;
+    background-color: #a8dace;
     border: 1px solid #3B3C3E;
     border-radius: 15px 15px 0px 0px;
     font-weight: 800;
     font-family: Courier;
 }
 
-#water_list, #meal_list , #exercise_list {
+#water_list, #meal_list , #exercise_list{
     color: #3B3C3E;
+    font-size:18px;
+    font-family: Courier New;
+    letter-spacing:1;
+    text-align: justify;
     background-color: #E4EEEB;
-    border:1px solid #34B998;
+    border:1px solid #34b998;
+    border-radius: 17px;
+}
+#meal_search_list{
+    color: #3B3C3E;
+    font-size:12px;
+    font-family: Courier New;
+    letter-spacing:1;
+    text-align: justify;
+    background-color: #E4EEEB;
+    border:1px solid #34b998;
     border-radius: 17px;
 }
 
-
 #ChangesToolButton, #SettingsToolButton {
-    background-color: #34B998;
+    background-color: #34b998;
     color: #EEEEEE;
     border: none;
     border-radius: 15px;
     padding: 5px;
     text-align: center;
 }
-
+#ChangesToolButton:hover, #SettingsToolButton:hover {
+    background-color: #176854;
+}
 
 /*Setting1s.ui*/
+
+#label{
+    border: 1px solid #3B3C3E;
+}
+
+#theme2 {
+    background-color: #6276d9;
+}
+
+#theme3 {
+background-color: #a566d9;
+}
+
 #SettLabel, #themeChose, #Colors {
  border: none;
- color: #3B3D3F;
+ color: #3b3c3e;
  font-weight: 500;
  }
  #SettLabel {
@@ -122,13 +170,25 @@ background-color: #E4EEEB;
  }
 #lightlab, #darklab {
     border: none;
-    color: #3B3D3F;
+    color: #3b3c3e;
     font-weight: 500;
 }
 #setback {
-    background-color: #A9DACE;
+    background-color: #a8dace;
 }
 
 #setback2 {
     background-color: #EEEEEE;
+}
+
+/*RegLog*/
+
+#UserDataChange, #heightedit, #weightedit, #activityedit, #ageedit {
+    border: none;
+    color: #3b3c3e;
+}
+
+#UserDataChange {
+    background-color: #a8dace;
+    border: 1px solid #3B3C3E;
 }

@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1130</width>
-    <height>637</height>
+    <width>954</width>
+    <height>691</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>14</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,10 +21,10 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>0</y>
+     <x>0</x>
+     <y>10</y>
      <width>945</width>
-     <height>648</height>
+     <height>671</height>
     </rect>
    </property>
    <property name="font">
@@ -28,7 +33,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QListWidget" name="meal_search_list">
@@ -320,21 +325,53 @@
     <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>170</x>
        <y>60</y>
-       <width>621</width>
-       <height>554</height>
+       <width>641</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="AddNewMeal">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Sitka Heading</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Добавить новую еду</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
       <item row="5" column="0">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
          <widget class="QLabel" name="label_16">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Sitka Heading</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="styleSheet">
@@ -344,12 +381,18 @@
            <string>Название</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLineEdit" name="NameAddMeal">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Sitka Heading</family>
@@ -360,47 +403,70 @@
         </item>
         <item>
          <widget class="QLabel" name="label_17">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Sitka Heading</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="text">
            <string>гр./мл</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QComboBox" name="WeightAdd">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
-            <pointsize>14</pointsize>
+            <pointsize>12</pointsize>
            </font>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_18">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
-            <family>Sitka Heading</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="text">
            <string>Белки</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLineEdit" name="ProteinAdd">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Sitka Heading</family>
@@ -420,22 +486,34 @@
         </item>
         <item>
          <widget class="QLabel" name="label_19">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Sitka Heading</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="text">
            <string>Углеводы</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLineEdit" name="CarbonsAdd">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>70</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Sitka Heading</family>
@@ -455,14 +533,14 @@
           <property name="font">
            <font>
             <family>Sitka Heading</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="text">
            <string>Жиры</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -487,14 +565,14 @@
           <property name="font">
            <font>
             <family>Sitka Heading</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="text">
            <string>Калорийность</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -522,6 +600,12 @@
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QLabel" name="error_text">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>50</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <family>Sitka Heading</family>
@@ -543,27 +627,7 @@
         </item>
        </layout>
       </item>
-      <item row="2" column="0">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QLabel" name="AddNewMeal">
-          <property name="font">
-           <font>
-            <family>Sitka Heading</family>
-            <pointsize>18</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Добавить новую еду</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="1" rowspan="2">
+      <item row="2" column="1">
        <widget class="QPushButton" name="AddMealButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
@@ -573,20 +637,20 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>30</width>
+          <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>40</width>
+          <height>40</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Sitka Heading</family>
-          <pointsize>16</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -597,18 +661,18 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
+      <item row="3" column="1">
        <widget class="QPushButton" name="back_11">
         <property name="minimumSize">
          <size>
-          <width>60</width>
+          <width>100</width>
           <height>40</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>60</width>
-          <height>60</height>
+          <height>40</height>
          </size>
         </property>
         <property name="font">
