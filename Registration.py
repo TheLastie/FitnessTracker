@@ -36,6 +36,10 @@ class RegistrationWindow(QWidget):
         self.BackButtonChange.clicked.connect(self.ext)
         self.ChangesConfirmButton.clicked.connect(self.edit_button)
         self.act_ed.addItems(self.activity_items)
+        print()
+        self.age_ed.setText(str(self.registrated_users[self.registrated_users['current_user']]['userdata']['age']))
+        self.height_ed.setText(str(self.registrated_users[self.registrated_users['current_user']]['userdata']['height']))
+        self.weight_ed.setText(str(self.registrated_users[self.registrated_users['current_user']]['userdata']['weight']))
     def edit_button(self):
         if not self.age_ed.text() or not self.height_ed.text() or not self.weight_ed.text():
             return
