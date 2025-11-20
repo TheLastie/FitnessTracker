@@ -71,10 +71,9 @@ class Settings(QWidget):
     def save_changes(self):
         try:
             with open("Current_style.css", "w", encoding='utf-8') as f:
+                self.change_theme()
                 f.write(self.css_style)
-                self.mainWD.setStyleSheet(self.css_style)
-                self.mainWD.add_window.setStyleSheet(self.css_style)
-                self.mainWD.registration.setStyleSheet(self.css_style)
+
                 self.user_data['d_l'] = self.style_type
                 self.user_data['theme'] = self.style_theme
                 reg_us = {}
@@ -83,6 +82,9 @@ class Settings(QWidget):
                 reg_us.update({self.user_login:self.user_data})
                 with open("userdata.json", "w", encoding='utf-8') as f:
                     json.dump(reg_us, f, indent=4, ensure_ascii=False)
+                self.mainWD.setStyleSheet(self.css_style)
+                self.mainWD.add_window.setStyleSheet(self.css_style)
+                self.mainWD.registration.setStyleSheet(self.css_style)
         except PermissionError as e:
             print(e, 12)
 

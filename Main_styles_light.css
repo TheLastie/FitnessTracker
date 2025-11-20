@@ -247,6 +247,9 @@ background-color: =*=*=*;
 QTableView::item:selected{
     background-color:=*=*=*;
 }
+QListView::item:selected{
+    background-color:=*=*=*;
+}
 
 #UserDataChange {
     background-color: =*=*=*;

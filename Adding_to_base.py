@@ -229,6 +229,8 @@ class AppendToBaseWindow(QWidget):
                     calories = (0.045 * pulse + 0.035 * weight) * trainingtime
                 else:
                     calories = (0.025 * pulse + 0.01 * weight) * trainingtime
+                if trainingtime >= 120:
+                    calories/=10
                 if self.current_day in self.user_data['userdata']['trainings']:
                     self.user_data['userdata']['trainings'][self.current_day].append({
                         "type": type[1],

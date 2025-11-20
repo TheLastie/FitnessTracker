@@ -134,6 +134,13 @@ background-color: #E4EEEB;
     border:1px solid ******;
     border-radius: 17px;
 }
+QTableView::item:selected{
+    background-color:=*=*=*;
+}
+QListView::item:selected{
+    background-color:=*=*=*;
+}
+
 #ChangesToolButton, #SettingsToolButton {
     background-color: ******;
     color: %%%%%%;

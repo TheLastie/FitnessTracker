@@ -277,9 +277,9 @@ class MainWindow(QMainWindow):
                 minutes = minutes//60 % 10000
             if len(str(num))>4:
                 num = num%10000
-            self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories} ")
+            self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories:.0f} ")
             self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes // 60} ")
-            self.execise_sum.setText(f"Количество\nтренировок\n\n {num} ")
+            self.execise_sum.setText(f"Количество\nтренировок\n\n {num-1} ")
 
     def week_buttons(self):
         if self.sender() == eval(f'self.DateToolButton{self.current_week_day + 1}'):
