@@ -4,6 +4,8 @@ from PyQt6.QtWidgets import *
 from PyQt6 import uic, QtCore
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 import sys, datetime
+
+
 class TableModel(QAbstractTableModel):
     def __init__(self, data, headers=None):
         super().__init__()
@@ -24,10 +26,11 @@ class TableModel(QAbstractTableModel):
     def headerData(self, section, orientation, role):
         # Устанавливаем заголовки для горизонтальных header'ов
         if (role == Qt.ItemDataRole.DisplayRole and
-            orientation == Qt.Orientation.Horizontal):
+                orientation == Qt.Orientation.Horizontal):
             if section < len(self._headers):
                 return self._headers[section]
         return None
+
 
 class AppendToBaseWindow(QWidget):
     def __init__(self, mainWD):
@@ -79,8 +82,9 @@ class AppendToBaseWindow(QWidget):
             with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
                 r = csv.DictReader(f)
 
-                self.mealbase = {g['name']: {i:g[i] for i in g} for g in r}
-        except: self.mealbase = {}
+                self.mealbase = {g['name']: {i: g[i] for i in g} for g in r}
+        except:
+            self.mealbase = {}
         self.meallist = [[str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
 
     def cur_day(self, day):
@@ -139,7 +143,7 @@ class AppendToBaseWindow(QWidget):
             self.mealbase.update(new_meal)
             self.meallist = [[i.rstrip()] + [str(self.mealbase[i][g]).rstrip() for g in self.mealbase[i]] for i in
                              self.mealbase]
-            meals = [["name", 'type', 'calories', 'proteins', 'fats', 'carbonates']]+self.meallist
+            meals = [["name", 'type', 'calories', 'proteins', 'fats', 'carbonates']] + self.meallist
             with open("AllMealsBase.csv", "w", encoding='utf-8') as f:
                 wr = csv.writer(f)
                 wr.writerows(meals)
@@ -151,12 +155,17 @@ class AppendToBaseWindow(QWidget):
 
     def meals_update_list(self):
         try:
-            self.model = TableModel([[self.mealbase[i]['name'], self.mealbase[i]['type'].replace('grams', "Граммы").replace('ml', "Миллилитры"), str(self.mealbase[i]['calories']),str(self.mealbase[i]['proteins']), str(self.mealbase[i]['carbonates']), str(self.mealbase[i]['fats'])] for i in self.mealbase], ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
+            self.model = TableModel([[self.mealbase[i]['name'],
+                                      self.mealbase[i]['type'].replace('grams', "Граммы").replace('ml', "Миллилитры"),
+                                      str(self.mealbase[i]['calories']), str(self.mealbase[i]['proteins']),
+                                      str(self.mealbase[i]['carbonates']), str(self.mealbase[i]['fats'])] for i in
+                                     self.mealbase], ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
             self.meal_search_list.setModel(self.model)
             self.sel = self.meal_search_list.selectionModel()
             self.sel.selectionChanged.connect(self.selected_item)
         except Exception as e:
             print(e, 123)
+
     def append_base_meals(self):
         try:
             if self.all_good:
@@ -169,12 +178,12 @@ class AppendToBaseWindow(QWidget):
                 idx = 0
                 for i in self.user_data['userdata']['meals'][self.current_day]:
                     if i['name'] == name:
-                        self.user_data['userdata']['meals'][self.current_day][idx]['proteins']+=meal['proteins']
+                        self.user_data['userdata']['meals'][self.current_day][idx]['proteins'] += meal['proteins']
                         self.user_data['userdata']['meals'][self.current_day][idx]['fats'] += meal['fats']
                         self.user_data['userdata']['meals'][self.current_day][idx]["calories"] += meal['calories']
                         self.user_data['userdata']['meals'][self.current_day][idx]['carbonates'] += meal['carbonates']
                         break
-                    idx+=1
+                    idx += 1
 
                 else:
                     if self.user_data['userdata']['meals'].get(self.current_day):
@@ -196,26 +205,26 @@ class AppendToBaseWindow(QWidget):
     def append_base_training(self):
         try:
             trainingtime = self.training_time.time().toString().split(':')
-            trainingtime = int(trainingtime[0])*60+int(trainingtime[1])
+            trainingtime = int(trainingtime[0]) * 60 + int(trainingtime[1])
             pulse = int(self.mid_pulse.text())
             weight = int(self.user_data['userdata']['weight'])
             if trainingtime > 0 and pulse:
                 type = self.training_types.index(self.training_type.currentText()), self.training_type.currentText()
                 if type[0] == 0:
-                    calories = (0.029*pulse+0.025*weight)*trainingtime
+                    calories = (0.029 * pulse + 0.025 * weight) * trainingtime
                 elif type[0] == 1:
-                    calories = (0.055*pulse+0.035*weight)*trainingtime
+                    calories = (0.055 * pulse + 0.035 * weight) * trainingtime
                 elif type[0] == 2:
-                    calories = (0.045*pulse+0.035*weight)*trainingtime
+                    calories = (0.045 * pulse + 0.035 * weight) * trainingtime
                 else:
-                    calories = (0.025*pulse+0.01*weight)*trainingtime
+                    calories = (0.025 * pulse + 0.01 * weight) * trainingtime
                 if self.current_day in self.user_data['userdata']['trainings']:
                     self.user_data['userdata']['trainings'][self.current_day].append({
-                    "type": type[1],
-                    "calories": calories,
-                    "training_time": trainingtime,
-                    "pulse": pulse
-                })
+                        "type": type[1],
+                        "calories": calories,
+                        "training_time": trainingtime,
+                        "pulse": pulse
+                    })
                 else:
                     self.user_data['userdata']['trainings'][self.current_day] = [
                         {
@@ -236,10 +245,6 @@ class AppendToBaseWindow(QWidget):
         except Exception as e:
             print(e)
 
-
-
-
-
     def delete_meal(self):
         try:
             if not self.current_item:
@@ -249,7 +254,9 @@ class AppendToBaseWindow(QWidget):
                     r = csv.DictReader(f)
                     next(r)
                     for i in r:
-                        self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
+                        self.mealbase.update({i['name']: {'type': i['type'], 'calories': i['calories'],
+                                                          'proteins': i['proteins'], 'fats': i['fats'],
+                                                          'carbonates': i['carbonates']}})
             except Exception as e:
                 print(e)
                 return
@@ -269,14 +276,14 @@ class AppendToBaseWindow(QWidget):
     def meals_search_list(self):
         try:
 
-            searchlist = {i:self.mealbase[i] for i in self.mealbase if self.search_bar.text().lower() in i.lower()}
+            searchlist = {i: self.mealbase[i] for i in self.mealbase if self.search_bar.text().lower() in i.lower()}
             self.model = TableModel([[searchlist[i]['name'],
                                       searchlist[i]['type'].replace('grams', "Граммы").replace('ml',
-                                                                                                      "Миллилитры"),
+                                                                                               "Миллилитры"),
                                       str(searchlist[i]['calories']), str(searchlist[i]['proteins']),
                                       str(searchlist[i]['carbonates']), str(searchlist[i]['fats'])] for i in
                                      searchlist],
-                                        ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
+                                    ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
             self.meal_search_list.setModel(self.model)
             self.sel = self.meal_search_list.selectionModel()
             self.sel.selectionChanged.connect(self.selected_item)
@@ -289,7 +296,8 @@ class AppendToBaseWindow(QWidget):
                 if self.MealWeight.text():
 
                     weight = float(self.MealWeight.text()) / 100
-                else:return
+                else:
+                    return
                 calories = round(float(self.current_item[1]['calories']) * weight, 2)
                 proteins = round(float(self.current_item[1]['proteins']) * weight, 2)
                 Fats = round(float(self.current_item[1]['fats']) * weight, 2)
