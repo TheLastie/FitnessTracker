@@ -254,9 +254,34 @@ background-color: =*=*=*;
 
 /*Add_item.ui*/
 
+#AddingTraining {
+    background-color: =*=*=*;
+    color: ==**==;
+    border: 1px solid ==**==;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+#TrainingLong, #label_10, #label_14 {
+    border: none;
+    color: ******;
+}
+
+
+#training_type::drop-down {
+    border: none;
+}
+
+#training_type::down-arrow {
+    image: none;
+    width: 0px;
+    height: 0px;
+}
+
 #label_16, #label_17, #label_18, #label_19, #label_20, #label_21, #label_2,#label_3 {
     border: none;
-    color: "==**==";
+    color: ******;
 }
 
 #AddNewMeal, #list_of_meal {
@@ -265,7 +290,7 @@ background-color: =*=*=*;
     background-color: "=*=*=*";
 }
 
-#MealName, #MealWeight {
+#MealName, #MealWeight, #training_time, #mid_pulse, #training_type {
     background-color: %%%%%%;
     color: ==**==;
     border-radius: 16px;
