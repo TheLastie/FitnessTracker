@@ -48,12 +48,13 @@ class AppendToBaseWindow(QWidget):
         self.training_type.addItems(self.training_types)
         self.error_text.setStyleSheet("*{border:none;}")
         self.del_meal.clicked.connect(self.delete_meal)
-
-        with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
-            r = csv.DictReader(f)
-            next(r)
-            for i in r:
-                self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
+        try:
+            with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
+                r = csv.DictReader(f)
+                next(r)
+                for i in r:
+                    self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
+        except:pass
         self.meallist = [[i] + [str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
 
     def cur_day(self, day):

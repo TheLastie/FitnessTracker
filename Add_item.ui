@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>954</width>
-    <height>691</height>
+    <height>678</height>
    </rect>
   </property>
   <property name="font">
@@ -33,7 +33,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QListWidget" name="meal_search_list">
@@ -91,9 +91,9 @@
     <widget class="QLabel" name="list_of_meal">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>50</x>
        <y>20</y>
-       <width>361</width>
+       <width>391</width>
        <height>31</height>
       </rect>
      </property>
@@ -116,7 +116,7 @@
        <x>490</x>
        <y>100</y>
        <width>411</width>
-       <height>318</height>
+       <height>400</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -183,6 +183,22 @@
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>50</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <widget class="QLabel" name="CaloriesCount">
@@ -254,7 +270,7 @@
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>440</y>
+       <y>520</y>
        <width>139</width>
        <height>41</height>
       </rect>
@@ -279,7 +295,7 @@
      <property name="geometry">
       <rect>
        <x>640</x>
-       <y>440</y>
+       <y>520</y>
        <width>139</width>
        <height>41</height>
       </rect>
@@ -349,10 +365,10 @@
     <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>180</x>
        <y>60</y>
-       <width>641</width>
-       <height>604</height>
+       <width>651</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -661,13 +677,13 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>30</width>
+          <width>130</width>
           <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>40</width>
+          <width>60</width>
           <height>40</height>
          </size>
         </property>
@@ -681,7 +697,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>+</string>
+         <string>Добавить</string>
         </property>
        </widget>
       </item>
@@ -689,7 +705,7 @@
        <widget class="QPushButton" name="back_11">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>130</width>
           <height>40</height>
          </size>
         </property>
@@ -702,7 +718,7 @@
         <property name="font">
          <font>
           <family>Sitka Heading</family>
-          <pointsize>14</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
