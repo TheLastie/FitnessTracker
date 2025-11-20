@@ -32,6 +32,7 @@ class TableModel(QAbstractTableModel):
 class AppendToBaseWindow(QWidget):
     def __init__(self, mainWD):
         super().__init__()
+        self.model = TableModel([[]], ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
         self.pageType = ''
         self.e = 0
         self.user_data = ''
@@ -50,12 +51,14 @@ class AppendToBaseWindow(QWidget):
         self.CaloriesAdd.setInputMask("999")
 
         self.all_good = False
-
+        self.meal_search_list.setModel(self.model)
+        self.sel = self.meal_search_list.selectionModel()
         self.CaloriesCount.setText(self.names[0])
         self.ProtCount.setText(self.names[1])
         self.FatsCount.setText(self.names[2])
         self.CarbsCount.setText(self.names[3])
         self.current_item = ''
+
         self.weight_types = ['Миллилитры', 'Граммы']
         self.AddNewMeal_2.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         self.back_1.clicked.connect(self.ext)
@@ -71,15 +74,14 @@ class AppendToBaseWindow(QWidget):
         self.training_type.addItems(self.training_types)
         self.error_text.setStyleSheet("*{border:none;}")
         self.del_meal.clicked.connect(self.delete_meal)
+        self.sel.selectionChanged.connect(self.selected_item)
         try:
             with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
                 r = csv.DictReader(f)
 
                 self.mealbase = {g['name']: {i:g[i] for i in g} for g in r}
         except: self.mealbase = {}
-        print(self.mealbase)
         self.meallist = [[str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
-        print(self.meallist)
 
     def cur_day(self, day):
         self.current_day = day
@@ -88,10 +90,12 @@ class AppendToBaseWindow(QWidget):
         self.hide()
         self.mainWD.show()
 
-    def selected_item(self, item):
+    def selected_item(self):
         try:
-            self.current_item = item.text().split("     ")[0].strip()
-            self.current_item = (self.current_item, self.mealbase[self.current_item])
+            selection_model = self.meal_search_list.selectionModel()
+            indexes = selection_model.selectedRows()
+            current_item = str(self.model._data[indexes[0].row()][0])
+            self.current_item = (current_item, self.mealbase[current_item])
             self.update_selected_meal_data()
         except Exception as e:
             print(e)
@@ -149,7 +153,8 @@ class AppendToBaseWindow(QWidget):
         try:
             self.model = TableModel([[self.mealbase[i]['name'], self.mealbase[i]['type'].replace('grams', "Граммы").replace('ml', "Миллилитры"), str(self.mealbase[i]['calories']),str(self.mealbase[i]['proteins']), str(self.mealbase[i]['carbonates']), str(self.mealbase[i]['fats'])] for i in self.mealbase], ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
             self.meal_search_list.setModel(self.model)
-            print(self.model._data)
+            self.sel = self.meal_search_list.selectionModel()
+            self.sel.selectionChanged.connect(self.selected_item)
         except Exception as e:
             print(e, 123)
     def append_base_meals(self):
@@ -160,19 +165,19 @@ class AppendToBaseWindow(QWidget):
                 else:
                     name = self.meal_data['name']
                 meal = self.meal_data
+                meal['name'] = name
                 idx = 0
-                if self.current_day not in self.user_data['userdata']['meals']:
-                    self.user_data['userdata']['meals'][self.current_day] = [meal]
                 for i in self.user_data['userdata']['meals'][self.current_day]:
                     if i['name'] == name:
                         self.user_data['userdata']['meals'][self.current_day][idx]['proteins']+=meal['proteins']
                         self.user_data['userdata']['meals'][self.current_day][idx]['fats'] += meal['fats']
-                        self.user_data['userdata']['meals'][self.current_day][idx]['calories'] += meal['calories']
+                        self.user_data['userdata']['meals'][self.current_day][idx]["calories"] += meal['calories']
                         self.user_data['userdata']['meals'][self.current_day][idx]['carbonates'] += meal['carbonates']
+                        break
                     idx+=1
-                    break
+
                 else:
-                    if self.current_day in self.user_data['userdata']['meals']:
+                    if self.user_data['userdata']['meals'].get(self.current_day):
                         self.user_data['userdata']['meals'][self.current_day].append(meal)
                     else:
                         self.user_data['userdata']['meals'][self.current_day] = [meal]
@@ -264,24 +269,27 @@ class AppendToBaseWindow(QWidget):
     def meals_search_list(self):
         try:
 
-            self.meal_search_list.clear()
-            searchlist = [i for i in self.meallist if self.search_bar.text().lower() in i[0].lower()]
-
-            for i in [i[0] + " " * (20 - len(i[0])) + i[1].replace('grams', "Граммы").replace('ml', "Миллилитры") +
-                      " " * (10 - len(i[1].replace('grams', "Граммы").replace('ml', "Миллилитры"))) + " " * (
-                              12 - len(i[1])) + i[
-                          2] + " " * (7 - len(i[2])) + i[3] + " " * (7 - len(i[3])) + i[4] + " " * (7 - len(i[4])) + i[
-                          5]
-                      for i in
-                      self.meallist]:
-                self.meal_search_list.addItem(i)
+            searchlist = {i:self.mealbase[i] for i in self.mealbase if self.search_bar.text().lower() in i.lower()}
+            self.model = TableModel([[searchlist[i]['name'],
+                                      searchlist[i]['type'].replace('grams', "Граммы").replace('ml',
+                                                                                                      "Миллилитры"),
+                                      str(searchlist[i]['calories']), str(searchlist[i]['proteins']),
+                                      str(searchlist[i]['carbonates']), str(searchlist[i]['fats'])] for i in
+                                     searchlist],
+                                        ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
+            self.meal_search_list.setModel(self.model)
+            self.sel = self.meal_search_list.selectionModel()
+            self.sel.selectionChanged.connect(self.selected_item)
         except Exception as e:
-            print(e)
+            print(e, 123)
 
     def update_selected_meal_data(self):
         try:
             if self.current_item:
-                weight = float(self.MealWeight.text()) / 100
+                if self.MealWeight.text():
+
+                    weight = float(self.MealWeight.text()) / 100
+                else:return
                 calories = round(float(self.current_item[1]['calories']) * weight, 2)
                 proteins = round(float(self.current_item[1]['proteins']) * weight, 2)
                 Fats = round(float(self.current_item[1]['fats']) * weight, 2)
