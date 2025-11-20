@@ -244,7 +244,9 @@ background-color: =*=*=*;
     border: 1px solid ==**==;
 }
 
-
+QTableView::item:selected{
+    background-color:=*=*=*;
+}
 
 #UserDataChange {
     background-color: =*=*=*;

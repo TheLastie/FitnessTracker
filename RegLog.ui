@@ -82,6 +82,9 @@
           <pointsize>14</pointsize>
          </font>
         </property>
+        <property name="maxLength">
+         <number>20</number>
+        </property>
        </widget>
       </item>
       <item row="2" column="0">
@@ -109,6 +112,9 @@
          <font>
           <pointsize>14</pointsize>
          </font>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
         </property>
        </widget>
       </item>
@@ -405,6 +411,9 @@
           <pointsize>14</pointsize>
          </font>
         </property>
+        <property name="maxLength">
+         <number>20</number>
+        </property>
        </widget>
       </item>
       <item row="2" column="0">
@@ -427,6 +436,9 @@
           <pointsize>14</pointsize>
          </font>
         </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
        </widget>
       </item>
       <item row="3" column="0">
@@ -448,6 +460,9 @@
          <font>
           <pointsize>14</pointsize>
          </font>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
         </property>
        </widget>
       </item>
@@ -603,6 +618,9 @@
           <pointsize>14</pointsize>
          </font>
         </property>
+        <property name="inputMask">
+         <string>000</string>
+        </property>
        </widget>
       </item>
       <item row="2" column="0">
@@ -624,6 +642,9 @@
          <font>
           <pointsize>14</pointsize>
          </font>
+        </property>
+        <property name="inputMask">
+         <string>000</string>
         </property>
        </widget>
       </item>
@@ -674,6 +695,9 @@
          <font>
           <pointsize>14</pointsize>
          </font>
+        </property>
+        <property name="inputMask">
+         <string>000</string>
         </property>
        </widget>
       </item>
@@ -944,6 +968,9 @@
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="inputMask">
+         <string>000</string>
+        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -961,6 +988,9 @@
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="inputMask">
+         <string>000</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -995,6 +1025,9 @@
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="inputMask">
+         <string>000</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
