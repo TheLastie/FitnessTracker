@@ -182,8 +182,11 @@ class MainWindow(QMainWindow):
             self.Water_line_edit.setText('')
 
     def update_today_lists(self):
-        with open("userdata.json", "r", encoding='utf-8') as f:
-            self.registrated_users.update(json.load(f))
+        try:
+            with open("userdata.json", "r", encoding='utf-8') as f:
+                self.registrated_users.update(json.load(f))
+        except FileNotFoundError:
+            self.close()
         if self.registrated_users.get(self.user_login):
             self.user_data = self.registrated_users[self.user_login]
         else:
@@ -220,6 +223,14 @@ class MainWindow(QMainWindow):
                 meall = QListWidgetItem(new_meal)
 
                 self.meal_list.addItem(new_meal)
+            if len(str(int(meal_sums[1])))>4:
+                meal_sums[1] = meal_sums[1]%10000
+            if len(str(int(meal_sums[2])))>4:
+                meal_sums[1] = meal_sums[2]%10000
+            if len(str(int(meal_sums[3])))>4:
+                meal_sums[1] = meal_sums[3]%10000
+            if len(str(int(meal_sums[0])))>4:
+                meal_sums[1] = meal_sums[0]%10000
             self.protein_number.setText("Белки\n" + str(int(meal_sums[1])))
             self.calories.setText("Калории\n" + str(int(meal_sums[0])))
             self.fats_number.setText("Жиры\n" + str(int(meal_sums[2])))
@@ -257,6 +268,12 @@ class MainWindow(QMainWindow):
 
                 self.exercise_list.addItem(QListWidgetItem(new_training))
                 num += 1
+            if len(str(calories))>4:
+                calories = calories%10000
+            if len(str(minutes//60)) > 4:
+                minutes = minutes//60 % 10000
+            if len(str(num))>4:
+                num = num%10000
             self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories} ")
             self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes // 60} ")
             self.execise_sum.setText(f"Количество\nтренировок\n\n {num} ")
@@ -275,8 +292,9 @@ class MainWindow(QMainWindow):
                     self.current_day = self.current_day - datetime.timedelta(days=abs(wk_delta))
                 self.current_week_day = self.current_day.weekday()
                 self.current_day_date = self.current_day.strftime("%d.%m.%Y")
-                cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['color_5']
-                othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['color_2']
+                self.styletheme = [f'{self.settings.style_type}-themes', self.settings.style_theme]
+                cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['hover_button-color']
+                othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['round_button_color']
                 st_sheet_1 = "QToolBox{background-color:" + othr_week_color + ";}" + "QToolBox:hover{background-color:" + cur_week_color + ";}"
                 st_sheet_2 = "background-color:" + cur_week_color + ";"
                 for i in range(1, 8):
@@ -284,6 +302,7 @@ class MainWindow(QMainWindow):
                     eval(f'self.DateToolButton{i}.clicked.connect(self.week_buttons)')
                 eval(f'self.DateToolButton{self.current_week_day + 1}.setStyleSheet("{st_sheet_2}")')
                 self.update_today_lists()
+                print(self.current_week_day)
             except Exception as e:
                 print(e)
 
