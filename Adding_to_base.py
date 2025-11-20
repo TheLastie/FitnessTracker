@@ -128,6 +128,7 @@ class AppendToBaseWindow(QWidget):
             except:
                 Carbs = 0
             new_meal = {self.NameAddMeal.text().rstrip(): {
+                "name":self.NameAddMeal.text().rstrip(),
                 "type": ["ml", "grams"][self.weight_types.index(self.WeightAdd.currentText())],
                 "calories": calories,
                 "proteins": proteins,
