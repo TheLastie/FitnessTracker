@@ -40,7 +40,7 @@ QLabel {
 /* main.ui */
 [cssClass="week_dates"]{
     background-color: ******;
-    color: %%%%%%;
+    color: #EEEEEE;
     border: none;
     border-radius: 15px;
     padding: 5px;
@@ -175,6 +175,27 @@ background-color: #961fc1;
     background-color: %%%%%%;
 }
 
+#AddingTraining, #list_of_meal, #AddNewMeal {
+    background-color: ******;
+    color: #EEEEEE;
+    border: 1px solid #EEEEEE;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+#TrainingLong, #HeartRate, #TypeTraining {
+    border: none;
+}
+
+#name_meal, #meal_weight {
+    border: none;
+}
+
+#NameAddingMeal, #WeightAddingMeal, #ProtAddingMeal, #FatsAddingMeal, #CarbAddingMeal, #CaloriesAddingMeal {
+    border: none;
+}
+
 /*RegLog*/
 
 #UserDataChange, #heightedit, #weightedit, #activityedit, #ageedit {
@@ -184,5 +205,5 @@ background-color: #961fc1;
 
 #UserDataChange {
     background-color: =*=*=*;
-    border: 1px solid #;
+    border: 1px solid #z;
 }
