@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>945</width>
-    <height>648</height>
+    <height>671</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,14 +23,14 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page_7">
     <widget class="QWidget" name="formLayoutWidget_7">
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>210</y>
+       <y>200</y>
        <width>561</width>
        <height>141</height>
       </rect>
@@ -71,6 +71,12 @@
       </item>
       <item row="1" column="1">
        <widget class="QLineEdit" name="llogin_le">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>14</pointsize>
@@ -93,6 +99,12 @@
       </item>
       <item row="2" column="1">
        <widget class="QLineEdit" name="lpassword_le">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>14</pointsize>
@@ -125,8 +137,8 @@
     <widget class="QWidget" name="horizontalLayoutWidget_8">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>430</y>
+       <x>160</x>
+       <y>520</y>
        <width>561</width>
        <height>81</height>
       </rect>
@@ -188,9 +200,9 @@
     <widget class="QLabel" name="login">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>170</x>
        <y>130</y>
-       <width>231</width>
+       <width>561</width>
        <height>48</height>
       </rect>
      </property>
@@ -258,8 +270,8 @@
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>430</y>
-       <width>541</width>
+       <y>520</y>
+       <width>561</width>
        <height>81</height>
       </rect>
      </property>
@@ -314,9 +326,9 @@
     <widget class="QLabel" name="registration">
      <property name="geometry">
       <rect>
-       <x>350</x>
+       <x>170</x>
        <y>130</y>
-       <width>182</width>
+       <width>561</width>
        <height>48</height>
       </rect>
      </property>
@@ -344,7 +356,7 @@
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>220</y>
+       <y>190</y>
        <width>561</width>
        <height>141</height>
       </rect>
@@ -484,9 +496,9 @@
     <widget class="QWidget" name="horizontalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>490</y>
-       <width>561</width>
+       <x>140</x>
+       <y>520</y>
+       <width>691</width>
        <height>51</height>
       </rect>
      </property>
@@ -541,10 +553,10 @@
     <widget class="QWidget" name="formLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>140</x>
        <y>200</y>
-       <width>561</width>
-       <height>230</height>
+       <width>691</width>
+       <height>241</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
@@ -1033,6 +1045,21 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QLabel" name="backlabel1">
+   <property name="geometry">
+    <rect>
+     <x>-156</x>
+     <y>465</y>
+     <width>1391</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>backlabel1</zorder>
+  <zorder>stackedWidget</zorder>
  </widget>
  <resources/>
  <connections/>
