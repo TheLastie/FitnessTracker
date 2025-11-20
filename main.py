@@ -245,7 +245,10 @@ class MainWindow(QMainWindow):
 
                 self.water_list.addItem(water_new)
         self.take_water_count.setText(str(water_sum) + " мл")
-        neededwater = self.user_data['userdata']['needed water'] - water_sum
+        if self.user_data['userdata'].get('needed water'):
+            neededwater = self.user_data['userdata']['needed water'] - water_sum
+        else:
+            neededwater = 1000
         if neededwater >= 0:
             self.remain_water_count.setText(str(neededwater) + ' мл')
         else:
