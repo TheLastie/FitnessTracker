@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>954</width>
-    <height>678</height>
+    <height>701</height>
    </rect>
   </property>
   <property name="font">
@@ -30,6 +30,7 @@
    <property name="font">
     <font>
      <family>Sitka Heading</family>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="currentIndex">
@@ -266,7 +267,7 @@
      <property name="font">
       <font>
        <family>Sitka Heading</family>
-       <pointsize>14</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
@@ -291,7 +292,7 @@
      <property name="font">
       <font>
        <family>Sitka Heading</family>
-       <pointsize>14</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
@@ -351,6 +352,11 @@
        <height>451</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="frameShape">
       <enum>QFrame::Panel</enum>
      </property>
@@ -384,7 +390,7 @@
        <x>180</x>
        <y>60</y>
        <width>651</width>
-       <height>521</height>
+       <height>511</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -772,9 +778,9 @@
      <property name="geometry">
       <rect>
        <x>110</x>
-       <y>90</y>
+       <y>130</y>
        <width>661</width>
-       <height>466</height>
+       <height>361</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -800,7 +806,7 @@
          <widget class="QTimeEdit" name="training_time">
           <property name="font">
            <font>
-            <pointsize>20</pointsize>
+            <pointsize>16</pointsize>
            </font>
           </property>
           <property name="alignment">
@@ -831,7 +837,7 @@
         <property name="font">
          <font>
           <family>Sitka Heading</family>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
        </widget>
@@ -857,7 +863,7 @@
         <property name="font">
          <font>
           <family>Sitka Heading</family>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
        </widget>

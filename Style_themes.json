@@ -36,7 +36,7 @@
     "theme4": {
     "text_color": "#3b3c3e",
     "round_button_color": "#dcac00",
-    "main_color": "#cca61f",
+    "main_color": "#ffc94c",
     "hover_text": "#EEEEEE",
     "hover_button-color": "#896e10",
     "round_button_text_and_settings": "#EEEEEE",
@@ -44,15 +44,15 @@
     "theme5": {
     "text_color": "#3b3c3e",
     "round_button_color": "#219dc7",
-    "main_color": "#27bced",
+    "main_color": "#8ce0ff",
     "hover_text": "#EEEEEE",
     "hover_button-color": "#187291",
     "round_button_text_and_settings": "#EEEEEE",
     "error_color": "#CC0000"},
     "theme6": {
     "text_color": "#3b3c3e",
-    "round_button_color": "#d1308d",
-    "main_color": "#ff51b6",
+    "round_button_color": "#dd5675",
+    "main_color": "#ff7d9c",
     "hover_text": "#EEEEEE",
     "hover_button-color": "#861958",
     "round_button_text_and_settings": "#EEEEEE",
