@@ -215,7 +215,7 @@ class MainWindow(QMainWindow):
                            + str(int(meal['weight'] * 1000)) + " " + meal['type'].replace('grams', "гр").replace('ml',
                                                                                                                  "мл") \
                            + " " * (6 - len(str(int(meal['weight'] * 1000))) - len(
-                    meal['type'].replace('grams', "гр").replace('ml', "мл"))) \
+                    meal['type'].replace('grams', "гр").replace('ml', "мл")))+" " \
                            + str(int(meal['calories'])) + " " * (5 - len(str(int(meal['calories'])))) \
                            + str(int(meal['proteins'])) + " " * (5 - len(str(int(meal['proteins'])))) \
                            + str(int(meal['fats'])) + " " * (5 - len(str(int(meal['fats'])))) \

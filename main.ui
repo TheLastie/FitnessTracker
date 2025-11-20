@@ -112,7 +112,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -146,7 +146,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -180,7 +180,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -214,7 +214,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -248,7 +248,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -282,7 +282,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -316,7 +316,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -347,7 +347,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165925-204.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -375,7 +375,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <selectedon>../../../Lastie/Downloads/acetone-20251019-165210-362.png</selectedon>
+          <selectedon>C:/Users/Lastie/Downloads/acetone-20251019-165210-362.png</selectedon>
          </iconset>
         </property>
        </widget>
@@ -412,7 +412,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="meal_page">
        <widget class="QListWidget" name="meal_list">
@@ -475,7 +475,7 @@
        <widget class="QPushButton" name="add_meal">
         <property name="geometry">
          <rect>
-          <x>390</x>
+          <x>410</x>
           <y>90</y>
           <width>41</width>
           <height>41</height>
@@ -584,7 +584,7 @@
        <widget class="QToolButton" name="meal_del">
         <property name="geometry">
          <rect>
-          <x>430</x>
+          <x>460</x>
           <y>90</y>
           <width>41</width>
           <height>41</height>
@@ -645,7 +645,7 @@
        <widget class="QPushButton" name="add_exercise">
         <property name="geometry">
          <rect>
-          <x>390</x>
+          <x>400</x>
           <y>90</y>
           <width>41</width>
           <height>41</height>
@@ -783,7 +783,7 @@
        <widget class="QToolButton" name="training_del">
         <property name="geometry">
          <rect>
-          <x>430</x>
+          <x>450</x>
           <y>90</y>
           <width>41</width>
           <height>41</height>
@@ -836,7 +836,7 @@
        <widget class="QPushButton" name="add_water">
         <property name="geometry">
          <rect>
-          <x>390</x>
+          <x>410</x>
           <y>90</y>
           <width>41</width>
           <height>41</height>
@@ -951,9 +951,9 @@
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>100</y>
-          <width>111</width>
-          <height>21</height>
+          <y>90</y>
+          <width>131</width>
+          <height>41</height>
          </rect>
         </property>
         <property name="font">
@@ -974,7 +974,7 @@
        <widget class="QToolButton" name="water_del">
         <property name="geometry">
          <rect>
-          <x>430</x>
+          <x>460</x>
           <y>90</y>
           <width>41</width>
           <height>41</height>

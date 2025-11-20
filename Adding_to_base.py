@@ -140,6 +140,8 @@ class AppendToBaseWindow(QWidget):
                     name = self.meal_data['name']
                 meal = self.meal_data
                 idx = 0
+                if self.current_day not in self.user_data['userdata']['meals']:
+                    self.user_data['userdata']['meals'][self.current_day] = [meal]
                 for i in self.user_data['userdata']['meals'][self.current_day]:
                     if i['name'] == name:
                         self.user_data['userdata']['meals'][self.current_day][idx]['proteins']+=meal['proteins']
