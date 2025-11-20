@@ -63,7 +63,7 @@ class Settings(QWidget):
                                                         self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
                 self.setStyleSheet(self.css_style)
                 self.mainWD.setStyleSheet(self.css_style)
-        except Exception as e:
+        except FileNotFoundError as e:
             print(e, 11)
     def us(self):
         self.update_style_2()
@@ -83,7 +83,7 @@ class Settings(QWidget):
                 reg_us.update({self.user_login:self.user_data})
                 with open("userdata.json", "w", encoding='utf-8') as f:
                     json.dump(reg_us, f, indent=4, ensure_ascii=False)
-        except Exception as e:
+        except PermissionError as e:
             print(e, 12)
 
     def change_theme(self):

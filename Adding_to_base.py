@@ -52,8 +52,9 @@ class AppendToBaseWindow(QWidget):
             with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
                 r = csv.DictReader(f)
                 next(r)
-                for i in r:
-                    self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
+                if r:
+                    for i in r:
+                        self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
         except:pass
         self.meallist = [[i] + [str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
 
@@ -174,9 +175,9 @@ class AppendToBaseWindow(QWidget):
                 type = self.training_types.index(self.training_type.currentText()), self.training_type.currentText()
                 if type[0] == 0:
                     calories = (0.029*pulse+0.025*weight)*trainingtime
-                if type[0] == 1:
+                elif type[0] == 1:
                     calories = (0.055*pulse+0.035*weight)*trainingtime
-                if type[0] == 2:
+                elif type[0] == 2:
                     calories = (0.045*pulse+0.035*weight)*trainingtime
                 else:
                     calories = (0.025*pulse+0.01*weight)*trainingtime
@@ -201,6 +202,7 @@ class AppendToBaseWindow(QWidget):
                 reg_us.update({self.user_data['Login']: self.user_data})
                 with open("userdata.json", "w", encoding='utf-8') as f:
                     json.dump(reg_us, f, indent=4, ensure_ascii=False)
+
                 self.mainWD.update_today_lists()
                 self.mid_pulse.setText('')
         except Exception as e:
@@ -214,12 +216,15 @@ class AppendToBaseWindow(QWidget):
         try:
             if not self.current_item:
                 return
-            with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
-                r = csv.DictReader(f)
-                next(r)
-                for i in r:
-                    self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
-
+            try:
+                with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
+                    r = csv.DictReader(f)
+                    next(r)
+                    for i in r:
+                        self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
+            except Exception as e:
+                print(e)
+                return
             del self.mealbase[self.current_item[0]]
 
             self.meallist = [[i.rstrip()] + [str(self.mealbase[i][g]).rstrip() for g in self.mealbase[i]] for i in
@@ -252,7 +257,6 @@ class AppendToBaseWindow(QWidget):
 
     def update_selected_meal_data(self):
         try:
-            print(self.current_item)
             if self.current_item:
                 weight = float(self.MealWeight.text()) / 100
                 calories = round(float(self.current_item[1]['calories']) * weight, 2)
