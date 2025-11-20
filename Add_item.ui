@@ -351,6 +351,9 @@
        <height>451</height>
       </rect>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::SingleSelection</enum>
      </property>
