@@ -142,8 +142,11 @@ class AppendToBaseWindow(QWidget):
             self.FatsAdd.setText('')
             self.CaloriesAdd.setText('')
             self.mealbase.update(new_meal)
-            self.meallist = [[i.rstrip()] + [str(self.mealbase[i][g]).rstrip() for g in self.mealbase[i]] for i in
+            self.meallist = [[str(self.mealbase[i]['name']).rstrip(),
+                               str(self.mealbase[i]['type']).rstrip(), str(self.mealbase[i]['calories']).rstrip(),
+                               str(self.mealbase[i]['proteins']).rstrip(),str(self.mealbase[i]['fats']).rstrip(),str(self.mealbase[i]['carbonates']).rstrip() ] for i in
                              self.mealbase]
+            print(self.meallist)
             meals = [["name", 'type', 'calories', 'proteins', 'fats', 'carbonates']] + self.meallist
             with open("AllMealsBase.csv", "w", encoding='utf-8') as f:
                 wr = csv.writer(f)
@@ -156,6 +159,7 @@ class AppendToBaseWindow(QWidget):
 
     def meals_update_list(self):
         try:
+            print(self.mealbase)
             self.model = TableModel([[self.mealbase[i]['name'],
                                       self.mealbase[i]['type'].replace('grams', "Граммы").replace('ml', "Миллилитры"),
                                       str(self.mealbase[i]['calories']), str(self.mealbase[i]['proteins']),
@@ -177,15 +181,21 @@ class AppendToBaseWindow(QWidget):
                 meal = self.meal_data
                 meal['name'] = name
                 idx = 0
-                for i in self.user_data['userdata']['meals'][self.current_day]:
-                    if i['name'] == name:
-                        self.user_data['userdata']['meals'][self.current_day][idx]['proteins'] += meal['proteins']
-                        self.user_data['userdata']['meals'][self.current_day][idx]['fats'] += meal['fats']
-                        self.user_data['userdata']['meals'][self.current_day][idx]["calories"] += meal['calories']
-                        self.user_data['userdata']['meals'][self.current_day][idx]['carbonates'] += meal['carbonates']
-                        break
-                    idx += 1
+                if self.user_data['userdata']['meals'].get(self.current_day):
 
+                    for i in self.user_data['userdata']['meals'][self.current_day]:
+                        if i['name'] == name:
+                            self.user_data['userdata']['meals'][self.current_day][idx]['proteins'] += meal['proteins']
+                            self.user_data['userdata']['meals'][self.current_day][idx]['fats'] += meal['fats']
+                            self.user_data['userdata']['meals'][self.current_day][idx]["calories"] += meal['calories']
+                            self.user_data['userdata']['meals'][self.current_day][idx]['carbonates'] += meal['carbonates']
+                            break
+                        idx += 1
+                    else:
+                        if self.user_data['userdata']['meals'].get(self.current_day):
+                            self.user_data['userdata']['meals'][self.current_day].append(meal)
+                        else:
+                            self.user_data['userdata']['meals'][self.current_day] = [meal]
                 else:
                     if self.user_data['userdata']['meals'].get(self.current_day):
                         self.user_data['userdata']['meals'][self.current_day].append(meal)
@@ -270,6 +280,15 @@ class AppendToBaseWindow(QWidget):
                 wr = csv.writer(f)
                 wr.writerows(meals)
             self.current_item = ''
+            try:
+                with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
+                    r = csv.DictReader(f)
+
+                    self.mealbase = {g['name']: {i: g[i] for i in g} for g in r}
+            except:
+                self.mealbase = {}
+            self.meallist = [[str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
+
             self.meals_update_list()
         except Exception as e:
             print(e, 2)
