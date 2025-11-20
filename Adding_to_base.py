@@ -1,9 +1,33 @@
 import json, csv
-from PyQt6.QtCore import QTime
+from PyQt6.QtCore import QTime, QAbstractTableModel, Qt
 from PyQt6.QtWidgets import *
-from PyQt6 import uic
+from PyQt6 import uic, QtCore
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 import sys, datetime
+class TableModel(QAbstractTableModel):
+    def __init__(self, data, headers=None):
+        super().__init__()
+        self._data = data
+        self._headers = headers or []  # Заголовки столбцов
+
+    def data(self, index, role):
+        if role == Qt.ItemDataRole.DisplayRole:
+            return str(self._data[index.row()][index.column()])
+        return None
+
+    def rowCount(self, index):
+        return len(self._data)
+
+    def columnCount(self, index):
+        return len(self._data[0]) if self._data else 0
+
+    def headerData(self, section, orientation, role):
+        # Устанавливаем заголовки для горизонтальных header'ов
+        if (role == Qt.ItemDataRole.DisplayRole and
+            orientation == Qt.Orientation.Horizontal):
+            if section < len(self._headers):
+                return self._headers[section]
+        return None
 
 class AppendToBaseWindow(QWidget):
     def __init__(self, mainWD):
@@ -42,7 +66,6 @@ class AppendToBaseWindow(QWidget):
         self.back_11.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
         self.AddMealButton.clicked.connect(self.add_new_meal_tobase)
         self.search_bar.textChanged.connect(self.meals_search_list)
-        self.meal_search_list.itemClicked.connect(self.selected_item)
         self.MealWeight.textChanged.connect(self.update_selected_meal_data)
         self.WeightAdd.addItems(self.weight_types)
         self.training_type.addItems(self.training_types)
@@ -51,16 +74,16 @@ class AppendToBaseWindow(QWidget):
         try:
             with open("AllMealsBase.csv", "r", encoding='utf-8') as f:
                 r = csv.DictReader(f)
-                next(r)
-                if r:
-                    for i in r:
-                        self.mealbase.update({i['name']:{'type': i['type'], 'calories': i['calories'], 'proteins': i['proteins'], 'fats': i['fats'], 'carbonates': i['carbonates']}})
-        except:pass
-        self.meallist = [[i] + [str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
+
+                self.mealbase = {g['name']: {i:g[i] for i in g} for g in r}
+        except: self.mealbase = {}
+        print(self.mealbase)
+        self.meallist = [[str(self.mealbase[i][g]) for g in self.mealbase[i]] for i in self.mealbase]
+        print(self.meallist)
 
     def cur_day(self, day):
-
         self.current_day = day
+
     def ext(self):
         self.hide()
         self.mainWD.show()
@@ -123,14 +146,12 @@ class AppendToBaseWindow(QWidget):
             print(e, 2)
 
     def meals_update_list(self):
-        self.meal_search_list.clear()
-        for i in [" " + i[0] + " " * (20 - len(i[0])) + i[1].replace('grams', "Граммы").replace('ml', "Миллилитры") +
-                  " " * (13 - len(i[1].replace('grams', "Граммы").replace('ml', "Миллилитры"))) + i[2]
-                  + " " * (7 - len(i[2])) + i[3] + " " * (7 - len(i[3])) + i[4] + " " * (7 - len(i[4])) + i[5]
-                  for i in
-                  self.meallist]:
-            self.meal_search_list.addItem(i)
-
+        try:
+            self.model = TableModel([[self.mealbase[i]['name'], self.mealbase[i]['type'].replace('grams', "Граммы").replace('ml', "Миллилитры"), str(self.mealbase[i]['calories']),str(self.mealbase[i]['proteins']), str(self.mealbase[i]['carbonates']), str(self.mealbase[i]['fats'])] for i in self.mealbase], ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
+            self.meal_search_list.setModel(self.model)
+            print(self.model._data)
+        except Exception as e:
+            print(e, 123)
     def append_base_meals(self):
         try:
             if self.all_good:
