@@ -7,6 +7,7 @@ QMainWindow {
 }
 #background_window {
     background-color: #383636;
+
 }
 QPushButton {
     background-color: =*=*=*;
@@ -184,15 +185,15 @@ background-color: #961fc1;
     text-align: center;
 }
 
-#TrainingLong, #HeartRate, #TypeTraining {
+#TrainingLong, #label_10, #label_14 {
     border: none;
 }
 
-#name_meal, #meal_weight {
+#label_2, #label_3 {
     border: none;
 }
 
-#NameAddingMeal, #WeightAddingMeal, #ProtAddingMeal, #FatsAddingMeal, #CarbAddingMeal, #CaloriesAddingMeal {
+#label_16, #label_17, #label_18, #label_19, #label_20, #label_21 {
     border: none;
 }
 

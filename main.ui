@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
-    <height>639</height>
+    <width>1032</width>
+    <height>678</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -767,19 +767,6 @@
          </item>
         </layout>
        </widget>
-       <widget class="QLabel" name="kkk">
-        <property name="geometry">
-         <rect>
-          <x>-10</x>
-          <y>0</y>
-          <width>1011</width>
-          <height>501</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <widget class="QToolButton" name="training_del">
         <property name="geometry">
          <rect>
@@ -793,12 +780,6 @@
          <string>-</string>
         </property>
        </widget>
-       <zorder>kkk</zorder>
-       <zorder>sport</zorder>
-       <zorder>exercise_list</zorder>
-       <zorder>add_exercise</zorder>
-       <zorder>verticalLayoutWidget_5</zorder>
-       <zorder>training_del</zorder>
       </widget>
       <widget class="QWidget" name="water_page">
        <widget class="QListWidget" name="water_list">
@@ -1144,6 +1125,20 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="kkk">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>65</y>
+     <width>1441</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>kkk</zorder>
   <zorder>backlbl</zorder>
   <zorder>verticalLayoutWidget</zorder>
  </widget>

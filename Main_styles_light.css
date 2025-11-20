@@ -52,10 +52,9 @@ QLabel {
 }
 
 #Water_line_edit {
-    background-color: =*=*=*;
+    background-color: #f0f0f0;
     color: ==**==;
     border-radius: 3px;
-    border: 1px solid ==**==;
 }
 #backlbl {
     background-color: #D8D8D8;
@@ -188,7 +187,39 @@ background-color: #a566d9;
     background-color: %%%%%%;
 }
 
+
 /*RegLog*/
+
+#registration_2, #login, #login_quest2,#registration, #login_quest1, #llogin_error, #rlogin_error, #derror, #new_question{
+    border: none;
+    color: ==**==;
+}
+
+#activ_cb::drop-down {
+    border: none;
+}
+
+#activ_cb::down-arrow {
+    image: none;
+    width: 0px;
+    height: 0px;
+}
+
+#lname, #rname, #rpassword, #rpassword_acc, #lpassword, #high, #weight, #activ, #age, #gender_choice {
+    border: none;
+    color: ******;
+}
+#backlabel1{
+    background-color: #c9c9c9;
+}
+#llogin_le, #lpassword_le, #rlogin_le, #rpassword_le, #rpassword_le_acc, #high_le,#weight_le, #activ_cb, #age_le
+{
+background-color: =*=*=*;
+    color: ==**==;
+    border-radius: 10px;
+    padding: 5px 15px;
+    border: 1px solid ==**==;
+}
 
 #UserDataChange, #heightedit, #weightedit, #activityedit, #ageedit {
     border: none;
