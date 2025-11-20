@@ -33,27 +33,9 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
-    <widget class="QListWidget" name="meal_search_list">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>100</y>
-       <width>421</width>
-       <height>451</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Heading</family>
-      </font>
-     </property>
-     <property name="dragEnabled">
-      <bool>false</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="AddNewMeal_2">
      <property name="geometry">
       <rect>
@@ -113,9 +95,9 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>680</x>
        <y>100</y>
-       <width>411</width>
+       <width>221</width>
        <height>400</height>
       </rect>
      </property>
@@ -269,9 +251,9 @@
     <widget class="QPushButton" name="back_1">
      <property name="geometry">
       <rect>
-       <x>490</x>
-       <y>520</y>
-       <width>139</width>
+       <x>678</x>
+       <y>510</y>
+       <width>111</width>
        <height>41</height>
       </rect>
      </property>
@@ -294,9 +276,9 @@
     <widget class="QPushButton" name="Appendbase">
      <property name="geometry">
       <rect>
-       <x>640</x>
-       <y>520</y>
-       <width>139</width>
+       <x>790</x>
+       <y>510</y>
+       <width>111</width>
        <height>41</height>
       </rect>
      </property>
@@ -360,6 +342,37 @@
       <string>-</string>
      </property>
     </widget>
+    <widget class="QTableView" name="meal_search_list">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>100</y>
+       <width>611</width>
+       <height>451</height>
+      </rect>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>false</bool>
+     </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+    </widget>
    </widget>
    <widget class="QWidget" name="page_4">
     <widget class="QWidget" name="gridLayoutWidget">
@@ -368,7 +381,7 @@
        <x>180</x>
        <y>60</y>
        <width>651</width>
-       <height>501</height>
+       <height>521</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
