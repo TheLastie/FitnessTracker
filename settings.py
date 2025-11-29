@@ -86,6 +86,7 @@ class Settings(QWidget):
                 self.mainWD.setStyleSheet(self.css_style)
                 self.mainWD.registration.setStyleSheet(self.css_style)
                 self.mainWD.add_window.setStyleSheet(self.css_style)
+                self.mainWD.update_today_lists()
         except PermissionError as e:
             print(e, 12)
 

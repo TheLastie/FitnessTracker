@@ -1,35 +1,162 @@
 {
     "Admin": {
         "Login": "Admin",
-        "theme": "theme1",
+        "theme": "theme6",
         "d_l": "light",
         "password": "202cb962ac59075b964b07152d234b70",
         "userdata": {
-            "weight": 60,
-            "height": 170,
-            "activity": "low/moderate/vigorous",
-            "trainings": {
-                "12.10.2025": {
-                    "training_date": "12.10.2025",
-                    "calories_burnt": 400,
-                    "hours": 2
-                }
-            },
+            "theme": "theme1",
+            "d_l": "dark",
+            "weight": 100,
+            "height": 182,
+            "age": 30,
+            "needed calories": 2026.8460000000002,
+            "needed water": 3240.0,
+            "activity": "Умеренная",
             "meals": {
-                "12.10.2025": {
-                    "0001": {
-                        "name": "miyaso",
-                        "id": "aaaa",
-                        "mass": 100
+                "20.11.2025": [
+                    {
+                        "name": "333",
+                        "type": "grams",
+                        "weight": 1.23,
+                        "calories": 151.29,
+                        "proteins": 13.78,
+                        "fats": 27.06,
+                        "carbonates": 28.54
+                    },
+                    {
+                        "name": "Обед",
+                        "type": "grams",
+                        "weight": 2.0,
+                        "calories": 1776.0,
+                        "proteins": 96.8,
+                        "fats": 16.0,
+                        "carbonates": 184.0
                     }
-                }
+                ],
+                "21.11.2025": [
+                    {
+                        "name": "Курица",
+                        "type": "grams",
+                        "weight": 1.5,
+                        "calories": 333.0,
+                        "proteins": 18.15,
+                        "fats": 3.0,
+                        "carbonates": 34.5
+                    },
+                    {
+                        "name": "Говядина",
+                        "type": "grams",
+                        "weight": 2.0,
+                        "calories": 888.0,
+                        "proteins": 24.0,
+                        "fats": 44.0,
+                        "carbonates": 44.0
+                    },
+                    {
+                        "name": "Горох",
+                        "type": "grams",
+                        "weight": 0.8,
+                        "calories": 1.6,
+                        "proteins": 9.84,
+                        "fats": 34.4,
+                        "carbonates": 17.6
+                    },
+                    {
+                        "name": "Обед",
+                        "type": "grams",
+                        "weight": 1.2,
+                        "calories": 180.0,
+                        "proteins": 0.0,
+                        "fats": 0.0,
+                        "carbonates": 72.0
+                    }
+                ]
+            },
+            "trainings": {
+                "21.11.2025": [
+                    {
+                        "type": "Силовая тренировка",
+                        "calories": 1102.27,
+                        "training_time": 122,
+                        "pulse": 123
+                    },
+                    {
+                        "type": "Ходьба",
+                        "calories": 179.4,
+                        "training_time": 30,
+                        "pulse": 120
+                    },
+                    {
+                        "type": "Силовая тренировка",
+                        "calories": 294.0,
+                        "training_time": 30,
+                        "pulse": 140
+                    },
+                    {
+                        "type": "Бег",
+                        "calories": 369.0,
+                        "training_time": 30,
+                        "pulse": 160
+                    }
+                ],
+                "20.11.2025": [
+                    {
+                        "type": "Бег",
+                        "calories": 135.0,
+                        "training_time": 150,
+                        "pulse": 100
+                    }
+                ]
             },
             "water": {
-                "12.10.2025": {
-                    "water_drunk": 1000
-                }
+                "19.11.2025": [],
+                "21.11.2025": [
+                    1000,
+                    200,
+                    250
+                ],
+                "29.11.2025": [],
+                "30.11.2025": [
+                    213,
+                    423
+                ]
             }
         }
     },
-    "current_user": "Admin"
+    "current_user": "Admin",
+    "Lastie": {
+        "Login": "Lastie",
+        "password": "698d51a19d8a121ce581499d7b701668",
+        "userdata": {
+            "theme": "theme1",
+            "d_l": "dark",
+            "weight": 65,
+            "height": 172,
+            "age": 20,
+            "needed calories": 1549.766,
+            "needed water": 2250,
+            "activity": "Экстремально высокая",
+            "trainings": {},
+            "meals": {},
+            "water": {}
+        }
+    },
+    "аыыав": {
+        "Login": "аыыав",
+        "password": "202cb962ac59075b964b07152d234b70",
+        "userdata": {
+            "theme": "theme1",
+            "d_l": "dark",
+            "weight": 213,
+            "height": 12,
+            "age": 123,
+            "needed calories": 1888.631,
+            "needed water": 6600.0,
+            "activity": "Низкая",
+            "trainings": {},
+            "meals": {},
+            "water": {}
+        }
+    }
 }

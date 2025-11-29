@@ -1,6 +1,7 @@
 import json
 import sys
 import time
+from pprint import pprint
 
 from PIL.ImageQt import ImageQt
 from PyQt6 import uic
@@ -16,34 +17,34 @@ from PyQt6.QtCore import QTimer, Qt, QStringListModel
 import keyboard
 
 def all_the_colors_drop(stl_themes):
-    main_image = Image.open('icons/ggg.png')
-    print(stl_themes)
+    try:
+        main_image = Image.open('icons/drops/drop_70.png')
 
-    width, height = main_image.size
-    all_drops = {'dark':{}, 'light':{}}
-    for theme in stl_themes['light-themes']:
-        all_drops['light'][theme] = Image.open('icons/ggg.png')
-        print(theme)
-        pixels = all_drops['light'][theme].load()
-        color1 = stl_themes['light-themes'][theme]['hover_button-color'][1:]
-        color1 = (int(color1[:2], 16), int(color1[2:4], 16), int(color1[4:], 16), 255)
-        color2 = stl_themes['light-themes'][theme]['main_color'][1:]
-        color2 = (int(color2[:2], 16), int(color2[2:4], 16), int(color2[4:], 16), 255)
-        color3 = stl_themes['light-themes'][theme]['round_button_color'][1:]
-        color3 = (int(color3[:2], 16), int(color3[2:4], 16), int(color3[4:], 16), 255)
-        for y in range(height):
-            for x in range(width):
-                if pixels[x, y] == (255, 0, 0, 255):
-                    pixels[x, y] = color1
-                elif pixels[x, y] == (255, 255, 255, 255):
-                    pixels[x, y] = color2
-                elif pixels[x, y] == (0, 0, 0, 255):
-                    pixels[x, y] = color3
+        width, height = main_image.size
+        all_drops = {}
+        for theme in stl_themes['light-themes']:
+            all_drops[theme] = [0,0,0,0,0,0,0,0,0,0,0]
+            for i in range(11):
+                all_drops[theme][i] = Image.open(f'icons/drops/drop_{i*10}.png')
+                pixels = all_drops[theme][i].load()
+                color1 = stl_themes['light-themes'][theme]['hover_button-color'][1:]
+                color1 = (int(color1[:2], 16), int(color1[2:4], 16), int(color1[4:], 16), 255)
+                color2 = stl_themes['light-themes'][theme]['main_color'][1:]
+                color2 = (int(color2[:2], 16), int(color2[2:4], 16), int(color2[4:], 16), 255)
+                color3 = stl_themes['light-themes'][theme]['round_button_color'][1:]
+                color3 = (int(color3[:2], 16), int(color3[2:4], 16), int(color3[4:], 16), 255)
+                for y in range(height):
+                    for x in range(width):
+                        if pixels[x, y][0] >= 200 and pixels[x, y][1] <100 and pixels[x, y][2] < 100:
+                            pixels[x, y] = (255,255,255,0)
+                        elif pixels[x, y][0] < 40 and pixels[x, y][1] < 40 and pixels[x, y][2] < 40:
+                            pixels[x, y] = color2
+                        elif pixels[x, y][0] > 240 and pixels[x, y][1] >240 and pixels[x, y][2] > 240:
+                            pixels[x, y] = color3
 
-        all_drops['light'][theme] = ImageQt(all_drops['light'][theme])
-        all_drops['light'][theme] = QPixmap.fromImage(all_drops['light'][theme])
-        all_drops['dark'][theme] = all_drops['light'][theme]
-    return all_drops
+        return all_drops
+    except Exception as e:
+        print(e)
 
 def get_windows_theme():
     try:
@@ -108,9 +109,7 @@ class MainWindow(QMainWindow):
         self.meal_del.clicked.connect(self.delete_meal)
         self.water_list.itemClicked.connect(self.selected_water)
         self.all_drops = all_the_colors_drop(self.settings.stl_themes)
-        print(self.all_drops)
-        self.drop_img.setPixmap(self.all_drops[self.settings.style_type][self.settings.style_theme])
-        self.drop_img.setScaledContents(True)
+
         self.water_del.clicked.connect(self.delete_water)
         self.training_del.clicked.connect(self.delete_training)
         self.timer.setInterval(1)
@@ -270,24 +269,35 @@ class MainWindow(QMainWindow):
             self.calories.setText("Калории\n" + str(int(meal_sums[0])))
             self.fats_number.setText("Жиры\n" + str(int(meal_sums[2])))
             self.carbo_number.setText("Углеводы\n" + str(int(meal_sums[3])))
+        try:
+            water_sum = 0
+            if all_today_water:
+                lst = []
+                for water in all_today_water:
+                    water_sum += water
+                    water_new = QListWidgetItem(str(water) + ' мл')
 
-        water_sum = 0
-        if all_today_water:
-            lst = []
-            for water in all_today_water:
-                water_sum += water
-                water_new = QListWidgetItem(str(water) + ' мл')
+                    self.water_list.addItem(water_new)
 
-                self.water_list.addItem(water_new)
-        self.take_water_count.setText(str(water_sum) + " мл")
-        if self.user_data['userdata'].get('needed water'):
-            neededwater = self.user_data['userdata']['needed water'] - water_sum
-        else:
-            neededwater = 1000
-        if neededwater >= 0:
-            self.remain_water_count.setText(str(neededwater) + ' мл')
-        else:
-            self.remain_water_count.setText('0 мл')
+            self.take_water_count.setText(str(water_sum) + " мл")
+            if self.user_data['userdata'].get('needed water'):
+                neededwater = self.user_data['userdata']['needed water'] - water_sum
+            else:
+                neededwater = 1000
+            if neededwater >= 0:
+                self.remain_water_count.setText(str(neededwater) + ' мл')
+            else:
+                self.remain_water_count.setText('0 мл')
+            if water_sum != 0:
+                drop =self.all_drops[self.settings.style_theme][round(self.user_data['userdata']['needed water']/water_sum)]
+            else:
+                drop = self.all_drops[self.settings.style_theme][0]
+            drop1 = ImageQt(drop)
+            drop = QPixmap.fromImage(drop1)
+            drop.setMask(drop.createHeuristicMask())
+            self.drop_img.setPixmap(drop)
+        except Exception as e:
+            print(e)
         if all_week_trainings:
             num = 1
             minutes = 0
@@ -367,8 +377,6 @@ class MainWindow(QMainWindow):
             self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
             self.add_window.update_style()
             self.registration.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
-            self.drop_img.setPixmap(self.all_drops[self.settings.style_type][self.settings.style_theme])
-            self.drop_img.setScaledContents(True)
             cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['hover_button-color']
             othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['round_button_color']
             st_sheet_1 = "QToolBox{background-color:" + othr_week_color + ";}" + "QToolBox:hover{background-color:" + cur_week_color + ";}"
