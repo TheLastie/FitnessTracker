@@ -141,7 +141,9 @@ class RegistrationWindow(QWidget):
         self.lButton.clicked.connect(self.login_button)
         self.enterButton1.clicked.connect(self.choose_reg)
         self.enterButton2.clicked.connect(self.choose_reg)
-
+        self.age_le.setValidator(QIntValidator(0, 100, self))
+        self.high_le.setValidator(QIntValidator(0, 300, self))
+        self.weight_le.setValidator(QIntValidator(0, 900, self))
         self.current_log = []
         l = ['red', 'blue']
         self.setStyleSheet(open('Current_style.css', 'r').read())

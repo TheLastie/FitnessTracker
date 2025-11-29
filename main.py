@@ -1,6 +1,8 @@
 import json
 import sys
+import time
 
+from PIL.ImageQt import ImageQt
 from PyQt6 import uic
 from PyQt6.QtWidgets import *
 import Adding_to_base
@@ -9,9 +11,39 @@ import settings
 import winreg
 from PyQt6.QtGui import QIcon, QAction, QPixmap, QKeySequence, QFont, QIntValidator
 import datetime
+from PIL import Image
 from PyQt6.QtCore import QTimer, Qt, QStringListModel
 import keyboard
 
+def all_the_colors_drop(stl_themes):
+    main_image = Image.open('icons/ggg.png')
+    print(stl_themes)
+
+    width, height = main_image.size
+    all_drops = {'dark':{}, 'light':{}}
+    for theme in stl_themes['light-themes']:
+        all_drops['light'][theme] = Image.open('icons/ggg.png')
+        print(theme)
+        pixels = all_drops['light'][theme].load()
+        color1 = stl_themes['light-themes'][theme]['hover_button-color'][1:]
+        color1 = (int(color1[:2], 16), int(color1[2:4], 16), int(color1[4:], 16), 255)
+        color2 = stl_themes['light-themes'][theme]['main_color'][1:]
+        color2 = (int(color2[:2], 16), int(color2[2:4], 16), int(color2[4:], 16), 255)
+        color3 = stl_themes['light-themes'][theme]['round_button_color'][1:]
+        color3 = (int(color3[:2], 16), int(color3[2:4], 16), int(color3[4:], 16), 255)
+        for y in range(height):
+            for x in range(width):
+                if pixels[x, y] == (255, 0, 0, 255):
+                    pixels[x, y] = color1
+                elif pixels[x, y] == (255, 255, 255, 255):
+                    pixels[x, y] = color2
+                elif pixels[x, y] == (0, 0, 0, 255):
+                    pixels[x, y] = color3
+
+        all_drops['light'][theme] = ImageQt(all_drops['light'][theme])
+        all_drops['light'][theme] = QPixmap.fromImage(all_drops['light'][theme])
+        all_drops['dark'][theme] = all_drops['light'][theme]
+    return all_drops
 
 def get_windows_theme():
     try:
@@ -75,7 +107,10 @@ class MainWindow(QMainWindow):
         self.exercise_list.itemClicked.connect(self.selected_training)
         self.meal_del.clicked.connect(self.delete_meal)
         self.water_list.itemClicked.connect(self.selected_water)
-
+        self.all_drops = all_the_colors_drop(self.settings.stl_themes)
+        print(self.all_drops)
+        self.drop_img.setPixmap(self.all_drops[self.settings.style_type][self.settings.style_theme])
+        self.drop_img.setScaledContents(True)
         self.water_del.clicked.connect(self.delete_water)
         self.training_del.clicked.connect(self.delete_training)
         self.timer.setInterval(1)
@@ -328,8 +363,21 @@ class MainWindow(QMainWindow):
             self.admin_mode = 1
 
     def update_style(self):
-        self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
-        self.add_window.update_style()
+        try:
+            self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
+            self.add_window.update_style()
+            self.registration.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
+            self.drop_img.setPixmap(self.all_drops[self.settings.style_type][self.settings.style_theme])
+            self.drop_img.setScaledContents(True)
+            cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['hover_button-color']
+            othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['round_button_color']
+            st_sheet_1 = "QToolBox{background-color:" + othr_week_color + ";}" + "QToolBox:hover{background-color:" + cur_week_color + ";}"
+            st_sheet_2 = "background-color:" + cur_week_color + ";"
+            for i in range(1, 8):
+                eval(f'self.DateToolButton{i}.setStyleSheet("{st_sheet_1}")')
+            eval(f'self.DateToolButton{self.current_week_day + 1}.setStyleSheet("{st_sheet_2}")')
+        except Exception as e:
+            print(e)
 
     def add_smth(self):
         try:
