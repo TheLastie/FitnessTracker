@@ -293,7 +293,6 @@ class MainWindow(QMainWindow):
             elif neededwater <= 0:
                 drop =self.all_drops[self.settings.style_theme][10]
             else:
-                print(10*round(water_sum/self.user_data['userdata']['needed water']))
                 drop =self.all_drops[self.settings.style_theme][int(10*round(water_sum/self.user_data['userdata']['needed water'], 1))]
             drop1 = ImageQt(drop)
             drop = QPixmap.fromImage(drop1)
