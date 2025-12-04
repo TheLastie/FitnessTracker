@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import *
 from PyQt6 import uic, QtCore
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 import sys, datetime
-
+from main import ConfirmExitDialog
 
 class TableModel(QAbstractTableModel):
     def __init__(self, data, headers=None):
@@ -37,6 +37,7 @@ class AppendToBaseWindow(QWidget):
         super().__init__()
         self.model = TableModel([[]], ["Название\n блюда", "Тип", "кКал", "Белки", "Углеводы", "Жиры"])
         self.pageType = ''
+        self.confirm_exit = ConfirmExitDialog
         self.e = 0
         self.user_data = ''
         self.meal_data = []
@@ -212,7 +213,11 @@ class AppendToBaseWindow(QWidget):
                 self.MealName.setText('')
         except Exception as e:
             print(e, 5)
+    def keyPressEvent(self, event):
 
+        if str(event.key()) == "16777216":
+            c = self.confirm_exit()
+            c.show()
     def append_base_training(self):
         try:
             trainingtime = self.training_time.time().toString().split(':')

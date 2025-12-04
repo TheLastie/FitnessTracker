@@ -16,6 +16,7 @@ from PIL import Image
 from PyQt6.QtCore import QTimer, Qt, QStringListModel
 import keyboard
 
+
 def all_the_colors_drop(stl_themes):
     try:
         main_image = Image.open('icons/drops/drop_70.png')
@@ -23,9 +24,9 @@ def all_the_colors_drop(stl_themes):
         width, height = main_image.size
         all_drops = {}
         for theme in stl_themes['light-themes']:
-            all_drops[theme] = [0,0,0,0,0,0,0,0,0,0,0]
+            all_drops[theme] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             for i in range(11):
-                all_drops[theme][i] = Image.open(f'icons/drops/drop_{i*10}.png')
+                all_drops[theme][i] = Image.open(f'icons/drops/drop_{i * 10}.png')
                 pixels = all_drops[theme][i].load()
                 color1 = stl_themes['light-themes'][theme]['hover_button-color'][1:]
                 color1 = (int(color1[:2], 16), int(color1[2:4], 16), int(color1[4:], 16), 255)
@@ -35,16 +36,17 @@ def all_the_colors_drop(stl_themes):
                 color3 = (int(color3[:2], 16), int(color3[2:4], 16), int(color3[4:], 16), 255)
                 for y in range(height):
                     for x in range(width):
-                        if pixels[x, y][0] >= 200 and pixels[x, y][1] <100 and pixels[x, y][2] < 100:
-                            pixels[x, y] = (255,255,255,0)
+                        if pixels[x, y][0] >= 200 and pixels[x, y][1] < 100 and pixels[x, y][2] < 100:
+                            pixels[x, y] = (255, 255, 255, 0)
                         elif pixels[x, y][0] < 40 and pixels[x, y][1] < 40 and pixels[x, y][2] < 40:
                             pixels[x, y] = color2
-                        elif pixels[x, y][0] > 240 and pixels[x, y][1] >240 and pixels[x, y][2] > 240:
+                        elif pixels[x, y][0] > 240 and pixels[x, y][1] > 240 and pixels[x, y][2] > 240:
                             pixels[x, y] = color3
 
         return all_drops
     except Exception as e:
         print(e)
+
 
 def get_windows_theme():
     try:
@@ -60,9 +62,30 @@ def get_windows_theme():
         return "1"
 
 
+class ConfirmExitDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        try:
+            # Create a confirmation message box
+            quit_msg = "Вы хотите выйти из приложения?"
+            reply = QMessageBox.question(self, 'Выход', quit_msg,
+                                         QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                                         QMessageBox.StandardButton.No)
+            if reply == QMessageBox.StandardButton.Yes:
+                # User clicked 'Yes', accept the close event and close the dialog
+                sys.exit()
+            else:
+                self.close()
+        except Exception as e:
+            print(e)
+
+
+
+
 class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
+        self.confirm_exit = ConfirmExitDialog
         self.e = 0
         self.admin_mode = 0
         self.registrated_users = {}
@@ -75,6 +98,7 @@ class MainWindow(QMainWindow):
         self.windows_theme = get_windows_theme()
         self.user_login = ''
         self.user_data = {}
+
         for i in range(1, 8):
             eval(f'self.DateToolButton{i}.setProperty("cssClass", "week_dates")')
         self.current_day = datetime.date.today()
@@ -145,34 +169,36 @@ class MainWindow(QMainWindow):
 
         with open("userdata.json", "r", encoding='utf-8') as f:
             self.registrated_users.update(json.load(f))
-        self.registrated_users.update({self.user_login:self.user_data})
+        self.registrated_users.update({self.user_login: self.user_data})
         with open("userdata.json", "w", encoding='utf-8') as f:
             json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
         self.update_today_lists()
         self.sel_meal = ''
+
     def selected_training(self, item):
         try:
-            self.tr_idx = int([i for i in item.text().split() if i][0])-1
+            self.tr_idx = int([i for i in item.text().split() if i][0]) - 1
 
         except Exception as e:
             print(e)
 
     def delete_training(self):
         try:
-            if not self.tr_idx!= "*":
+            if not self.tr_idx != "*":
                 return
 
             del self.user_data['userdata']['trainings'][self.current_day_date][self.tr_idx]
 
             with open("userdata.json", "r", encoding='utf-8') as f:
                 self.registrated_users.update(json.load(f))
-            self.registrated_users.update({self.user_login:self.user_data})
+            self.registrated_users.update({self.user_login: self.user_data})
             with open("userdata.json", "w", encoding='utf-8') as f:
                 json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
             self.update_today_lists()
             self.tr_idx = "*"
         except Exception as e:
             print(e)
+
     def selected_water(self, item):
         try:
             self.water_count = int(item.text().split()[0])
@@ -193,15 +219,13 @@ class MainWindow(QMainWindow):
                 idx += 1
             with open("userdata.json", "r", encoding='utf-8') as f:
                 self.registrated_users.update(json.load(f))
-            self.registrated_users.update({self.user_login:self.user_data})
+            self.registrated_users.update({self.user_login: self.user_data})
             with open("userdata.json", "w", encoding='utf-8') as f:
                 json.dump(self.registrated_users, f, indent=4, ensure_ascii=False)
             self.update_today_lists()
             self.water_count = 0
         except Exception as e:
             print(e)
-
-
 
     def add_water_tolist(self):
         if self.Water_line_edit.text():
@@ -249,7 +273,7 @@ class MainWindow(QMainWindow):
                            + str(int(meal['weight'] * 1000)) + " " + meal['type'].replace('grams', "гр").replace('ml',
                                                                                                                  "мл") \
                            + " " * (6 - len(str(int(meal['weight'] * 1000))) - len(
-                    meal['type'].replace('grams', "гр").replace('ml', "мл")))+" " \
+                    meal['type'].replace('grams', "гр").replace('ml', "мл"))) + " " \
                            + str(int(meal['calories'])) + " " * (5 - len(str(int(meal['calories'])))) \
                            + str(int(meal['proteins'])) + " " * (5 - len(str(int(meal['proteins'])))) \
                            + str(int(meal['fats'])) + " " * (5 - len(str(int(meal['fats'])))) \
@@ -257,14 +281,14 @@ class MainWindow(QMainWindow):
                 meall = QListWidgetItem(new_meal)
 
                 self.meal_list.addItem(new_meal)
-            if len(str(int(meal_sums[1])))>4:
-                meal_sums[1] = meal_sums[1]%10000
-            if len(str(int(meal_sums[2])))>4:
-                meal_sums[1] = meal_sums[2]%10000
-            if len(str(int(meal_sums[3])))>4:
-                meal_sums[1] = meal_sums[3]%10000
-            if len(str(int(meal_sums[0])))>4:
-                meal_sums[1] = meal_sums[0]%10000
+            if len(str(int(meal_sums[1]))) > 4:
+                meal_sums[1] = meal_sums[1] % 10000
+            if len(str(int(meal_sums[2]))) > 4:
+                meal_sums[1] = meal_sums[2] % 10000
+            if len(str(int(meal_sums[3]))) > 4:
+                meal_sums[1] = meal_sums[3] % 10000
+            if len(str(int(meal_sums[0]))) > 4:
+                meal_sums[1] = meal_sums[0] % 10000
             self.protein_number.setText("Белки\n" + str(int(meal_sums[1])))
             self.calories.setText("Калории\n" + str(int(meal_sums[0])))
             self.fats_number.setText("Жиры\n" + str(int(meal_sums[2])))
@@ -291,9 +315,10 @@ class MainWindow(QMainWindow):
             if water_sum == 0:
                 drop = self.all_drops[self.settings.style_theme][0]
             elif neededwater <= 0:
-                drop =self.all_drops[self.settings.style_theme][10]
+                drop = self.all_drops[self.settings.style_theme][10]
             else:
-                drop =self.all_drops[self.settings.style_theme][int(10*round(water_sum/self.user_data['userdata']['needed water'], 1))]
+                drop = self.all_drops[self.settings.style_theme][
+                    int(10 * round(water_sum / self.user_data['userdata']['needed water'], 1))]
             drop1 = ImageQt(drop)
             drop = QPixmap.fromImage(drop1)
             drop.setMask(drop.createHeuristicMask())
@@ -318,15 +343,15 @@ class MainWindow(QMainWindow):
 
                 self.exercise_list.addItem(QListWidgetItem(new_training))
                 num += 1
-            if len(str(calories))>4:
-                calories = calories%10000
-            if len(str(minutes//60)) > 4:
-                minutes = minutes//60 % 10000
-            if len(str(num))>4:
-                num = num%10000
+            if len(str(calories)) > 4:
+                calories = calories % 10000
+            if len(str(minutes // 60)) > 4:
+                minutes = minutes // 60 % 10000
+            if len(str(num)) > 4:
+                num = num % 10000
             self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories:.0f} ")
             self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes // 60} ")
-            self.execise_sum.setText(f"Количество\nтренировок\n\n {num-1} ")
+            self.execise_sum.setText(f"Количество\nтренировок\n\n {num - 1} ")
 
     def week_buttons(self):
         if self.sender() == eval(f'self.DateToolButton{self.current_week_day + 1}'):
@@ -373,7 +398,9 @@ class MainWindow(QMainWindow):
                 "KeyboardModifier.ShiftModifier|ControlModifier|AltModifier") and not self.admin_mode:
             self.us()
             self.admin_mode = 1
-
+        if str(event.key()) == "16777216":
+            c = self.confirm_exit()
+            c.show()
     def update_style(self):
         try:
             self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())

@@ -10,7 +10,6 @@ import json
 
 import winreg
 
-
 def get_windows_theme():
     try:
         # Открываем ключ реестра
@@ -31,6 +30,7 @@ class RegistrationWindow(QWidget):
         self.main_wd = main_window
         uic.loadUi("RegLog.ui", self)
         self.e = 0
+        self.confirm_exit = self.main_wd.confirm_exit
 
     def open_edit(self):
         self.BackButtonChange.clicked.connect(self.ext)
@@ -166,7 +166,10 @@ class RegistrationWindow(QWidget):
 
     def update_style(self):
         self.setStyleSheet(open("Current_style.css", 'r', encoding='utf-8').read())
-
+    def keyPressEvent(self, event):
+        if str(event.key()) == "16777216":
+            c = self.confirm_exit()
+            c.show()
     def r_button(self):
         if self.sender() == self.maleButton:
             self.mf = 'male'

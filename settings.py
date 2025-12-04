@@ -12,6 +12,7 @@ class Settings(QWidget):
         self.style_type = 'light'
         self.user_data = user_data
         self.user_login = self.user_data['Login']
+        self.confirm_exit = mainWD.confirm_exit
         if user_data.get("theme") and user_data.get("d_l"):
             self.style_type =user_data['d_l']
             self.style_theme = user_data['theme']
@@ -89,7 +90,10 @@ class Settings(QWidget):
                 self.mainWD.update_today_lists()
         except PermissionError as e:
             print(e, 12)
-
+    def keyPressEvent(self, event):
+        if str(event.key()) == "16777216":
+            c = self.confirm_exit()
+            c.show()
     def change_theme(self):
         try:
             if self.sender() == self.theme1:
