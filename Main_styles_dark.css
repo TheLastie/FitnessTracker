@@ -206,12 +206,146 @@ background-color: #961fc1;
 
 /*RegLog*/
 
+#registration_2, #login, #login_quest2,#registration, #login_quest1, #llogin_error, #rlogin_error, #derror, #new_question{
+    border: none;
+    color: ==**==;
+}
+
+#activ_cb::drop-down {
+    border: none;
+}
+
+#activ_cb::down-arrow {
+    image: none;
+    width: 0px;
+    height: 0px;
+}
+
+#lname, #rname, #rpassword, #rpassword_acc, #lpassword, #high, #weight, #activ, #age, #gender_choice {
+    border: none;
+    color: ******;
+}
+#backlabel1{
+    background-color: #383636;
+}
+#llogin_le, #lpassword_le, #rlogin_le, #rpassword_le, #rpassword_le_acc, #high_le,#weight_le, #activ_cb, #age_le
+{
+background-color: =*=*=*;
+    color: ==**==;
+    border-radius: 10px;
+    padding: 5px 15px;
+    border: 1px solid ==**==;
+}
+
 #UserDataChange, #heightedit, #weightedit, #activityedit, #ageedit {
     border: none;
     color: ==**==;
 }
 
+#act_ed::drop-down {
+    border: none;
+}
+
+#act_ed::down-arrow {
+    image: none;
+    width: 0px;
+    height: 0px;
+}
+
+#height_ed, #weight_ed, #act_ed, #age_ed {
+    background-color: %%%%%%;
+    color: ==**==;
+    border-radius: 16px;
+    padding: 5px 15px;
+    border: 1px solid ==**==;
+}
+
+QTableView::item:selected{
+    background-color:=*=*=*;
+}
+QListView::item:selected{
+    background-color:=*=*=*;
+}
+
 #UserDataChange {
     background-color: =*=*=*;
-    border: 1px solid #z;
+    border: 1px solid #383636;
+}
+
+/*Add_item.ui*/
+
+#AddingTraining {
+    background-color: =*=*=*;
+    color: ==**==;
+    border: 1px solid ==**==;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+#TrainingLong, #label_10, #label_14 {
+    border: none;
+    color: ******;
+}
+
+
+#training_type::drop-down {
+    border: none;
+}
+
+#training_type::down-arrow {
+    image: none;
+    width: 0px;
+    height: 0px;
+}
+
+#label_16, #label_17, #label_18, #label_19, #label_20, #label_21, #label_2,#label_3 {
+    border: none;
+    color: ******;
+}
+
+#AddNewMeal, #list_of_meal {
+    color: "==**==";
+    border-radius: 10px;
+    background-color: "=*=*=*";
+}
+
+#MealName, #MealWeight, #training_time, #mid_pulse, #training_type {
+    background-color: %%%%%%;
+    color: ==**==;
+    border-radius: 16px;
+    padding: 5px 15px;
+    border: 1px solid ==**==;
+}
+#search_bar {
+    background-color: %%%%%%;
+    color: ==**==;
+    border-radius: 10px;
+    padding: 5px 15px;
+    border: 1px solid ==**==;
+}
+
+#CaloriesCount, #ProtCount, #FatsCount, #CarbsCount
+{background-color: =*=*=*;
+    color: ==**==;
+    border-radius: 10px;
+    padding: 5px 15px;
+    border: 1px solid ==**==;
+}
+
+#NameAddMeal, #NameAddMeal, #WeightAdd, #ProteinAdd, #CaloriesAdd, #CarbonsAdd, #FatsAdd{
+    color: "==**==";
+    background-color: %%%%%%;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-family: Courier;
+    text-align: center;
+    font-weight: 600;
+}
+
+#AddNewMeal_2, #del_meal{
+    background-color: "=*=*=*";
+    border-radius: 18px;
+    font-family: Courier;
+    text-align: center;
 }

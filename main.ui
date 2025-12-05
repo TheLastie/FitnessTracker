@@ -785,9 +785,9 @@
        <widget class="QListWidget" name="water_list">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>80</y>
-          <width>81</width>
+          <x>20</x>
+          <y>150</y>
+          <width>141</width>
           <height>301</height>
          </rect>
         </property>
@@ -796,7 +796,7 @@
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>10</y>
+          <y>80</y>
           <width>481</width>
           <height>61</height>
          </rect>
@@ -818,7 +818,7 @@
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>20</y>
+          <y>90</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -932,7 +932,7 @@
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>30</y>
+          <y>100</y>
           <width>121</width>
           <height>31</height>
          </rect>
@@ -956,7 +956,7 @@
         <property name="geometry">
          <rect>
           <x>430</x>
-          <y>20</y>
+          <y>90</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -968,8 +968,8 @@
        <widget class="QLabel" name="drop_img">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>80</y>
+          <x>190</x>
+          <y>150</y>
           <width>300</width>
           <height>300</height>
          </rect>
