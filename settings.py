@@ -75,12 +75,14 @@ class Settings(QWidget):
                 self.change_theme()
                 f.write(self.css_style)
 
-                self.user_data['d_l'] = self.style_type
-                self.user_data['theme'] = self.style_theme
                 reg_us = {}
+                print()
                 with open("userdata.json", "r", encoding='utf-8') as f:
                     reg_us.update(json.load(f))
-                reg_us.update({self.user_login:self.user_data})
+                print(reg_us)
+                reg_us[reg_us['current_user']]['d_l'] = self.style_type
+                reg_us[reg_us['current_user']]['theme'] = self.style_theme
+                print(reg_us)
                 with open("userdata.json", "w", encoding='utf-8') as f:
                     json.dump(reg_us, f, indent=4, ensure_ascii=False)
                 self.mainWD.update_style()
@@ -88,6 +90,7 @@ class Settings(QWidget):
                 self.mainWD.registration.setStyleSheet(self.css_style)
                 self.mainWD.add_window.setStyleSheet(self.css_style)
                 self.mainWD.update_today_lists()
+                self.mainWD.update_weeks()
         except PermissionError as e:
             print(e, 12)
     def keyPressEvent(self, event):
@@ -117,9 +120,8 @@ class Settings(QWidget):
                 self.css_style = self.css_style.replace(self.stl_themes["color-codes"][idx],
                                                         self.stl_themes[f'{self.style_type}-themes'][self.style_theme][idx])
             self.setStyleSheet(self.css_style)
-            print(3)
         except Exception as e:
-            print(e, 4)
+            print(e, 41)
 
     def ext(self):
         self.hide()

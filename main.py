@@ -80,8 +80,6 @@ class ConfirmExitDialog(QDialog):
             print(e)
 
 
-
-
 class MainWindow(QMainWindow):
     def __init__(self, Adding: Adding_to_base, settings: settings):
         super().__init__()
@@ -241,117 +239,121 @@ class MainWindow(QMainWindow):
 
     def update_today_lists(self):
         try:
-            with open("userdata.json", "r", encoding='utf-8') as f:
-                self.registrated_users.update(json.load(f))
-        except FileNotFoundError:
-            self.close()
-        if self.registrated_users.get(self.user_login):
-            self.user_data = self.registrated_users[self.user_login]
-        else:
-            self.user_data = self.registrated_users["Admin"]
-        all_today_meals = self.user_data['userdata']['meals'].get(self.current_day_date)
-        all_today_water = self.user_data['userdata']['water'].get(self.current_day_date)
-        day = self.current_day - datetime.timedelta(days=self.current_week_day)
-        all_week_trainings = []
-        for i in range(7):
-            exercise = self.user_data['userdata']['trainings'].get(day.strftime("%d.%m.%Y"))
-            if exercise:
-                all_week_trainings.extend(exercise)
-            day = day + datetime.timedelta(days=1)
-        self.meal_list.clear()
-        self.water_list.clear()
-        self.exercise_list.clear()
-        if all_today_meals:
-
-            meal_sums = [0, 0, 0, 0]
-            for meal in all_today_meals:
-                meal_sums[0] += meal['calories']
-                meal_sums[1] += meal['proteins']
-                meal_sums[2] += meal['fats']
-                meal_sums[3] += meal['carbonates']
-                new_meal = " " + meal['name'] + "   " + " " * int(13 - len(str(meal['name']))) \
-                           + str(int(meal['weight'] * 1000)) + " " + meal['type'].replace('grams', "гр").replace('ml',
-                                                                                                                 "мл") \
-                           + " " * (6 - len(str(int(meal['weight'] * 1000))) - len(
-                    meal['type'].replace('grams', "гр").replace('ml', "мл"))) + " " \
-                           + str(int(meal['calories'])) + " " * (5 - len(str(int(meal['calories'])))) \
-                           + str(int(meal['proteins'])) + " " * (5 - len(str(int(meal['proteins'])))) \
-                           + str(int(meal['fats'])) + " " * (5 - len(str(int(meal['fats'])))) \
-                           + str(int(meal['carbonates']))
-                meall = QListWidgetItem(new_meal)
-
-                self.meal_list.addItem(new_meal)
-            if len(str(int(meal_sums[1]))) > 4:
-                meal_sums[1] = meal_sums[1] % 10000
-            if len(str(int(meal_sums[2]))) > 4:
-                meal_sums[1] = meal_sums[2] % 10000
-            if len(str(int(meal_sums[3]))) > 4:
-                meal_sums[1] = meal_sums[3] % 10000
-            if len(str(int(meal_sums[0]))) > 4:
-                meal_sums[1] = meal_sums[0] % 10000
-            self.protein_number.setText("Белки\n" + str(int(meal_sums[1])))
-            self.calories.setText("Калории\n" + str(int(meal_sums[0])))
-            self.fats_number.setText("Жиры\n" + str(int(meal_sums[2])))
-            self.carbo_number.setText("Углеводы\n" + str(int(meal_sums[3])))
-        try:
-            water_sum = 0
-            if all_today_water:
-                lst = []
-                for water in all_today_water:
-                    water_sum += water
-                    water_new = QListWidgetItem(str(water) + ' мл')
-
-                    self.water_list.addItem(water_new)
-
-            self.take_water_count.setText(str(water_sum) + " мл")
-            if self.user_data['userdata'].get('needed water'):
-                neededwater = self.user_data['userdata']['needed water'] - water_sum
+            try:
+                with open("userdata.json", "r", encoding='utf-8') as f:
+                    self.registrated_users.update(json.load(f))
+            except FileNotFoundError:
+                self.close()
+            if self.registrated_users.get(self.user_login):
+                self.user_data = self.registrated_users[self.user_login]
             else:
-                neededwater = 1000
-            if neededwater >= 0:
-                self.remain_water_count.setText(str(neededwater) + ' мл')
-            else:
-                self.remain_water_count.setText('0 мл')
-            if water_sum == 0:
-                drop = self.all_drops[self.settings.style_theme][0]
-            elif neededwater <= 0:
-                drop = self.all_drops[self.settings.style_theme][10]
-            else:
-                drop = self.all_drops[self.settings.style_theme][
-                    int(10 * round(water_sum / self.user_data['userdata']['needed water'], 1))]
-            drop1 = ImageQt(drop)
-            drop = QPixmap.fromImage(drop1)
-            drop.setMask(drop.createHeuristicMask())
-            self.drop_img.setPixmap(drop)
+                self.user_data = self.registrated_users["Admin"]
+            all_today_meals = self.user_data['userdata']['meals'].get(self.current_day_date)
+            all_today_water = self.user_data['userdata']['water'].get(self.current_day_date)
+            day = self.current_day - datetime.timedelta(days=self.current_week_day)
+            all_week_trainings = []
+            for i in range(7):
+                exercise = self.user_data['userdata']['trainings'].get(day.strftime("%d.%m.%Y"))
+                if exercise:
+                    all_week_trainings.extend(exercise)
+                day = day + datetime.timedelta(days=1)
+            self.meal_list.clear()
+            self.water_list.clear()
+            self.exercise_list.clear()
+            if all_today_meals:
+
+                meal_sums = [0, 0, 0, 0]
+                for meal in all_today_meals:
+                    meal_sums[0] += meal['calories']
+                    meal_sums[1] += meal['proteins']
+                    meal_sums[2] += meal['fats']
+                    meal_sums[3] += meal['carbonates']
+                    new_meal = " " + meal['name'] + "   " + " " * int(13 - len(str(meal['name']))) \
+                               + str(int(meal['weight'] * 1000)) + " " + meal['type'].replace('grams', "гр").replace(
+                        'ml',
+                        "мл") \
+                               + " " * (6 - len(str(int(meal['weight'] * 1000))) - len(
+                        meal['type'].replace('grams', "гр").replace('ml', "мл"))) + " " \
+                               + str(int(meal['calories'])) + " " * (5 - len(str(int(meal['calories'])))) \
+                               + str(int(meal['proteins'])) + " " * (5 - len(str(int(meal['proteins'])))) \
+                               + str(int(meal['fats'])) + " " * (5 - len(str(int(meal['fats'])))) \
+                               + str(int(meal['carbonates']))
+                    meall = QListWidgetItem(new_meal)
+
+                    self.meal_list.addItem(new_meal)
+                if len(str(int(meal_sums[1]))) > 4:
+                    meal_sums[1] = meal_sums[1] % 10000
+                if len(str(int(meal_sums[2]))) > 4:
+                    meal_sums[1] = meal_sums[2] % 10000
+                if len(str(int(meal_sums[3]))) > 4:
+                    meal_sums[1] = meal_sums[3] % 10000
+                if len(str(int(meal_sums[0]))) > 4:
+                    meal_sums[1] = meal_sums[0] % 10000
+                self.protein_number.setText("Белки\n" + str(int(meal_sums[1])))
+                self.calories.setText("Калории\n" + str(int(meal_sums[0])))
+                self.fats_number.setText("Жиры\n" + str(int(meal_sums[2])))
+                self.carbo_number.setText("Углеводы\n" + str(int(meal_sums[3])))
+            try:
+                water_sum = 0
+                if all_today_water:
+                    lst = []
+                    for water in all_today_water:
+                        water_sum += water
+                        water_new = QListWidgetItem(str(water) + ' мл')
+
+                        self.water_list.addItem(water_new)
+
+                self.take_water_count.setText(str(water_sum) + " мл")
+                if self.user_data['userdata'].get('needed water'):
+                    neededwater = self.user_data['userdata']['needed water'] - water_sum
+                else:
+                    neededwater = 1000
+                if neededwater >= 0:
+                    self.remain_water_count.setText(str(neededwater) + ' мл')
+                else:
+                    self.remain_water_count.setText('0 мл')
+                if water_sum == 0:
+                    drop = self.all_drops[self.settings.style_theme][0]
+                elif neededwater <= 0:
+                    drop = self.all_drops[self.settings.style_theme][10]
+                else:
+                    drop = self.all_drops[self.settings.style_theme][
+                        int(10 * round(water_sum / self.user_data['userdata']['needed water'], 1))]
+                drop1 = ImageQt(drop)
+                drop = QPixmap.fromImage(drop1)
+                drop.setMask(drop.createHeuristicMask())
+                self.drop_img.setPixmap(drop)
+            except Exception as e:
+                print(e)
+            if all_week_trainings:
+                num = 1
+                minutes = 0
+                calories = 0
+                for training in all_week_trainings:
+                    minutes += training['training_time']
+                    calories += training['calories']
+                    new_training = " " + str(num) + " " * (3 - len(str(num))) \
+                                   + str(training['training_time'] // 60) + ":" + str(training['training_time'] % 60) \
+                                   + " " * (7 - len(
+                        str(training['training_time'] // 60) + ":" + str(training['training_time'] % 60))) \
+                                   + training['type'] + " " * \
+                                   (20 - len(training['type'])) + str(round(training['calories'])) + " " * (
+                                           8 - len(str(round(training['calories'])))) + \
+                                   str(training['pulse']) + " " * (5 - len(str(training['pulse'])))
+
+                    self.exercise_list.addItem(QListWidgetItem(new_training))
+                    num += 1
+                if len(str(calories)) > 4:
+                    calories = calories % 10000
+                if len(str(minutes // 60)) > 4:
+                    minutes = minutes // 60 % 10000
+                if len(str(num)) > 4:
+                    num = num % 10000
+                self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories:.0f} ")
+                self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes // 60} ")
+                self.execise_sum.setText(f"Количество\nтренировок\n\n {num - 1} ")
         except Exception as e:
             print(e)
-        if all_week_trainings:
-            num = 1
-            minutes = 0
-            calories = 0
-            for training in all_week_trainings:
-                minutes += training['training_time']
-                calories += training['calories']
-                new_training = " " + str(num) + " " * (3 - len(str(num))) \
-                               + str(training['training_time'] // 60) + ":" + str(training['training_time'] % 60) \
-                               + " " * (7 - len(
-                    str(training['training_time'] // 60) + ":" + str(training['training_time'] % 60))) \
-                               + training['type'] + " " * \
-                               (20 - len(training['type'])) + str(round(training['calories'])) + " " * (
-                                       8 - len(str(round(training['calories'])))) + \
-                               str(training['pulse']) + " " * (5 - len(str(training['pulse'])))
-
-                self.exercise_list.addItem(QListWidgetItem(new_training))
-                num += 1
-            if len(str(calories)) > 4:
-                calories = calories % 10000
-            if len(str(minutes // 60)) > 4:
-                minutes = minutes // 60 % 10000
-            if len(str(num)) > 4:
-                num = num % 10000
-            self.calory_sum.setText(f"Общее кол-во\nкалорий\n\n {calories:.0f} ")
-            self.hour_sum.setText(f"Часы\nтренировок\n\n {minutes // 60} ")
-            self.execise_sum.setText(f"Количество\nтренировок\n\n {num - 1} ")
 
     def week_buttons(self):
         if self.sender() == eval(f'self.DateToolButton{self.current_week_day + 1}'):
@@ -380,7 +382,16 @@ class MainWindow(QMainWindow):
                 print(self.current_week_day)
             except Exception as e:
                 print(e)
-
+    def update_weeks(self):
+        self.styletheme = [f'{self.settings.style_type}-themes', self.settings.style_theme]
+        cur_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['hover_button-color']
+        othr_week_color = self.settings.stl_themes[self.styletheme[0]][self.styletheme[1]]['round_button_color']
+        st_sheet_1 = "QToolBox{background-color:" + othr_week_color + ";}" + "QToolBox:hover{background-color:" + cur_week_color + ";}"
+        st_sheet_2 = "background-color:" + cur_week_color + ";"
+        for i in range(1, 8):
+            eval(f'self.DateToolButton{i}.setStyleSheet("{st_sheet_1}")')
+            eval(f'self.DateToolButton{i}.clicked.connect(self.week_buttons)')
+        eval(f'self.DateToolButton{self.current_week_day + 1}.setStyleSheet("{st_sheet_2}")')
     def exit_akk(self):
         try:
             with open("userdata.json", "r", encoding='utf-8') as f:
@@ -401,6 +412,7 @@ class MainWindow(QMainWindow):
         if str(event.key()) == "16777216":
             c = self.confirm_exit()
             c.show()
+
     def update_style(self):
         try:
             self.setStyleSheet(open('Current_style.css', 'r', encoding='utf-8').read())
